@@ -39,7 +39,6 @@ tauri_run.log
 src-tauri/tauri.conf.json.bak
 
 # Local Database & User-specific Data (Do NOT commit user progress or caches)
-data/app_database.db
 data/config.json
 data/audio/
 data/*.db.bak
