@@ -1,0 +1,97 @@
+.decompTree ul {
+  padding-top: 45px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.decompTree li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 45px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* Connecting Lines */
+.decompTree li::before, .decompTree li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 2px solid var(--tree-border, #e2e8f0);
+  width: 50%;
+  height: 45px;
+}
+
+.decompTree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 2px solid var(--tree-border, #e2e8f0);
+}
+
+/* Remove connectors for single child elements */
+.decompTree li:only-child::after, .decompTree li:only-child::before {
+  display: none !important;
+}
+
+.decompTree li:only-child {
+  padding-top: 0;
+}
+
+/* Remove connectors for borders */
+.decompTree li:first-child::before, .decompTree li:last-child::after {
+  border: 0 none !important;
+}
+
+.decompTree li:last-child::before {
+  border-right: 2px solid var(--tree-border, #e2e8f0) !important;
+  border-radius: 0 16px 0 0;
+}
+
+.decompTree li:first-child::after {
+  border-radius: 16px 0 0 0;
+}
+
+/* Top down connectors on container lists */
+.decompTree ul ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 2px solid var(--tree-border, #e2e8f0);
+  width: 0;
+  height: 45px;
+}
+
+/* Blueprint Dotted Grid Background */
+.canvasGrid {
+  --tree-border: #e2e8f0;
+  background-color: #fafafa;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+:global(.dark) .canvasGrid {
+  --tree-border: #27272a;
+  background-color: #09090b;
+  background-image: radial-gradient(rgba(63, 63, 70, 0.4) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.detailsPanel {
+  animation: slideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

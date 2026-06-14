@@ -1,0 +1,3297 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Hoan H\u1ecdc Ti\u1ebfng Trung",
+    "languages": [
+      "Rust",
+      "TypeScript",
+      "React",
+      "SQL",
+      "CSS",
+      "HTML"
+    ],
+    "frameworks": [
+      "Tauri v2",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Zustand",
+      "TanStack Query",
+      "SQLx"
+    ],
+    "description": "A modern Chinese learning desktop application with SRS, TTS, and dictionary lookup.",
+    "analyzedAt": "2026-06-01T20:16:43.853738",
+    "gitCommitHash": "HEAD"
+  },
+  "nodes": [
+    {
+      "id": "file:.understand-anything/intermediate/batches.json",
+      "label": "batches.json",
+      "type": "file",
+      "summary": "Project analysis batch configuration",
+      "description": "Contains the list of files grouped into batches for parallel processing by the understand-anything skill. It maps file paths to their exported symbols and defines dependencies between batches.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 2172
+      },
+      "complexity": "moderate",
+      "name": "batches.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/intermediate/scan-result-partial.json",
+      "label": "scan-result-partial.json",
+      "type": "file",
+      "summary": "Partial project scan results",
+      "description": "Stores intermediate metadata and structure extracted from a subset of project files during the scanning process.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 667
+      },
+      "complexity": "moderate",
+      "name": "scan-result-partial.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/intermediate/scan-result.json",
+      "label": "scan-result.json",
+      "type": "file",
+      "summary": "Full project scan metadata",
+      "description": "The consolidated output of the project scanning phase, containing metadata for all files, including categories, sizes, and initial structure analysis.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 1005
+      },
+      "complexity": "moderate",
+      "name": "scan-result.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/tmp/ua-file-analyzer-input-1.json",
+      "label": "ua-file-analyzer-input-1.json",
+      "type": "file",
+      "summary": "Input for file analyzer (Batch 1)",
+      "description": "Temporary input file containing file paths and metadata for Batch 1 to be processed by the file structure extractor.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 114
+      },
+      "complexity": "moderate",
+      "name": "ua-file-analyzer-input-1.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/tmp/ua-file-analyzer-input-2.json",
+      "label": "ua-file-analyzer-input-2.json",
+      "type": "file",
+      "summary": "Input for file analyzer (Batch 2)",
+      "description": "Temporary input file containing file paths and metadata for Batch 2 to be processed by the file structure extractor.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 89
+      },
+      "complexity": "moderate",
+      "name": "ua-file-analyzer-input-2.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/tmp/ua-file-analyzer-input-3.json",
+      "label": "ua-file-analyzer-input-3.json",
+      "type": "file",
+      "summary": "Input for file analyzer (Batch 3)",
+      "description": "Temporary input file containing file paths and metadata for Batch 3 to be processed by the file structure extractor.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 110
+      },
+      "complexity": "moderate",
+      "name": "ua-file-analyzer-input-3.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/tmp/ua-file-analyzer-input-5.json",
+      "label": "ua-file-analyzer-input-5.json",
+      "type": "file",
+      "summary": "Input for file analyzer (Batch 5)",
+      "description": "Temporary input file containing file paths and metadata for Batch 5 to be processed by the file structure extractor.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 39
+      },
+      "complexity": "moderate",
+      "name": "ua-file-analyzer-input-5.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/tmp/ua-import-map-input.json",
+      "label": "ua-import-map-input.json",
+      "type": "file",
+      "summary": "Input for import map extraction",
+      "description": "Temporary input file used by the import map extractor to identify dependencies between files across the project.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 534
+      },
+      "complexity": "moderate",
+      "name": "ua-import-map-input.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:.understand-anything/tmp/ua-import-map-output.json",
+      "label": "ua-import-map-output.json",
+      "type": "file",
+      "summary": "Extracted import map data",
+      "description": "Temporary output file containing the resolved dependency graph (imports/exports) between project files.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 343
+      },
+      "complexity": "moderate",
+      "name": "ua-import-map-output.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:CLAUDE.md",
+      "label": "CLAUDE.md",
+      "type": "file",
+      "summary": "AI Coding Rules & Commands",
+      "description": "A guide for AI agents interacting with the project, defining core operational commands (Tauri dev/build), engineering principles (Surgical changes, Simplicity), and UI/UX implementation gates.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 34
+      },
+      "complexity": "moderate",
+      "name": "CLAUDE.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:DESIGN_SYSTEM.md",
+      "label": "DESIGN_SYSTEM.md",
+      "type": "file",
+      "summary": "Frontend Design System Guidelines",
+      "description": "Establishes UI/UX standards including typography for Hanzi, color systems (Jade/Cobalt accents), motion intensity, and tactile feedback for a premium, non-generic user experience.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 75
+      },
+      "complexity": "moderate",
+      "name": "DESIGN_SYSTEM.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:README.md",
+      "label": "README.md",
+      "type": "file",
+      "summary": "Project Documentation & Overview",
+      "description": "The primary entry point for understanding the Hoan H\u1ecdc Ti\u1ebfng Trung application. Covers features (SRS, Dictionary, TTS), system architecture (Tauri/React), directory structure, and setup instructions.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 808
+      },
+      "complexity": "moderate",
+      "name": "README.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:database_description.md",
+      "label": "database_description.md",
+      "type": "file",
+      "summary": "Database Schema Documentation",
+      "description": "Detailed description of the SQLite databases used: zh.db (system/dictionary data) and app_database.db (user/personal data), including table structures for vocabulary, flashcards, and grammar points.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 194
+      },
+      "complexity": "moderate",
+      "name": "database_description.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:index.html",
+      "label": "index.html",
+      "type": "file",
+      "summary": "HTML Entry Point",
+      "description": "The main HTML document for the React frontend, serving as the mounting point for the application UI.",
+      "metadata": {
+        "language": "html",
+        "fileCategory": "markup",
+        "sizeLines": 31
+      },
+      "complexity": "moderate",
+      "name": "index.html",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:package.json",
+      "label": "package.json",
+      "type": "file",
+      "summary": "Node.js Project Configuration",
+      "description": "Defines project dependencies, build scripts (Vite, Tauri), and metadata for the frontend application.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 35
+      },
+      "complexity": "moderate",
+      "name": "package.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:tsconfig.json",
+      "label": "tsconfig.json",
+      "type": "file",
+      "summary": "TypeScript Configuration",
+      "description": "Configures TypeScript compiler options, including paths, target, and module resolution for the frontend React application.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 24
+      },
+      "complexity": "moderate",
+      "name": "tsconfig.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:skills/design-taste-frontend.md",
+      "label": "design-taste-frontend.md",
+      "type": "file",
+      "summary": "Frontend Design Taste Guidelines",
+      "description": "Detailed guidelines for achieving high-end frontend design, focusing on variance, motion, and visual density.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 1206
+      },
+      "complexity": "moderate",
+      "name": "design-taste-frontend.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:skills/full-output-enforcement.md",
+      "label": "full-output-enforcement.md",
+      "type": "file",
+      "summary": "Code Output Quality Rule",
+      "description": "Strict enforcement rules for AI agents to ensure full code output without shortcuts or placeholders.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 49
+      },
+      "complexity": "moderate",
+      "name": "full-output-enforcement.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:skills/high-end-visual-design.md",
+      "label": "high-end-visual-design.md",
+      "type": "file",
+      "summary": "High-End Visual Standards",
+      "description": "Instructional module for creating sophisticated visual elements like progress bars, charts, and data panels.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 98
+      },
+      "complexity": "moderate",
+      "name": "high-end-visual-design.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:skills/minimalist-ui.md",
+      "label": "minimalist-ui.md",
+      "type": "file",
+      "summary": "Minimalist UI Principles",
+      "description": "Guidelines for implementing focused, editorial-style layouts for specific application features like SRS reviews.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 85
+      },
+      "complexity": "moderate",
+      "name": "minimalist-ui.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:skills/redesign-existing-projects.md",
+      "label": "redesign-existing-projects.md",
+      "type": "file",
+      "summary": "Project Refactoring Guidelines",
+      "description": "Best practices for auditing and upgrading existing UI components and layouts within the application.",
+      "metadata": {
+        "language": "markdown",
+        "fileCategory": "docs",
+        "sizeLines": 178
+      },
+      "complexity": "moderate",
+      "name": "redesign-existing-projects.md",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/acl-manifests.json",
+      "label": "acl-manifests.json",
+      "type": "file",
+      "summary": "Tauri ACL Manifest Schema",
+      "description": "Auto-generated schema for Tauri Access Control List manifests.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 0
+      },
+      "complexity": "moderate",
+      "name": "acl-manifests.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/capabilities.json",
+      "label": "capabilities.json",
+      "type": "file",
+      "summary": "Tauri Capabilities Schema",
+      "description": "Auto-generated schema for defining Tauri application capabilities.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 0
+      },
+      "complexity": "moderate",
+      "name": "capabilities.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/desktop-schema.json",
+      "label": "desktop-schema.json",
+      "type": "file",
+      "summary": "Tauri Desktop Configuration Schema",
+      "description": "Comprehensive auto-generated JSON schema for the desktop-specific Tauri configuration.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 2611
+      },
+      "complexity": "moderate",
+      "name": "desktop-schema.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/linux-schema.json",
+      "label": "linux-schema.json",
+      "type": "file",
+      "summary": "Tauri Linux Configuration Schema",
+      "description": "Auto-generated JSON schema for the Linux-specific Tauri configuration.",
+      "metadata": {
+        "language": "json",
+        "fileCategory": "config",
+        "sizeLines": 2611
+      },
+      "complexity": "moderate",
+      "name": "linux-schema.json",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "config:.understand-anything/.understandignore",
+      "type": "config",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Ignore patterns for the codebase analysis tool.",
+      "tags": [
+        "config",
+        "tooling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:data/app_database.db",
+      "type": "file",
+      "name": "app_database.db",
+      "filePath": "data/app_database.db",
+      "summary": "SQLite database for application state and user data.",
+      "tags": [
+        "data",
+        "sqlite"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:data/characters.txt",
+      "type": "document",
+      "name": "characters.txt",
+      "filePath": "data/characters.txt",
+      "summary": "Reference text file containing Chinese characters.",
+      "tags": [
+        "data",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:data/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": "data/config.json",
+      "summary": "Static configuration data for the application.",
+      "tags": [
+        "config",
+        "data"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:data/zh_backup.db",
+      "type": "file",
+      "name": "zh_backup.db",
+      "filePath": "data/zh_backup.db",
+      "summary": "Backup of the Chinese dictionary database.",
+      "tags": [
+        "data",
+        "sqlite",
+        "backup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:data/zh.db",
+      "type": "file",
+      "name": "zh.db",
+      "filePath": "data/zh.db",
+      "summary": "Main Chinese dictionary database containing vocabulary and characters.",
+      "tags": [
+        "data",
+        "sqlite",
+        "dictionary"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:postcss.config.js",
+      "type": "config",
+      "name": "postcss.config.js",
+      "filePath": "postcss.config.js",
+      "summary": "PostCSS configuration for CSS processing.",
+      "tags": [
+        "config",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scripts/download_hanzi_data.js",
+      "type": "file",
+      "name": "download_hanzi_data.js",
+      "filePath": "scripts/download_hanzi_data.js",
+      "summary": "Script to download Hanzi-related data for the application.",
+      "tags": [
+        "script",
+        "data-fetch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src-tauri/build.rs",
+      "type": "file",
+      "name": "build.rs",
+      "filePath": "src-tauri/build.rs",
+      "summary": "Rust build script for the Tauri backend.",
+      "tags": [
+        "script",
+        "build"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src-tauri/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src-tauri/Cargo.toml",
+      "summary": "Cargo manifest for the Rust backend, defining dependencies.",
+      "tags": [
+        "config",
+        "rust",
+        "dependencies"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "module:src-tauri/src/app/mod.rs",
+      "type": "module",
+      "name": "app",
+      "filePath": "src-tauri/src/app/mod.rs",
+      "summary": "Module definition for the application core logic.",
+      "tags": [
+        "module",
+        "core"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src-tauri/src/app/state.rs",
+      "type": "file",
+      "name": "state.rs",
+      "filePath": "src-tauri/src/app/state.rs",
+      "summary": "Application state management for the Rust backend.",
+      "tags": [
+        "state",
+        "cache",
+        "database"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src-tauri/src/app/state.rs:AppState",
+      "type": "class",
+      "name": "AppState",
+      "filePath": "src-tauri/src/app/state.rs",
+      "summary": "Struct holding the shared application state, including DB connections and RAM caches.",
+      "tags": [
+        "state",
+        "struct"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src-tauri/src/app/state.rs:refresh_flashcards_cache",
+      "type": "function",
+      "name": "refresh_flashcards_cache",
+      "filePath": "src-tauri/src/app/state.rs",
+      "summary": "Asynchronously refreshes the flashcards cache from the database.",
+      "tags": [
+        "function",
+        "async",
+        "cache"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src-tauri/src/app/state.rs:refresh_dict_cache",
+      "type": "function",
+      "name": "refresh_dict_cache",
+      "filePath": "src-tauri/src/app/state.rs",
+      "summary": "Asynchronously refreshes the dictionary cache from the database.",
+      "tags": [
+        "function",
+        "async",
+        "cache"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src-tauri/src/domain/srs/mod.rs",
+      "type": "file",
+      "name": "srs",
+      "filePath": "src-tauri/src/domain/srs/mod.rs",
+      "summary": "Domain logic for the Spaced Repetition System (SRS).",
+      "tags": [
+        "domain",
+        "srs",
+        "logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src-tauri/src/domain/srs/mod.rs:calculate_next_review",
+      "type": "function",
+      "name": "calculate_next_review",
+      "filePath": "src-tauri/src/domain/srs/mod.rs",
+      "summary": "Calculates the next review date and level based on user performance.",
+      "tags": [
+        "function",
+        "logic",
+        "srs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src-tauri/src/infra/commands/flashcard.rs",
+      "type": "file",
+      "name": "flashcard.rs",
+      "filePath": "src-tauri/src/infra/commands/flashcard.rs",
+      "summary": "Tauri command handlers for flashcard management.",
+      "tags": [
+        "infra",
+        "commands",
+        "flashcard"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/flashcard.rs:get_due_flashcards",
+      "type": "function",
+      "name": "get_due_flashcards",
+      "filePath": "src-tauri/src/infra/commands/flashcard.rs",
+      "summary": "Tauri command to retrieve flashcards that are due for review.",
+      "tags": [
+        "function",
+        "tauri-command"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/flashcard.rs:record_review_result",
+      "type": "function",
+      "name": "record_review_result",
+      "filePath": "src-tauri/src/infra/commands/flashcard.rs",
+      "summary": "Tauri command to record the result of a flashcard review and update its SRS state.",
+      "tags": [
+        "function",
+        "tauri-command",
+        "srs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src-tauri/src/infra/commands/srs.rs",
+      "type": "file",
+      "name": "srs.rs",
+      "filePath": "src-tauri/src/infra/commands/srs.rs",
+      "summary": "SRS statistics and review planning commands.",
+      "description": "Provides Tauri commands for fetching SRS statistics (counts, trends, accuracy) and generating a 7-day review plan from the database.",
+      "language": "rust",
+      "complexity": "moderate",
+      "tags": [
+        "srs",
+        "statistics",
+        "commands"
+      ],
+      "metrics": {
+        "totalLines": 181,
+        "nonEmptyLines": 159
+      }
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/srs.rs:get_statistics",
+      "type": "function",
+      "name": "get_statistics",
+      "summary": "Calculates SRS statistics for the dashboard.",
+      "description": "Queries the database for flashcard counts by level, due status, and mastery, as well as 7-day trends for growth and accuracy.",
+      "parent": "file:src-tauri/src/infra/commands/srs.rs",
+      "complexity": "moderate",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/srs.rs:get_review_plan",
+      "type": "function",
+      "name": "get_review_plan",
+      "summary": "Generates a 7-day review forecast.",
+      "description": "Calculates the number of flashcards due for review each day over the next week based on their next_review timestamps.",
+      "parent": "file:src-tauri/src/infra/commands/srs.rs",
+      "complexity": "moderate",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/src/infra/commands/tts.rs",
+      "type": "file",
+      "name": "tts.rs",
+      "filePath": "src-tauri/src/infra/commands/tts.rs",
+      "summary": "TTS audio generation and playback management.",
+      "description": "Handles TTS audio generation with caching (MD5 hashing), audio playback using ffplay/paplay, and cache cleanup for orphaned audio files.",
+      "language": "rust",
+      "complexity": "complex",
+      "tags": [
+        "tts",
+        "audio",
+        "commands",
+        "cache"
+      ],
+      "metrics": {
+        "totalLines": 274,
+        "nonEmptyLines": 235
+      }
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/tts.rs:generate_audio",
+      "type": "function",
+      "name": "generate_audio",
+      "summary": "Generates or retrieves cached TTS audio for text.",
+      "description": "Hashes the input text, checks for an existing MP3 in the audio directory, and generates new audio via the TTS domain service if not cached.",
+      "parent": "file:src-tauri/src/infra/commands/tts.rs",
+      "complexity": "moderate",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/tts.rs:play_audio_file",
+      "type": "function",
+      "name": "play_audio_file",
+      "summary": "Plays an audio file with a short delay.",
+      "description": "Wraps play_audio_file_internal to play a local audio file, typically used for flashcard audio.",
+      "parent": "file:src-tauri/src/infra/commands/tts.rs",
+      "complexity": "moderate",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "function:src-tauri/src/infra/commands/tts.rs:speak_text",
+      "type": "function",
+      "name": "speak_text",
+      "summary": "Generates and immediately plays TTS for text.",
+      "description": "Utility for 'click to speak' functionality, managing temporary files and ensuring only one audio stream plays at a time.",
+      "parent": "file:src-tauri/src/infra/commands/tts.rs",
+      "complexity": "moderate",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/src/infra/database/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src-tauri/src/infra/database/mod.rs",
+      "summary": "Database connection and schema management.",
+      "description": "Initializes SQLite connections for app data and dictionary, ensures tables (flashcards, grammar, trash) and indexes are created.",
+      "language": "rust",
+      "complexity": "moderate",
+      "tags": [
+        "database",
+        "sqlite",
+        "schema"
+      ],
+      "metrics": {
+        "totalLines": 157,
+        "nonEmptyLines": 135
+      }
+    },
+    {
+      "id": "class:src-tauri/src/infra/database/mod.rs:DatabaseManager",
+      "type": "class",
+      "name": "DatabaseManager",
+      "summary": "Manages application database pools.",
+      "description": "Holds pools for app_database.db and zh.db (dictionary), handling their lifecycle and initialization.",
+      "parent": "file:src-tauri/src/infra/database/mod.rs",
+      "complexity": "moderate",
+      "tags": [
+        "untagged"
+      ]
+    },
+    {
+      "id": "file:src-tauri/src/infra/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src-tauri/src/infra/mod.rs",
+      "summary": "Infrastructure module entry point.",
+      "description": "Exports database, models, and commands submodules.",
+      "language": "rust",
+      "complexity": "simple",
+      "tags": [
+        "module"
+      ],
+      "metrics": {
+        "totalLines": 3,
+        "nonEmptyLines": 3
+      }
+    },
+    {
+      "id": "file:src-tauri/src/infra/models/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src-tauri/src/infra/models/mod.rs",
+      "summary": "Data transfer objects and domain models.",
+      "description": "Central repository for Rust structs used across the infrastructure layer, including Flashcard, DictionaryEntry, GrammarPoint, and Decomposition models.",
+      "language": "rust",
+      "complexity": "moderate",
+      "tags": [
+        "models",
+        "dto",
+        "types"
+      ],
+      "metrics": {
+        "totalLines": 264,
+        "nonEmptyLines": 240
+      }
+    },
+    {
+      "id": "file:src-tauri/src/main.rs",
+      "type": "file",
+      "name": "main.rs",
+      "filePath": "src-tauri/src/main.rs",
+      "summary": "Tauri application entry point.",
+      "description": "Initializes the database, sets up AppState, performs startup cleanup (trash, temp files), and registers all Tauri command handlers.",
+      "language": "rust",
+      "complexity": "moderate",
+      "tags": [
+        "entry-point",
+        "tauri",
+        "setup"
+      ],
+      "metrics": {
+        "totalLines": 90,
+        "nonEmptyLines": 81
+      }
+    },
+    {
+      "id": "config:src-tauri/tauri.conf.json",
+      "type": "config",
+      "name": "tauri.conf.json",
+      "filePath": "src-tauri/tauri.conf.json",
+      "summary": "Tauri configuration file.",
+      "description": "Configures window properties, build settings, security (CSP), and bundle identifiers for the desktop application.",
+      "language": "json",
+      "complexity": "simple",
+      "tags": [
+        "config",
+        "tauri"
+      ],
+      "metrics": {
+        "totalLines": 38,
+        "nonEmptyLines": 38
+      }
+    },
+    {
+      "id": "file:src/App.tsx",
+      "type": "file",
+      "name": "App.tsx",
+      "filePath": "src/App.tsx",
+      "summary": "Root React component and router.",
+      "description": "Wraps the application in QueryClientProvider and Layout, managing conditional rendering of pages based on the active tab from the app store.",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "react",
+        "routing",
+        "entry-point"
+      ],
+      "metrics": {
+        "totalLines": 57,
+        "nonEmptyLines": 51
+      }
+    },
+    {
+      "id": "file:src/components/layout/Layout.tsx",
+      "type": "file",
+      "name": "Layout.tsx",
+      "filePath": "src/components/layout/Layout.tsx",
+      "summary": "Global application layout wrapper.",
+      "description": "Provides the shell for the app, including TitleBar, Sidebar, and the main content area, plus a global DictionaryPopover for hover lookup.",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "layout",
+        "react"
+      ],
+      "metrics": {
+        "totalLines": 31,
+        "nonEmptyLines": 28
+      }
+    },
+    {
+      "id": "file:src/components/layout/Sidebar.tsx",
+      "type": "file",
+      "name": "Sidebar.tsx",
+      "filePath": "src/components/layout/Sidebar.tsx",
+      "summary": "Primary navigation sidebar.",
+      "description": "Displays navigation tabs (Review, Manage, Dashboard, etc.), theme toggle (Light/Dark), and global hover lookup toggle.",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "sidebar",
+        "navigation",
+        "ui"
+      ],
+      "metrics": {
+        "totalLines": 111,
+        "nonEmptyLines": 103
+      }
+    },
+    {
+      "id": "file:src/components/layout/TitleBar.tsx",
+      "type": "file",
+      "name": "TitleBar.tsx",
+      "filePath": "src/components/layout/TitleBar.tsx",
+      "summary": "Custom window title bar for Tauri.",
+      "description": "Provides window management controls (minimize, maximize, close) and a draggable region for the Tauri window.",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "tauri",
+        "ui",
+        "window"
+      ],
+      "metrics": {
+        "totalLines": 69,
+        "nonEmptyLines": 62
+      }
+    },
+    {
+      "id": "file:src/components/ui/Badge.tsx",
+      "type": "file",
+      "name": "Badge.tsx",
+      "filePath": "src/components/ui/Badge.tsx",
+      "summary": "Reusable badge UI component.",
+      "description": "A styled span for displaying status or categories with various variants (success, warning, error, etc.).",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "ui",
+        "component"
+      ],
+      "metrics": {
+        "totalLines": 30,
+        "nonEmptyLines": 26
+      }
+    },
+    {
+      "id": "file:src/components/ui/Button.tsx",
+      "type": "file",
+      "name": "Button.tsx",
+      "filePath": "src/components/ui/Button.tsx",
+      "summary": "Reusable button UI component.",
+      "description": "A customizable button with support for variants (primary, secondary, ghost, danger) and sizes (sm, md, lg).",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "ui",
+        "component"
+      ],
+      "metrics": {
+        "totalLines": 39,
+        "nonEmptyLines": 34
+      }
+    },
+    {
+      "id": "file:src/components/ui/Card.tsx",
+      "type": "file",
+      "name": "Card.tsx",
+      "filePath": "src/components/ui/Card.tsx",
+      "summary": "Reusable card UI component.",
+      "description": "A container component with shadow and border styling for content blocks.",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "ui",
+        "component"
+      ],
+      "metrics": {
+        "totalLines": 17,
+        "nonEmptyLines": 14
+      }
+    },
+    {
+      "id": "file:src/components/ui/Input.tsx",
+      "type": "file",
+      "name": "Input.tsx",
+      "filePath": "src/components/ui/Input.tsx",
+      "summary": "Reusable input UI component.",
+      "description": "A styled text input component for forms and search bars.",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "ui",
+        "component"
+      ],
+      "metrics": {
+        "totalLines": 16,
+        "nonEmptyLines": 14
+      }
+    },
+    {
+      "id": "file:src/features/dashboard/DashboardPage.tsx",
+      "type": "file",
+      "name": "DashboardPage.tsx",
+      "filePath": "src/features/dashboard/DashboardPage.tsx",
+      "summary": "Learning statistics dashboard.",
+      "description": "Displays study progress, including mastery levels, daily review counts, and streak tracking. Includes interactive charts for forecast data.",
+      "language": "typescript",
+      "complexity": "complex",
+      "tags": [
+        "dashboard",
+        "statistics",
+        "charts"
+      ],
+      "metrics": {
+        "totalLines": 331,
+        "nonEmptyLines": 304
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/components/DecompositionDetails.tsx",
+      "type": "file",
+      "name": "DecompositionDetails.tsx",
+      "filePath": "src/features/decomposition/components/DecompositionDetails.tsx",
+      "summary": "Character component detail panel.",
+      "description": "Displays etymology, meanings (VI/EN), HSK level, and pictophonetic details for a selected component in the decomposition tree.",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "decomposition",
+        "etymology",
+        "ui"
+      ],
+      "metrics": {
+        "totalLines": 250,
+        "nonEmptyLines": 223
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/components/DecompositionSearch.tsx",
+      "type": "file",
+      "name": "DecompositionSearch.tsx",
+      "filePath": "src/features/decomposition/components/DecompositionSearch.tsx",
+      "summary": "Search interface for character decomposition.",
+      "description": "Provides a search bar with character/vocab suggestions and quick-select buttons for common characters.",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "decomposition",
+        "search",
+        "ui"
+      ],
+      "metrics": {
+        "totalLines": 229,
+        "nonEmptyLines": 208
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/components/DecompositionTree.tsx",
+      "type": "file",
+      "name": "DecompositionTree.tsx",
+      "filePath": "src/features/decomposition/components/DecompositionTree.tsx",
+      "summary": "Recursive character decomposition tree.",
+      "description": "Visualizes the hierarchical structure of a character using recursive nodes and connecting lines (CSS-based tree).",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "decomposition",
+        "tree",
+        "visualization"
+      ],
+      "metrics": {
+        "totalLines": 125,
+        "nonEmptyLines": 105
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/components/HanziWriterAnimator.tsx",
+      "type": "file",
+      "name": "HanziWriterAnimator.tsx",
+      "filePath": "src/features/decomposition/components/HanziWriterAnimator.tsx",
+      "summary": "Stroke order animation and writing quiz.",
+      "description": "Integrates hanzi-writer to provide stroke order animations and an interactive writing quiz mode for characters.",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "hanzi-writer",
+        "animation",
+        "quiz"
+      ],
+      "metrics": {
+        "totalLines": 247,
+        "nonEmptyLines": 224
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/DecompositionPage.module.css",
+      "type": "file",
+      "name": "DecompositionPage.module.css",
+      "filePath": "src/features/decomposition/DecompositionPage.module.css",
+      "summary": "CSS modules for decomposition feature.",
+      "description": "Defines tree connecting lines, grid backgrounds, and animations for the decomposition canvas and details panel.",
+      "language": "css",
+      "complexity": "simple",
+      "tags": [
+        "css",
+        "styles"
+      ],
+      "metrics": {
+        "totalLines": 97,
+        "nonEmptyLines": 81
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/DecompositionPage.tsx",
+      "type": "file",
+      "name": "DecompositionPage.tsx",
+      "filePath": "src/features/decomposition/DecompositionPage.tsx",
+      "summary": "Main character decomposition page.",
+      "description": "Integrates search, tree visualization, and details into a pannable and zoomable canvas interface for exploring character structures.",
+      "language": "typescript",
+      "complexity": "complex",
+      "tags": [
+        "decomposition",
+        "canvas",
+        "feature"
+      ],
+      "metrics": {
+        "totalLines": 396,
+        "nonEmptyLines": 348
+      }
+    },
+    {
+      "id": "file:src/features/decomposition/types.ts",
+      "type": "file",
+      "name": "types.ts",
+      "filePath": "src/features/decomposition/types.ts",
+      "summary": "Types for decomposition feature.",
+      "description": "Defines TypeScript interfaces for decomposition nodes and search responses, matching the Rust backend models.",
+      "language": "typescript",
+      "complexity": "simple",
+      "tags": [
+        "types",
+        "decomposition"
+      ],
+      "metrics": {
+        "totalLines": 40,
+        "nonEmptyLines": 38
+      }
+    },
+    {
+      "id": "file:src/features/dictionary/components/DictionaryPopover.tsx",
+      "type": "file",
+      "name": "DictionaryPopover.tsx",
+      "filePath": "src/features/dictionary/components/DictionaryPopover.tsx",
+      "summary": "Floating dictionary definition popover.",
+      "description": "Displays definition results at a specific screen position, handling viewport constraints and flipping if necessary.",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "dictionary",
+        "ui",
+        "popover"
+      ],
+      "metrics": {
+        "totalLines": 194,
+        "nonEmptyLines": 172
+      }
+    },
+    {
+      "id": "file:src/features/dictionary/components/HanziHover.tsx",
+      "type": "file",
+      "name": "HanziHover.tsx",
+      "filePath": "src/features/dictionary/components/HanziHover.tsx",
+      "summary": "Interactive hover lookup component.",
+      "description": "Wraps text to enable per-character hover lookup, triggering popovers for recognized Chinese words/characters.",
+      "language": "typescript",
+      "complexity": "moderate",
+      "tags": [
+        "dictionary",
+        "hover",
+        "lookup"
+      ],
+      "metrics": {
+        "totalLines": 157,
+        "nonEmptyLines": 139
+      }
+    },
+    {
+      "id": "file:src/features/dictionary/DictionaryPage.tsx",
+      "type": "file",
+      "name": "DictionaryPage.tsx",
+      "filePath": "src/features/dictionary/DictionaryPage.tsx",
+      "summary": "Main page for Chinese-Vietnamese dictionary search with infinite scroll, HSK filtering, and virtualization.",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/dictionary/DictionaryPage.tsx:DictionaryPage",
+      "type": "function",
+      "name": "DictionaryPage",
+      "filePath": "src/features/dictionary/DictionaryPage.tsx",
+      "summary": "Function DictionaryPage defined in DictionaryPage.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarDetails.tsx",
+      "type": "file",
+      "name": "GrammarDetails.tsx",
+      "filePath": "src/features/grammar/components/GrammarDetails.tsx",
+      "summary": "Detailed grammar point information display, including examples, pinyin toggle, and note editing.",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarDetails.tsx:GrammarDetails",
+      "type": "function",
+      "name": "GrammarDetails",
+      "filePath": "src/features/grammar/components/GrammarDetails.tsx",
+      "summary": "Function GrammarDetails defined in GrammarDetails.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarDetailsHeader.tsx",
+      "type": "file",
+      "name": "GrammarDetailsHeader.tsx",
+      "filePath": "src/features/grammar/components/GrammarDetailsHeader.tsx",
+      "summary": "Source file for GrammarDetailsHeader.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarDetailsHeader.tsx:GrammarDetailsHeader",
+      "type": "function",
+      "name": "GrammarDetailsHeader",
+      "filePath": "src/features/grammar/components/GrammarDetailsHeader.tsx",
+      "summary": "Function GrammarDetailsHeader defined in GrammarDetailsHeader.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarExampleCard.tsx",
+      "type": "file",
+      "name": "GrammarExampleCard.tsx",
+      "filePath": "src/features/grammar/components/GrammarExampleCard.tsx",
+      "summary": "Source file for GrammarExampleCard.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarExampleCard.tsx:GrammarExampleCard",
+      "type": "function",
+      "name": "GrammarExampleCard",
+      "filePath": "src/features/grammar/components/GrammarExampleCard.tsx",
+      "summary": "Function GrammarExampleCard defined in GrammarExampleCard.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarExplanation.tsx",
+      "type": "file",
+      "name": "GrammarExplanation.tsx",
+      "filePath": "src/features/grammar/components/GrammarExplanation.tsx",
+      "summary": "Source file for GrammarExplanation.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarExplanation.tsx:GrammarExplanation",
+      "type": "function",
+      "name": "GrammarExplanation",
+      "filePath": "src/features/grammar/components/GrammarExplanation.tsx",
+      "summary": "Function GrammarExplanation defined in GrammarExplanation.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarPageHeader.tsx",
+      "type": "file",
+      "name": "GrammarPageHeader.tsx",
+      "filePath": "src/features/grammar/components/GrammarPageHeader.tsx",
+      "summary": "Source file for GrammarPageHeader.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarPageHeader.tsx:GrammarPageHeader",
+      "type": "function",
+      "name": "GrammarPageHeader",
+      "filePath": "src/features/grammar/components/GrammarPageHeader.tsx",
+      "summary": "Function GrammarPageHeader defined in GrammarPageHeader.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarTree.tsx",
+      "type": "file",
+      "name": "GrammarTree.tsx",
+      "filePath": "src/features/grammar/components/GrammarTree.tsx",
+      "summary": "Component displaying the hierarchical grammar category structure with search and filtering capabilities.",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarTree.tsx:GrammarTree",
+      "type": "function",
+      "name": "GrammarTree",
+      "filePath": "src/features/grammar/components/GrammarTree.tsx",
+      "summary": "Function GrammarTree defined in GrammarTree.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/grammar/components/GrammarTreeNode.tsx",
+      "type": "file",
+      "name": "GrammarTreeNode.tsx",
+      "filePath": "src/features/grammar/components/GrammarTreeNode.tsx",
+      "summary": "Source file for GrammarTreeNode.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/grammar/components/GrammarTreeNode.tsx:GrammarTreeNode",
+      "type": "function",
+      "name": "GrammarTreeNode",
+      "filePath": "src/features/grammar/components/GrammarTreeNode.tsx",
+      "summary": "Function GrammarTreeNode defined in GrammarTreeNode.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/grammar/GrammarPage.tsx",
+      "type": "file",
+      "name": "GrammarPage.tsx",
+      "filePath": "src/features/grammar/GrammarPage.tsx",
+      "summary": "HSK grammar learning page featuring a hierarchical category tree, detailed explanations, and personal note-taking.",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/grammar/GrammarPage.tsx:GrammarPage",
+      "type": "function",
+      "name": "GrammarPage",
+      "filePath": "src/features/grammar/GrammarPage.tsx",
+      "summary": "Function GrammarPage defined in GrammarPage.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/grammar/types.ts",
+      "type": "file",
+      "name": "types.ts",
+      "filePath": "src/features/grammar/types.ts",
+      "summary": "Source file for types.ts",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/manage/components/AddCardForm.tsx",
+      "type": "file",
+      "name": "AddCardForm.tsx",
+      "filePath": "src/features/manage/components/AddCardForm.tsx",
+      "summary": "Source file for AddCardForm.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/manage/components/AddCardForm.tsx:AddCardForm",
+      "type": "function",
+      "name": "AddCardForm",
+      "filePath": "src/features/manage/components/AddCardForm.tsx",
+      "summary": "Function AddCardForm defined in AddCardForm.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/manage/components/FlashcardRow.tsx",
+      "type": "file",
+      "name": "FlashcardRow.tsx",
+      "filePath": "src/features/manage/components/FlashcardRow.tsx",
+      "summary": "Source file for FlashcardRow.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/manage/components/FlashcardRow.tsx:FlashcardRow",
+      "type": "function",
+      "name": "FlashcardRow",
+      "filePath": "src/features/manage/components/FlashcardRow.tsx",
+      "summary": "Function FlashcardRow defined in FlashcardRow.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/manage/components/FlashcardTable.tsx",
+      "type": "file",
+      "name": "FlashcardTable.tsx",
+      "filePath": "src/features/manage/components/FlashcardTable.tsx",
+      "summary": "Source file for FlashcardTable.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/manage/components/FlashcardTable.tsx:FlashcardTable",
+      "type": "function",
+      "name": "FlashcardTable",
+      "filePath": "src/features/manage/components/FlashcardTable.tsx",
+      "summary": "Function FlashcardTable defined in FlashcardTable.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/manage/components/ManageFilters.tsx",
+      "type": "file",
+      "name": "ManageFilters.tsx",
+      "filePath": "src/features/manage/components/ManageFilters.tsx",
+      "summary": "Source file for ManageFilters.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/manage/components/ManageFilters.tsx:ManageFilters",
+      "type": "function",
+      "name": "ManageFilters",
+      "filePath": "src/features/manage/components/ManageFilters.tsx",
+      "summary": "Function ManageFilters defined in ManageFilters.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/manage/ManagePage.tsx",
+      "type": "file",
+      "name": "ManagePage.tsx",
+      "filePath": "src/features/manage/ManagePage.tsx",
+      "summary": "Flashcard management page for adding, editing, and filtering cards with batch audio generation support.",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/manage/ManagePage.tsx:ManagePage",
+      "type": "function",
+      "name": "ManagePage",
+      "filePath": "src/features/manage/ManagePage.tsx",
+      "summary": "Function ManagePage defined in ManagePage.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/review/components/Flashcard.tsx",
+      "type": "file",
+      "name": "Flashcard.tsx",
+      "filePath": "src/features/review/components/Flashcard.tsx",
+      "summary": "Source file for Flashcard.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/features/review/components/Flashcard.tsx:CustomIcon",
+      "type": "function",
+      "name": "CustomIcon",
+      "filePath": "src/features/review/components/Flashcard.tsx",
+      "summary": "Function CustomIcon defined in Flashcard.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/review/components/Flashcard.tsx:Flashcard",
+      "type": "function",
+      "name": "Flashcard",
+      "filePath": "src/features/review/components/Flashcard.tsx",
+      "summary": "Function Flashcard defined in Flashcard.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/features/review/components/FlashcardList.tsx",
+      "type": "file",
+      "name": "FlashcardList.tsx",
+      "filePath": "src/features/review/components/FlashcardList.tsx",
+      "summary": "Source file for FlashcardList.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/review/components/FlashcardList.tsx:FlashcardList",
+      "type": "function",
+      "name": "FlashcardList",
+      "filePath": "src/features/review/components/FlashcardList.tsx",
+      "summary": "Function FlashcardList defined in FlashcardList.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/review/ReviewPage.tsx",
+      "type": "file",
+      "name": "ReviewPage.tsx",
+      "filePath": "src/features/review/ReviewPage.tsx",
+      "summary": "Spaced repetition (SRS) review page for practicing flashcards with feedback and progress tracking.",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/review/ReviewPage.tsx:ReviewPage",
+      "type": "function",
+      "name": "ReviewPage",
+      "filePath": "src/features/review/ReviewPage.tsx",
+      "summary": "Function ReviewPage defined in ReviewPage.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/trash/TrashPage.tsx",
+      "type": "file",
+      "name": "TrashPage.tsx",
+      "filePath": "src/features/trash/TrashPage.tsx",
+      "summary": "Source file for TrashPage.tsx",
+      "tags": [
+        "tsx",
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/trash/TrashPage.tsx:TrashPage",
+      "type": "function",
+      "name": "TrashPage",
+      "filePath": "src/features/trash/TrashPage.tsx",
+      "summary": "Function TrashPage defined in TrashPage.tsx",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/hooks/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "src/hooks/index.ts",
+      "summary": "Source file for index.ts",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useDictionary.ts",
+      "type": "file",
+      "name": "useDictionary.ts",
+      "filePath": "src/hooks/useDictionary.ts",
+      "summary": "Custom hook for interacting with the dictionary database and performing searches.",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useDictionary.ts:useDictionary",
+      "type": "function",
+      "name": "useDictionary",
+      "filePath": "src/hooks/useDictionary.ts",
+      "summary": "Function useDictionary defined in useDictionary.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useFlashcards.ts",
+      "type": "file",
+      "name": "useFlashcards.ts",
+      "filePath": "src/hooks/useFlashcards.ts",
+      "summary": "React Query hooks for flashcard CRUD operations and database interactions.",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useFlashcards.ts:useFlashcards",
+      "type": "function",
+      "name": "useFlashcards",
+      "filePath": "src/hooks/useFlashcards.ts",
+      "summary": "Function useFlashcards defined in useFlashcards.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useGrammar.ts",
+      "type": "file",
+      "name": "useGrammar.ts",
+      "filePath": "src/hooks/useGrammar.ts",
+      "summary": "Hooks for managing grammar categories, points, details, and personal grammar notes.",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useGrammar.ts:useGrammar",
+      "type": "function",
+      "name": "useGrammar",
+      "filePath": "src/hooks/useGrammar.ts",
+      "summary": "Function useGrammar defined in useGrammar.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useGrammarDb.ts",
+      "type": "file",
+      "name": "useGrammarDb.ts",
+      "filePath": "src/hooks/useGrammarDb.ts",
+      "summary": "Source file for useGrammarDb.ts",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useGrammarDb.ts:useGrammarCategories",
+      "type": "function",
+      "name": "useGrammarCategories",
+      "filePath": "src/hooks/useGrammarDb.ts",
+      "summary": "Function useGrammarCategories defined in useGrammarDb.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useGrammarDb.ts:useGrammarPoints",
+      "type": "function",
+      "name": "useGrammarPoints",
+      "filePath": "src/hooks/useGrammarDb.ts",
+      "summary": "Function useGrammarPoints defined in useGrammarDb.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useGrammarDb.ts:useGrammarPointDetails",
+      "type": "function",
+      "name": "useGrammarPointDetails",
+      "filePath": "src/hooks/useGrammarDb.ts",
+      "summary": "Function useGrammarPointDetails defined in useGrammarDb.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useGrammarDb.ts:useLearnedGrammarPoints",
+      "type": "function",
+      "name": "useLearnedGrammarPoints",
+      "filePath": "src/hooks/useGrammarDb.ts",
+      "summary": "Function useLearnedGrammarPoints defined in useGrammarDb.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useGrammarDb.ts:useToggleGrammarPointLearned",
+      "type": "function",
+      "name": "useToggleGrammarPointLearned",
+      "filePath": "src/hooks/useGrammarDb.ts",
+      "summary": "Function useToggleGrammarPointLearned defined in useGrammarDb.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useSrs.ts",
+      "type": "file",
+      "name": "useSrs.ts",
+      "filePath": "src/hooks/useSrs.ts",
+      "summary": "Hooks for managing Spaced Repetition System (SRS) review sessions and card state updates.",
+      "tags": [
+        "ts",
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useSrs.ts:useSrs",
+      "type": "function",
+      "name": "useSrs",
+      "filePath": "src/hooks/useSrs.ts",
+      "summary": "Function useSrs defined in useSrs.ts",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/hooks/useTts.ts",
+      "type": "file",
+      "name": "useTts.ts",
+      "filePath": "src/hooks/useTts.ts",
+      "summary": "React hook for Text-to-Speech functionality using Tauri commands.",
+      "tags": [
+        "hook",
+        "tts",
+        "tauri"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/hooks/useTts.ts:useTts",
+      "type": "function",
+      "name": "useTts",
+      "filePath": "src/hooks/useTts.ts",
+      "summary": "Custom hook providing methods to generate, play, and speak text using TTS.",
+      "tags": [
+        "hook"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/index.css",
+      "type": "file",
+      "name": "index.css",
+      "filePath": "src/index.css",
+      "summary": "Global stylesheet with Tailwind CSS directives and custom utility classes.",
+      "tags": [
+        "css",
+        "styles",
+        "tailwind"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/pinyin.ts",
+      "type": "file",
+      "name": "pinyin.ts",
+      "filePath": "src/lib/pinyin.ts",
+      "summary": "Utility functions for Pinyin conversion.",
+      "tags": [
+        "utils",
+        "pinyin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/pinyin.ts:convertPinyin",
+      "type": "function",
+      "name": "convertPinyin",
+      "filePath": "src/lib/pinyin.ts",
+      "summary": "Converts Chinese text to Pinyin with tone marks.",
+      "tags": [
+        "pinyin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/utils.ts",
+      "type": "file",
+      "name": "utils.ts",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Common utility functions for CSS class merging, Hanzi detection, and UI formatting.",
+      "tags": [
+        "utils",
+        "helpers"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:cn",
+      "type": "function",
+      "name": "cn",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Utility for merging Tailwind CSS classes safely.",
+      "tags": [
+        "styles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:getMasteryLabel",
+      "type": "function",
+      "name": "getMasteryLabel",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Returns a human-readable label for a mastery level.",
+      "tags": [
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:getMasteryColor",
+      "type": "function",
+      "name": "getMasteryColor",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Returns CSS color classes for a mastery level.",
+      "tags": [
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:getHskBadgeColor",
+      "type": "function",
+      "name": "getHskBadgeColor",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Returns CSS color classes for an HSK level badge.",
+      "tags": [
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:isHanzi",
+      "type": "function",
+      "name": "isHanzi",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Checks if a character is a Chinese Hanzi.",
+      "tags": [
+        "hanzi"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:filterHanziInput",
+      "type": "function",
+      "name": "filterHanziInput",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Filters a string to keep only Hanzi, numbers, and common punctuation.",
+      "tags": [
+        "hanzi",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:getInputFontClass",
+      "type": "function",
+      "name": "getInputFontClass",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Determines the appropriate font class based on input content.",
+      "tags": [
+        "ui",
+        "fonts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.tsx",
+      "type": "file",
+      "name": "main.tsx",
+      "filePath": "src/main.tsx",
+      "summary": "Application entry point that initializes configuration and mounts the React app.",
+      "tags": [
+        "entry",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/stores/app.ts",
+      "type": "file",
+      "name": "app.ts",
+      "filePath": "src/stores/app.ts",
+      "summary": "Zustand store for high-level application state like active navigation tab.",
+      "tags": [
+        "store",
+        "state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/stores/app.ts:useAppStore",
+      "type": "function",
+      "name": "useAppStore",
+      "filePath": "src/stores/app.ts",
+      "summary": "Hook to access and modify application-wide state.",
+      "tags": [
+        "hook",
+        "store"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/stores/flashcard.ts",
+      "type": "file",
+      "name": "flashcard.ts",
+      "filePath": "src/stores/flashcard.ts",
+      "summary": "Zustand store for managing flashcard review sessions, state, and results.",
+      "tags": [
+        "store",
+        "flashcard",
+        "srs"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/stores/flashcard.ts:useFlashcardStore",
+      "type": "function",
+      "name": "useFlashcardStore",
+      "filePath": "src/stores/flashcard.ts",
+      "summary": "Hook for managing flashcard session state including navigation, scoring, and undo.",
+      "tags": [
+        "hook",
+        "store"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/stores/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "src/stores/index.ts",
+      "summary": "Barrel file for all Zustand stores.",
+      "tags": [
+        "barrel",
+        "store"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/stores/tts.ts",
+      "type": "file",
+      "name": "tts.ts",
+      "filePath": "src/stores/tts.ts",
+      "summary": "Zustand store for TTS voice selection and audio caching.",
+      "tags": [
+        "store",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/stores/tts.ts:useTtsStore",
+      "type": "function",
+      "name": "useTtsStore",
+      "filePath": "src/stores/tts.ts",
+      "summary": "Hook for managing TTS settings and cache.",
+      "tags": [
+        "hook",
+        "store"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/stores/ui.ts",
+      "type": "file",
+      "name": "ui.ts",
+      "filePath": "src/stores/ui.ts",
+      "summary": "Zustand store for UI settings like theme, grammar visibility, and dictionary hover.",
+      "tags": [
+        "store",
+        "ui",
+        "config"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/stores/ui.ts:useUiStore",
+      "type": "function",
+      "name": "useUiStore",
+      "filePath": "src/stores/ui.ts",
+      "summary": "Hook for managing UI state and persisting user preferences.",
+      "tags": [
+        "hook",
+        "store"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/stores/ui.ts:loadInitialConfig",
+      "type": "function",
+      "name": "loadInitialConfig",
+      "filePath": "src/stores/ui.ts",
+      "summary": "Async function to load initial UI configuration from Tauri backend.",
+      "tags": [
+        "init",
+        "tauri"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/types/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "src/types/index.ts",
+      "summary": "Centralized TypeScript interfaces and types for the application domain.",
+      "tags": [
+        "types"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/types/index.ts:Flashcard",
+      "type": "class",
+      "name": "Flashcard",
+      "filePath": "src/types/index.ts",
+      "summary": "Interface for flashcard data from database.",
+      "tags": [
+        "model",
+        "flashcard"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/vite-env.d.ts",
+      "type": "file",
+      "name": "vite-env.d.ts",
+      "filePath": "src/vite-env.d.ts",
+      "summary": "TypeScript declaration file for Vite environment variables.",
+      "tags": [
+        "types",
+        "vite"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tailwind.config.js",
+      "type": "config",
+      "name": "tailwind.config.js",
+      "filePath": "tailwind.config.js",
+      "summary": "Tailwind CSS configuration including theme extensions and plugin settings.",
+      "tags": [
+        "config",
+        "tailwind",
+        "styles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:vite.config.ts",
+      "type": "config",
+      "name": "vite.config.ts",
+      "filePath": "vite.config.ts",
+      "summary": "Vite configuration for building and serving the React application.",
+      "tags": [
+        "config",
+        "vite",
+        "build"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:flashcards",
+      "type": "table",
+      "name": "flashcards",
+      "summary": "Stores user flashcards and SRS data.",
+      "tags": [
+        "database",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:trash",
+      "type": "table",
+      "name": "trash",
+      "summary": "Stores deleted flashcards for temporary recovery.",
+      "tags": [
+        "database",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:grammar_notes",
+      "type": "table",
+      "name": "grammar_notes",
+      "summary": "Stores user grammar notes and HSK points.",
+      "tags": [
+        "database",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:vocabulary",
+      "type": "table",
+      "name": "vocabulary",
+      "summary": "Static dictionary data for Chinese-Vietnamese-English.",
+      "tags": [
+        "database",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:learned_grammar_points",
+      "type": "table",
+      "name": "learned_grammar_points",
+      "summary": "Tracks which grammar points the user has mastered.",
+      "tags": [
+        "database",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src-tauri/src/infra/commands/decomposition.rs",
+      "type": "file",
+      "name": "decomposition.rs",
+      "filePath": "src-tauri/src/infra/commands/decomposition.rs",
+      "summary": "Source file for decomposition.rs.",
+      "tags": [
+        "source",
+        "rust"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src-tauri/src/domain/tts/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src-tauri/src/domain/tts/mod.rs",
+      "summary": "Source file for mod.rs.",
+      "tags": [
+        "source",
+        "rust"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:CLAUDE.md",
+      "target": "file:DESIGN_SYSTEM.md",
+      "type": "references",
+      "label": "references",
+      "direction": "forward"
+    },
+    {
+      "source": "file:README.md",
+      "target": "file:database_description.md",
+      "type": "references",
+      "label": "references",
+      "direction": "forward"
+    },
+    {
+      "source": "class:src-tauri/src/app/state.rs:AppState",
+      "target": "function:src-tauri/src/app/state.rs:refresh_flashcards_cache",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src-tauri/src/app/state.rs:AppState",
+      "target": "function:src-tauri/src/app/state.rs:refresh_dict_cache",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src-tauri/src/infra/commands/flashcard.rs:record_review_result",
+      "target": "function:src-tauri/src/domain/srs/mod.rs:calculate_next_review",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/infra/commands/flashcard.rs",
+      "target": "file:src-tauri/src/app/state.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/infra/commands/flashcard.rs",
+      "target": "file:src-tauri/src/domain/srs/mod.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/main.rs",
+      "target": "file:src-tauri/src/infra/database/mod.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/main.rs",
+      "target": "file:src-tauri/src/infra/commands/srs.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/main.rs",
+      "target": "file:src-tauri/src/infra/commands/tts.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/infra/commands/srs.rs",
+      "target": "file:src-tauri/src/infra/models/mod.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/infra/commands/tts.rs",
+      "target": "file:src-tauri/src/infra/models/mod.rs",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/components/layout/Layout.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/dashboard/DashboardPage.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/decomposition/DecompositionPage.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/components/layout/Layout.tsx",
+      "target": "file:src/components/layout/Sidebar.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/components/layout/Layout.tsx",
+      "target": "file:src/components/layout/TitleBar.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/components/layout/Layout.tsx",
+      "target": "file:src/features/dictionary/components/DictionaryPopover.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/dashboard/DashboardPage.tsx",
+      "target": "file:src/components/ui/Card.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/decomposition/DecompositionPage.tsx",
+      "target": "file:src/features/decomposition/components/DecompositionSearch.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/decomposition/DecompositionPage.tsx",
+      "target": "file:src/features/decomposition/components/DecompositionTree.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/decomposition/DecompositionPage.tsx",
+      "target": "file:src/features/decomposition/components/DecompositionDetails.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/decomposition/components/DecompositionSearch.tsx",
+      "target": "file:src/features/decomposition/components/HanziWriterAnimator.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/decomposition/components/DecompositionTree.tsx",
+      "target": "file:src/features/decomposition/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/dictionary/DictionaryPage.tsx",
+      "target": "function:src/features/dictionary/DictionaryPage.tsx:DictionaryPage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/dictionary/DictionaryPage.tsx",
+      "target": "function:src/features/dictionary/DictionaryPage.tsx:DictionaryPage",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarDetails.tsx",
+      "target": "function:src/features/grammar/components/GrammarDetails.tsx:GrammarDetails",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarDetails.tsx",
+      "target": "function:src/features/grammar/components/GrammarDetails.tsx:GrammarDetails",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarDetailsHeader.tsx",
+      "target": "function:src/features/grammar/components/GrammarDetailsHeader.tsx:GrammarDetailsHeader",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarDetailsHeader.tsx",
+      "target": "function:src/features/grammar/components/GrammarDetailsHeader.tsx:GrammarDetailsHeader",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarExampleCard.tsx",
+      "target": "function:src/features/grammar/components/GrammarExampleCard.tsx:GrammarExampleCard",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarExampleCard.tsx",
+      "target": "function:src/features/grammar/components/GrammarExampleCard.tsx:GrammarExampleCard",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarExplanation.tsx",
+      "target": "function:src/features/grammar/components/GrammarExplanation.tsx:GrammarExplanation",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarExplanation.tsx",
+      "target": "function:src/features/grammar/components/GrammarExplanation.tsx:GrammarExplanation",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarPageHeader.tsx",
+      "target": "function:src/features/grammar/components/GrammarPageHeader.tsx:GrammarPageHeader",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarPageHeader.tsx",
+      "target": "function:src/features/grammar/components/GrammarPageHeader.tsx:GrammarPageHeader",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarTree.tsx",
+      "target": "function:src/features/grammar/components/GrammarTree.tsx:GrammarTree",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarTree.tsx",
+      "target": "function:src/features/grammar/components/GrammarTree.tsx:GrammarTree",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarTreeNode.tsx",
+      "target": "function:src/features/grammar/components/GrammarTreeNode.tsx:GrammarTreeNode",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/components/GrammarTreeNode.tsx",
+      "target": "function:src/features/grammar/components/GrammarTreeNode.tsx:GrammarTreeNode",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/GrammarPage.tsx",
+      "target": "function:src/features/grammar/GrammarPage.tsx:GrammarPage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/grammar/GrammarPage.tsx",
+      "target": "function:src/features/grammar/GrammarPage.tsx:GrammarPage",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/AddCardForm.tsx",
+      "target": "function:src/features/manage/components/AddCardForm.tsx:AddCardForm",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/AddCardForm.tsx",
+      "target": "function:src/features/manage/components/AddCardForm.tsx:AddCardForm",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/FlashcardRow.tsx",
+      "target": "function:src/features/manage/components/FlashcardRow.tsx:FlashcardRow",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/FlashcardRow.tsx",
+      "target": "function:src/features/manage/components/FlashcardRow.tsx:FlashcardRow",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/FlashcardTable.tsx",
+      "target": "function:src/features/manage/components/FlashcardTable.tsx:FlashcardTable",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/FlashcardTable.tsx",
+      "target": "function:src/features/manage/components/FlashcardTable.tsx:FlashcardTable",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/ManageFilters.tsx",
+      "target": "function:src/features/manage/components/ManageFilters.tsx:ManageFilters",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/components/ManageFilters.tsx",
+      "target": "function:src/features/manage/components/ManageFilters.tsx:ManageFilters",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/ManagePage.tsx",
+      "target": "function:src/features/manage/ManagePage.tsx:ManagePage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/manage/ManagePage.tsx",
+      "target": "function:src/features/manage/ManagePage.tsx:ManagePage",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/components/Flashcard.tsx",
+      "target": "function:src/features/review/components/Flashcard.tsx:CustomIcon",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/components/Flashcard.tsx",
+      "target": "function:src/features/review/components/Flashcard.tsx:Flashcard",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/components/Flashcard.tsx",
+      "target": "function:src/features/review/components/Flashcard.tsx:Flashcard",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/components/FlashcardList.tsx",
+      "target": "function:src/features/review/components/FlashcardList.tsx:FlashcardList",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/components/FlashcardList.tsx",
+      "target": "function:src/features/review/components/FlashcardList.tsx:FlashcardList",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/ReviewPage.tsx",
+      "target": "function:src/features/review/ReviewPage.tsx:ReviewPage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/review/ReviewPage.tsx",
+      "target": "function:src/features/review/ReviewPage.tsx:ReviewPage",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/trash/TrashPage.tsx",
+      "target": "function:src/features/trash/TrashPage.tsx:TrashPage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/features/trash/TrashPage.tsx",
+      "target": "function:src/features/trash/TrashPage.tsx:TrashPage",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useDictionary.ts",
+      "target": "function:src/hooks/useDictionary.ts:useDictionary",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useDictionary.ts",
+      "target": "function:src/hooks/useDictionary.ts:useDictionary",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useFlashcards.ts",
+      "target": "function:src/hooks/useFlashcards.ts:useFlashcards",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useFlashcards.ts",
+      "target": "function:src/hooks/useFlashcards.ts:useFlashcards",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammar.ts",
+      "target": "function:src/hooks/useGrammar.ts:useGrammar",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammar.ts",
+      "target": "function:src/hooks/useGrammar.ts:useGrammar",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useGrammarCategories",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useGrammarPoints",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useGrammarPointDetails",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useLearnedGrammarPoints",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useToggleGrammarPointLearned",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useGrammarCategories",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useGrammarPoints",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useGrammarPointDetails",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useLearnedGrammarPoints",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useGrammarDb.ts",
+      "target": "function:src/hooks/useGrammarDb.ts:useToggleGrammarPointLearned",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useSrs.ts",
+      "target": "function:src/hooks/useSrs.ts:useSrs",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useSrs.ts",
+      "target": "function:src/hooks/useSrs.ts:useSrs",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useTts.ts",
+      "target": "function:src/hooks/useTts.ts:useTts",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/hooks/useTts.ts",
+      "target": "file:src/types/index.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/pinyin.ts",
+      "target": "function:src/lib/pinyin.ts:convertPinyin",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:getMasteryLabel",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:getMasteryColor",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:getHskBadgeColor",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:isHanzi",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:filterHanziInput",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:getInputFontClass",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main.tsx",
+      "target": "file:src/index.css",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main.tsx",
+      "target": "function:src/stores/ui.ts:loadInitialConfig",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/app.ts",
+      "target": "function:src/stores/app.ts:useAppStore",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/app.ts",
+      "target": "file:src/types/index.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/flashcard.ts",
+      "target": "function:src/stores/flashcard.ts:useFlashcardStore",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/flashcard.ts",
+      "target": "file:src/types/index.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/index.ts",
+      "target": "function:src/stores/app.ts:useAppStore",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/index.ts",
+      "target": "function:src/stores/flashcard.ts:useFlashcardStore",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/index.ts",
+      "target": "function:src/stores/tts.ts:useTtsStore",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/index.ts",
+      "target": "function:src/stores/ui.ts:useUiStore",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/tts.ts",
+      "target": "function:src/stores/tts.ts:useTtsStore",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/ui.ts",
+      "target": "function:src/stores/ui.ts:useUiStore",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/ui.ts",
+      "target": "function:src/stores/ui.ts:loadInitialConfig",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/stores/ui.ts",
+      "target": "file:src/types/index.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/types/index.ts",
+      "target": "class:src/types/index.ts:Flashcard",
+      "type": "contains",
+      "weight": 1.0,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src-tauri/src/infra/database/mod.rs",
+      "target": "table:flashcards",
+      "type": "writes_to",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src-tauri/src/infra/database/mod.rs",
+      "target": "table:trash",
+      "type": "writes_to",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src-tauri/src/infra/database/mod.rs",
+      "target": "table:grammar_notes",
+      "type": "writes_to",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:backend-domain",
+      "name": "Backend Domain",
+      "description": "Core business logic (SRS, TTS, Config types).",
+      "nodeIds": [
+        "file:src-tauri/src/domain/srs/mod.rs",
+        "function:src-tauri/src/domain/srs/mod.rs:calculate_next_review",
+        "file:src-tauri/src/domain/tts/mod.rs"
+      ]
+    },
+    {
+      "id": "layer:backend-infra",
+      "name": "Backend Infrastructure",
+      "description": "Database management and Tauri command implementations.",
+      "nodeIds": [
+        "file:src-tauri/src/infra/commands/flashcard.rs",
+        "function:src-tauri/src/infra/commands/flashcard.rs:get_due_flashcards",
+        "function:src-tauri/src/infra/commands/flashcard.rs:record_review_result",
+        "file:src-tauri/src/infra/commands/srs.rs",
+        "file:src-tauri/src/infra/commands/tts.rs",
+        "file:src-tauri/src/infra/database/mod.rs",
+        "file:src-tauri/src/infra/mod.rs",
+        "file:src-tauri/src/infra/models/mod.rs",
+        "file:src-tauri/src/infra/commands/decomposition.rs"
+      ]
+    },
+    {
+      "id": "layer:backend-app",
+      "name": "Backend Application",
+      "description": "Application state management and Tauri entry point.",
+      "nodeIds": [
+        "module:src-tauri/src/app/mod.rs",
+        "file:src-tauri/src/app/state.rs",
+        "class:src-tauri/src/app/state.rs:AppState",
+        "function:src-tauri/src/app/state.rs:refresh_flashcards_cache",
+        "function:src-tauri/src/app/state.rs:refresh_dict_cache",
+        "file:src-tauri/src/main.rs"
+      ]
+    },
+    {
+      "id": "layer:frontend-features",
+      "name": "Frontend Features",
+      "description": "Product-level modules (Dashboard, Review, Dictionary).",
+      "nodeIds": [
+        "file:src/features/dashboard/DashboardPage.tsx",
+        "file:src/features/decomposition/components/DecompositionDetails.tsx",
+        "file:src/features/decomposition/components/DecompositionSearch.tsx",
+        "file:src/features/decomposition/components/DecompositionTree.tsx",
+        "file:src/features/decomposition/components/HanziWriterAnimator.tsx",
+        "file:src/features/decomposition/DecompositionPage.module.css",
+        "file:src/features/decomposition/DecompositionPage.tsx",
+        "file:src/features/decomposition/types.ts",
+        "file:src/features/dictionary/components/DictionaryPopover.tsx",
+        "file:src/features/dictionary/components/HanziHover.tsx",
+        "file:src/features/dictionary/DictionaryPage.tsx",
+        "function:src/features/dictionary/DictionaryPage.tsx:DictionaryPage",
+        "file:src/features/grammar/components/GrammarDetails.tsx",
+        "function:src/features/grammar/components/GrammarDetails.tsx:GrammarDetails",
+        "file:src/features/grammar/components/GrammarDetailsHeader.tsx",
+        "function:src/features/grammar/components/GrammarDetailsHeader.tsx:GrammarDetailsHeader",
+        "file:src/features/grammar/components/GrammarExampleCard.tsx",
+        "function:src/features/grammar/components/GrammarExampleCard.tsx:GrammarExampleCard",
+        "file:src/features/grammar/components/GrammarExplanation.tsx",
+        "function:src/features/grammar/components/GrammarExplanation.tsx:GrammarExplanation",
+        "file:src/features/grammar/components/GrammarPageHeader.tsx",
+        "function:src/features/grammar/components/GrammarPageHeader.tsx:GrammarPageHeader",
+        "file:src/features/grammar/components/GrammarTree.tsx",
+        "function:src/features/grammar/components/GrammarTree.tsx:GrammarTree",
+        "file:src/features/grammar/components/GrammarTreeNode.tsx",
+        "function:src/features/grammar/components/GrammarTreeNode.tsx:GrammarTreeNode",
+        "file:src/features/grammar/GrammarPage.tsx",
+        "function:src/features/grammar/GrammarPage.tsx:GrammarPage",
+        "file:src/features/grammar/types.ts",
+        "file:src/features/manage/components/AddCardForm.tsx",
+        "function:src/features/manage/components/AddCardForm.tsx:AddCardForm",
+        "file:src/features/manage/components/FlashcardRow.tsx",
+        "function:src/features/manage/components/FlashcardRow.tsx:FlashcardRow",
+        "file:src/features/manage/components/FlashcardTable.tsx",
+        "function:src/features/manage/components/FlashcardTable.tsx:FlashcardTable",
+        "file:src/features/manage/components/ManageFilters.tsx",
+        "function:src/features/manage/components/ManageFilters.tsx:ManageFilters",
+        "file:src/features/manage/ManagePage.tsx",
+        "function:src/features/manage/ManagePage.tsx:ManagePage",
+        "file:src/features/review/components/Flashcard.tsx",
+        "function:src/features/review/components/Flashcard.tsx:CustomIcon",
+        "function:src/features/review/components/Flashcard.tsx:Flashcard",
+        "file:src/features/review/components/FlashcardList.tsx",
+        "function:src/features/review/components/FlashcardList.tsx:FlashcardList",
+        "file:src/features/review/ReviewPage.tsx",
+        "function:src/features/review/ReviewPage.tsx:ReviewPage",
+        "file:src/features/trash/TrashPage.tsx",
+        "function:src/features/trash/TrashPage.tsx:TrashPage"
+      ]
+    },
+    {
+      "id": "layer:frontend-ui",
+      "name": "Frontend UI",
+      "description": "Reusable UI components and layout.",
+      "nodeIds": [
+        "file:src/components/layout/Layout.tsx",
+        "file:src/components/layout/Sidebar.tsx",
+        "file:src/components/layout/TitleBar.tsx",
+        "file:src/components/ui/Badge.tsx",
+        "file:src/components/ui/Button.tsx",
+        "file:src/components/ui/Card.tsx",
+        "file:src/components/ui/Input.tsx"
+      ]
+    },
+    {
+      "id": "layer:frontend-data",
+      "name": "Frontend Data & State",
+      "description": "Hooks, stores, and utilities for managing application data.",
+      "nodeIds": [
+        "file:src/hooks/index.ts",
+        "file:src/hooks/useDictionary.ts",
+        "function:src/hooks/useDictionary.ts:useDictionary",
+        "file:src/hooks/useFlashcards.ts",
+        "function:src/hooks/useFlashcards.ts:useFlashcards",
+        "file:src/hooks/useGrammar.ts",
+        "function:src/hooks/useGrammar.ts:useGrammar",
+        "file:src/hooks/useGrammarDb.ts",
+        "function:src/hooks/useGrammarDb.ts:useGrammarCategories",
+        "function:src/hooks/useGrammarDb.ts:useGrammarPoints",
+        "function:src/hooks/useGrammarDb.ts:useGrammarPointDetails",
+        "function:src/hooks/useGrammarDb.ts:useLearnedGrammarPoints",
+        "function:src/hooks/useGrammarDb.ts:useToggleGrammarPointLearned",
+        "file:src/hooks/useSrs.ts",
+        "function:src/hooks/useSrs.ts:useSrs",
+        "file:src/hooks/useTts.ts",
+        "function:src/hooks/useTts.ts:useTts",
+        "file:src/lib/pinyin.ts",
+        "function:src/lib/pinyin.ts:convertPinyin",
+        "file:src/lib/utils.ts",
+        "function:src/lib/utils.ts:cn",
+        "function:src/lib/utils.ts:getMasteryLabel",
+        "function:src/lib/utils.ts:getMasteryColor",
+        "function:src/lib/utils.ts:getHskBadgeColor",
+        "function:src/lib/utils.ts:isHanzi",
+        "function:src/lib/utils.ts:filterHanziInput",
+        "function:src/lib/utils.ts:getInputFontClass",
+        "file:src/stores/app.ts",
+        "function:src/stores/app.ts:useAppStore",
+        "file:src/stores/flashcard.ts",
+        "function:src/stores/flashcard.ts:useFlashcardStore",
+        "file:src/stores/index.ts",
+        "file:src/stores/tts.ts",
+        "function:src/stores/tts.ts:useTtsStore",
+        "file:src/stores/ui.ts",
+        "function:src/stores/ui.ts:useUiStore",
+        "function:src/stores/ui.ts:loadInitialConfig",
+        "file:src/types/index.ts",
+        "class:src/types/index.ts:Flashcard"
+      ]
+    },
+    {
+      "id": "layer:database",
+      "name": "Database",
+      "description": "SQLite databases and schema definitions.",
+      "nodeIds": [
+        "file:data/app_database.db",
+        "file:data/zh_backup.db",
+        "file:data/zh.db",
+        "table:flashcards",
+        "table:trash",
+        "table:grammar_notes",
+        "table:vocabulary",
+        "table:learned_grammar_points"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Configuration & Docs",
+      "description": "Build configurations, package manifests, and project documentation.",
+      "nodeIds": [
+        "file:.understand-anything/intermediate/batches.json",
+        "file:.understand-anything/intermediate/scan-result-partial.json",
+        "file:.understand-anything/intermediate/scan-result.json",
+        "file:.understand-anything/tmp/ua-file-analyzer-input-1.json",
+        "file:.understand-anything/tmp/ua-file-analyzer-input-2.json",
+        "file:.understand-anything/tmp/ua-file-analyzer-input-3.json",
+        "file:.understand-anything/tmp/ua-file-analyzer-input-5.json",
+        "file:.understand-anything/tmp/ua-import-map-input.json",
+        "file:.understand-anything/tmp/ua-import-map-output.json",
+        "file:CLAUDE.md",
+        "file:DESIGN_SYSTEM.md",
+        "file:README.md",
+        "file:database_description.md",
+        "file:index.html",
+        "file:package.json",
+        "file:tsconfig.json",
+        "file:skills/design-taste-frontend.md",
+        "file:skills/full-output-enforcement.md",
+        "file:skills/high-end-visual-design.md",
+        "file:skills/minimalist-ui.md",
+        "file:skills/redesign-existing-projects.md",
+        "file:src-tauri/gen/schemas/acl-manifests.json",
+        "file:src-tauri/gen/schemas/capabilities.json",
+        "file:src-tauri/gen/schemas/desktop-schema.json",
+        "file:src-tauri/gen/schemas/linux-schema.json",
+        "config:.understand-anything/.understandignore",
+        "document:data/characters.txt",
+        "config:data/config.json",
+        "config:postcss.config.js",
+        "file:scripts/download_hanzi_data.js",
+        "file:src-tauri/build.rs",
+        "config:src-tauri/Cargo.toml",
+        "function:src-tauri/src/infra/commands/srs.rs:get_statistics",
+        "function:src-tauri/src/infra/commands/srs.rs:get_review_plan",
+        "function:src-tauri/src/infra/commands/tts.rs:generate_audio",
+        "function:src-tauri/src/infra/commands/tts.rs:play_audio_file",
+        "function:src-tauri/src/infra/commands/tts.rs:speak_text",
+        "class:src-tauri/src/infra/database/mod.rs:DatabaseManager",
+        "config:src-tauri/tauri.conf.json",
+        "file:src/App.tsx",
+        "file:src/index.css",
+        "file:src/main.tsx",
+        "file:src/vite-env.d.ts",
+        "config:tailwind.config.js",
+        "config:vite.config.ts"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Application Entry Points",
+      "description": "The project boots from two ends: the Rust backend (Tauri) and the React frontend. This setup enables high-performance native features with a modern web UI.",
+      "nodeIds": [
+        "file:src-tauri/src/main.rs",
+        "file:src/main.tsx",
+        "file:src/App.tsx"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "State & Database Management",
+      "description": "Backend state is managed in AppState with in-memory caches for instant lookups. Data is persisted across two SQLite databases: one for user content and one for the dictionary.",
+      "nodeIds": [
+        "file:src-tauri/src/app/state.rs",
+        "file:src-tauri/src/infra/database/mod.rs",
+        "table:flashcards",
+        "table:vocabulary"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Core Domain: Spaced Repetition (SRS)",
+      "description": "The heart of the learning experience is the SRS algorithm. It uses an exponential backoff strategy to calculate optimal review intervals across 8 mastery levels.",
+      "nodeIds": [
+        "file:src-tauri/src/domain/srs/mod.rs",
+        "function:src-tauri/src/domain/srs/mod.rs:calculate_next_review"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Advanced Features: Decomposition & TTS",
+      "description": "The application includes sophisticated features like recursive character decomposition and multi-voice Text-to-Speech using Microsoft Edge Neural voices.",
+      "nodeIds": [
+        "file:src-tauri/src/infra/commands/decomposition.rs",
+        "file:src-tauri/src/domain/tts/mod.rs"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Frontend State & Features",
+      "description": "The UI is organized by features (Review, Dashboard, Dictionary). Global state like themes and session data is handled by Zustand stores and custom hooks.",
+      "nodeIds": [
+        "file:src/stores/ui.ts",
+        "file:src/features/review/ReviewPage.tsx",
+        "file:src/features/dashboard/DashboardPage.tsx",
+        "file:src/hooks/useFlashcards.ts"
+      ]
+    }
+  ]
+}

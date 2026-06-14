@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tree-border: #cbd5e1;
+}
+
+.dark {
+  --tree-border: #3f3f46;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased;
+    font-family: "Noto Sans", "Segoe UI", "Arial", sans-serif;
+  }
+}
+
+@layer components {
+  .hanzi-text {
+    font-family: "FandolKai", "Noto Sans SC", "SimSun", sans-serif;
+  }
+}
+
+@layer utilities {
+  /* GPU-Accelerated Smooth Scrolling */
+  .scroll-smooth-gpu {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll-position;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Thin Scrollbar Customization */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.35);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.55);
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(82, 82, 91, 0.45);
+    border-radius: 9999px;
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(82, 82, 91, 0.65);
+  }
+}
+
+@layer components {
+  /* ====================== METAL TIERS (2-4) & DIAMOND (5) ====================== */
+  .badge-metal {
+    @apply relative overflow-hidden font-bold border-none;
+    /* 3D shading box shadow for all metals */
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.5), 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .dark .badge-metal {
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  /* The diagonal shine */
+  .badge-metal::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(to right, 
+      rgba(255,255,255,0) 0%, 
+      rgba(255,255,255,0.1) 40%, 
+      rgba(255,255,255,0.6) 50%, 
+      rgba(255,255,255,0.1) 60%, 
+      rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-30deg);
+    /* Continously creeping slowly */
+    animation: metalShine 4s linear infinite;
+  }
+  .dark .badge-metal::after {
+    background: linear-gradient(to right, 
+      rgba(255,255,255,0) 0%, 
+      rgba(255,255,255,0.05) 40%, 
+      rgba(255,255,255,0.3) 50%, 
+      rgba(255,255,255,0.05) 60%, 
+      rgba(255,255,255,0) 100%
+    );
+  }
+
+  @keyframes metalShine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+  }
+
+  /* --- TIER 2: BRONZE --- */
+  .badge-bronze {
+    @apply badge-metal text-white dark:text-[#f4d0a9];
+    background: linear-gradient(180deg, #d48f4b 0%, #a65d21 50%, #d48f4b 100%);
+  }
+  .badge-bronze::after {
+    width: 150%; /* Thick, broad shine */
+  }
+  .dark .badge-bronze {
+    background: linear-gradient(180deg, #8b4513 0%, #5a2e0c 50%, #8b4513 100%);
+  }
+  
+  /* --- TIER 3: SILVER --- */
+  .badge-silver {
+    @apply badge-metal text-slate-800 dark:text-slate-100;
+    background: linear-gradient(180deg, #f3f4f6 0%, #9ca3af 50%, #f3f4f6 100%);
+  }
+  .badge-silver::after {
+    width: 80%; /* Medium shine */
+  }
+  .dark .badge-silver {
+    background: linear-gradient(180deg, #6b7280 0%, #374151 50%, #6b7280 100%);
+  }
+
+  /* --- TIER 4: GOLD --- */
+  .badge-gold {
+    @apply badge-metal font-extrabold text-yellow-950 dark:text-[#ffefb3];
+    background: linear-gradient(180deg, #ffd700 0%, #c59b00 50%, #ffd700 100%);
+  }
+  .badge-gold::after {
+    width: 30%; /* Thin, sharp shine */
+  }
+  .dark .badge-gold {
+    background: linear-gradient(180deg, #b8860b 0%, #654321 50%, #b8860b 100%);
+  }
+
+  /* --- TIER 5: DIAMOND --- */
+  .badge-diamond {
+    @apply badge-metal font-extrabold text-[#083344] dark:text-[#cffafe];
+    background: linear-gradient(180deg, #00ced1 0%, #008b8b 50%, #00ced1 100%);
+  }
+  .badge-diamond::after {
+    width: 15%; /* Razor-thin, diamond-sharp shine */
+  }
+  .dark .badge-diamond {
+    background: linear-gradient(180deg, #00688b 0%, #003344 50%, #00688b 100%);
+  }
+
+  /* ====================== TIER 6: MYTHIC (HOLOGRAPHIC PEARL) ====================== */
+  .badge-mythic {
+    @apply font-extrabold border-none text-zinc-800 dark:text-zinc-100;
+    background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 50%, #fbc2eb 100%);
+    background-size: 200% 200%;
+    animation: fluidGradient 6s ease infinite;
+    box-shadow: 0 4px 15px rgba(166, 193, 238, 0.4), inset 0 0 10px rgba(255,255,255,0.8);
+  }
+  .dark .badge-mythic {
+    background: linear-gradient(120deg, #3d1b32 0%, #1c2740 50%, #3d1b32 100%);
+    box-shadow: 0 4px 15px rgba(28, 39, 64, 0.6), inset 0 0 10px rgba(255,255,255,0.1);
+  }
+  @keyframes fluidGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ====================== TIER 7: VELVET RUBY & PLATINUM (Replaces Fire) ====================== */
+  .badge-fire {
+    @apply relative overflow-hidden font-black border-none;
+    z-index: 1;
+    color: #f1f5f9; /* Platinum/Silver text */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 15px rgba(113, 9, 38, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  .dark .badge-fire {
+    color: #f8fafc;
+    box-shadow: 0 4px 20px rgba(113, 9, 38, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Elegantly rotating Platinum thin border */
+  .badge-fire::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    /* Solid dark burgundy base border, with a single narrow, sharp platinum ray */
+    background: conic-gradient(from 0deg, #4f061a 0deg, #4f061a 320deg, rgba(255,255,255,0.4) 350deg, #ffffff 360deg);
+    animation: rotateBorder 4s linear infinite; /* Slightly faster so it doesn't linger on corners too long */
+    z-index: -2;
+  }
+  .dark .badge-fire::before {
+    background: conic-gradient(from 0deg, #2d0410 0deg, #2d0410 320deg, rgba(255,255,255,0.4) 350deg, #ffffff 360deg);
+  }
+  @keyframes rotateBorder {
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Deep Velvet/Wine core */
+  .badge-fire::after {
+    content: '';
+    position: absolute;
+    inset: 2px; /* Increased border thickness so it's clearly visible in light mode */
+    border-radius: 9999px;
+    background: linear-gradient(180deg, #710926, #2d0410); /* Luxurious Burgundy */
+    z-index: -1;
+  }
+  .dark .badge-fire::after {
+    background: linear-gradient(180deg, #4f061a, #170107);
+  }
+
+  /* ====================== TIER 8: ULTIMATE (BLACK CARD & PURE GOLD) ====================== */
+  .badge-ultimate {
+    @apply relative overflow-hidden font-black border-none;
+    z-index: 1;
+    /* Deep gradient card so it's not pure black in light mode */
+    background: linear-gradient(180deg, #27272a, #09090b); 
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2), inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+  }
+  .dark .badge-ultimate {
+    background: linear-gradient(180deg, #18181b, #000000);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1), inset 0 0 0 1px rgba(212, 175, 55, 0.15);
+  }
+
+  /* Subtle moving gold reflection on the card */
+  .badge-ultimate::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -100%; width: 50%; height: 200%;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transform: skewX(-30deg);
+    animation: ultimateReflect 10s linear infinite; /* Extremely slow, creeping luxury */
+    z-index: -1;
+  }
+  .dark .badge-ultimate::after {
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.15), transparent);
+  }
+  @keyframes ultimateReflect {
+    0% { left: -100%; }
+    100% { left: 200%; }
+  }
+
+  /* Gold text gradient */
+  .badge-ultimate-text {
+    @apply relative z-10 bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    background-size: 200% auto;
+    animation: goldTextShine 6s linear infinite;
+  }
+  @keyframes goldTextShine {
+    to { background-position: 200% center; }
+  }
+}

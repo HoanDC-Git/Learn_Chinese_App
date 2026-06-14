@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+src-tauri/target/
+
+# Build output
+dist/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+tauri_run.log
+
+# Environment variables & Local configurations
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Tauri temp / backups
+src-tauri/tauri.conf.json.bak
+
+# Local Database & User-specific Data (Do NOT commit user progress or caches)
+data/app_database.db
+data/config.json
+data/audio/
+data/*.db.bak
+data/*_backup.db
+
+# Test Audio Files & Temp Artifacts in root
+test.mp3
+test2.mp3
+test3.mp3
