@@ -63,7 +63,8 @@ export function filterHanziInput(text: string): string {
       code === 0x300A || code === 0x300B || code === 0x300C || code === 0x300D ||
       code === 0x2018 || code === 0x2019 || code === 0x201C || code === 0x201D ||
       code === 0x2014 || code === 0x2013 || code === 0x2026 ||
-      code === 0x3000 || code === 0x0020 || code === 0x003F || code === 0x0021;
+      code === 0x3000 || code === 0x0020 || code === 0x003F || code === 0x0021 ||
+      code === 0xFF1F || code === 0xFF01 || code === 0xFF1A || code === 0xFF1B;
     const isSpecial =
       code === 0x3008 || code === 0x3009 || code === 0xFF08 || code === 0xFF09 ||
       code === 0x3010 || code === 0x3011 || code === 0x00B7;
@@ -71,7 +72,3 @@ export function filterHanziInput(text: string): string {
   }).join("");
 }
 
-export function getInputFontClass(text: string): string {
-  const hasVietnameseAccents = /[ăâêôơưđảãạẻẽẹỉĩịỏõọủũụýỳỷỹỵĂÂÊÔƠƯĐẢÃẠẺẼẸỈĨỊỎÕỌỦŨỤÝỲỶỸỴ]/.test(text);
-  return (!text || hasVietnameseAccents) ? "font-mixed" : "font-hanzi";
-}

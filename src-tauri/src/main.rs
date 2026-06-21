@@ -21,7 +21,6 @@ async fn main() -> anyhow::Result<()> {
     let app_state = AppState::new(db_manager);
 
     app_state.refresh_flashcards_cache().await;
-    app_state.refresh_dict_cache().await;
     app_state.load_decomposition_variants().await;
     log::info!("Data loaded into RAM cache");
 

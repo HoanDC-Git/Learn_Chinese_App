@@ -1,7 +1,7 @@
 import { Search, ChevronDown, Volume2, StopCircle, Trash } from "lucide-react";
 import { Input } from "../../../components/ui/Input";
 import { Button } from "../../../components/ui/Button";
-import { getMasteryLabel, cn, getInputFontClass } from "../../../lib/utils";
+import { getMasteryLabel, cn } from "../../../lib/utils";
 
 interface ManageFiltersProps {
   search: string;
@@ -38,7 +38,7 @@ export function ManageFilters({
           onChange={(e) => onSearchChange(e.target.value)}
           className={cn(
             "text-zinc-900 dark:text-zinc-100",
-            getInputFontClass(search)
+            "font-mixed"
           )}
         />
       </div>

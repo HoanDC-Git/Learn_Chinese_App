@@ -99,7 +99,7 @@ export const FlashcardRow = memo(function FlashcardRow({
   };
 
   return (
-    <tr className="border-b transition-colors border-zinc-100 dark:border-zinc-800/60 hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
+    <>
       {isEditing ? (
         <>
           <td className="py-3 px-1" />
@@ -258,6 +258,6 @@ export const FlashcardRow = memo(function FlashcardRow({
           </td>
         </>
       )}
-    </tr>
+    </>
   );
 });

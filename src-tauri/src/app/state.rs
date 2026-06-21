@@ -1,5 +1,5 @@
 use crate::infra::database::DatabaseManager;
-use crate::infra::models::{DictionaryEntry, Flashcard, BasicCharacter};
+use crate::infra::models::{Flashcard, BasicCharacter};
 use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
 
@@ -7,7 +7,6 @@ use std::sync::{Arc, RwLock};
 pub struct AppState {
     pub db: Arc<DatabaseManager>,
     pub flashcards_cache: Arc<RwLock<Vec<Flashcard>>>,
-    pub dict_cache: Arc<RwLock<HashMap<String, DictionaryEntry>>>,
     pub variant_map: Arc<RwLock<HashMap<String, BasicCharacter>>>,
 }
 
@@ -16,7 +15,6 @@ impl AppState {
         Self {
             db: Arc::new(db),
             flashcards_cache: Arc::new(RwLock::new(Vec::new())),
-            dict_cache: Arc::new(RwLock::new(HashMap::new())),
             variant_map: Arc::new(RwLock::new(HashMap::new())),
         }
     }
@@ -34,23 +32,6 @@ impl AppState {
         }
     }
 
-    pub async fn refresh_dict_cache(&self) {
-        let entries = sqlx::query_as::<_, DictionaryEntry>(
-            "SELECT id, hsk_level, word, pinyin, pos, meaning_vi, meaning_en FROM vocabulary",
-        )
-        .fetch_all(&self.db.dict_db)
-        .await
-        .unwrap_or_default();
-
-        let mut map = HashMap::new();
-        for entry in entries {
-            map.insert(entry.word.clone(), entry);
-        }
-
-        if let Ok(mut cache) = self.dict_cache.write() {
-            *cache = map;
-        }
-    }
 
     pub async fn load_decomposition_variants(&self) {
         let radicals = sqlx::query_as::<_, BasicCharacter>(

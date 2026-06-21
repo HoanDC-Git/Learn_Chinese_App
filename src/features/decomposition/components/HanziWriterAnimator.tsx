@@ -17,7 +17,6 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasAnimation, setHasAnimation] = useState(true);
   const [hasImage, setHasImage] = useState(true);
-  const [quizMessage, setQuizMessage] = useState("Dùng chuột viết theo nét mờ!");
   const [quizSuccess, setQuizSuccess] = useState(false);
   const showGrid = true;
 
@@ -53,8 +52,8 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
 
     try {
       const writer = HanziWriter.create(targetRef.current, character, {
-        width: 140,
-        height: 140,
+        width: 180,
+        height: 180,
         padding: 5,
         showOutline: true,
         strokeColor,
@@ -145,35 +144,27 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
     if (!writerRef.current) return;
     
     setQuizSuccess(false);
-    setQuizMessage("Viết nét đầu tiên...");
     
     writerRef.current.quiz({
-      onCorrectStroke: (strokeData) => {
-        setQuizMessage(`Đúng! Nét ${strokeData.strokeNum + 1}/${(strokeData as any).totalStrokes}`);
-      },
-      onMistake: () => {
-        setQuizMessage(`Sai rồi. Cố lên! Nét tiếp theo...`);
-      },
       onComplete: () => {
         setQuizSuccess(true);
-        setQuizMessage("Xuất sắc! Bạn đã viết đúng.");
       },
     });
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 select-none">
+    <div className="flex flex-col items-center gap-4 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 select-none">
       <div className="relative">
         <div 
           ref={targetRef} 
           className={cn(
-            "relative z-10 w-[140px] h-[140px]",
+            "relative z-10 w-[180px] h-[180px]",
             !hasAnimation && "hidden"
           )}
         />
         
         {!hasAnimation && (
-          <div className="relative z-10 w-[140px] h-[140px] flex items-center justify-center">
+          <div className="relative z-10 w-[180px] h-[180px] flex items-center justify-center">
             {hex_code && hasImage ? (
               <img 
                 src={`/components/${hex_code}.svg`} 
@@ -215,7 +206,6 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
           size="sm"
           onClick={() => {
             setMode("animate");
-            setQuizMessage("Đã chuyển sang chế độ Xem");
           }}
           disabled={!hasAnimation}
           className="w-24"
@@ -237,13 +227,6 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
         </Button>
       </div>
 
-      {hasAnimation && mode === "quiz" && (
-        <div className="w-full text-center">
-          <span className={`text-xs font-medium ${quizSuccess ? "text-emerald-600 dark:text-emerald-400" : "text-zinc-500 dark:text-zinc-400"}`}>
-            {quizMessage}
-          </span>
-        </div>
-      )}
 
       <div className="w-full border-t border-zinc-100 dark:border-zinc-800/60 pt-3">
         {!hasAnimation ? (

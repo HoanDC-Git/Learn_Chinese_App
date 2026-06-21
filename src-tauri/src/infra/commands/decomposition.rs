@@ -60,6 +60,7 @@ fn build_decomposition_tree<'a>(
     character: String,
     state: &'a AppState,
     visited: HashSet<String>,
+    is_left_radical: Option<bool>,
 ) -> Pin<Box<dyn Future<Output = DecompositionNode> + Send + 'a>> {
     Box::pin(async move {
         // 1. Tránh vòng lặp đệ quy vô hạn
@@ -126,10 +127,28 @@ fn build_decomposition_tree<'a>(
         }
 
         // 3. Kiểm tra biến thể bộ thủ dựa trên variant_map trong RAM
-        let variant_opt = {
+        let mut variant_opt = {
             let map = state.variant_map.read().ok();
             map.and_then(|m| m.get(&character).cloned())
         };
+
+        // Xử lý riêng biệt cho bộ 阝 (Trái = Phụ 阜, Phải = Ấp 邑)
+        if character == "阝" {
+            if let Some(is_left) = is_left_radical {
+                let parent_rad_char = if is_left { "阜" } else { "邑" };
+                let rad_row = sqlx::query_as::<_, BasicCharacter>(
+                    "SELECT character, radical_number, parent_radical, variants, simplified, pinyin, meaning_vi, meaning_en, strokecount, type FROM decomposition_radicals WHERE character = ?"
+                )
+                .bind(parent_rad_char)
+                .fetch_optional(&state.db.dict_db)
+                .await
+                .unwrap_or(None);
+                
+                if let Some(parent_rad) = rad_row {
+                    variant_opt = Some(parent_rad);
+                }
+            }
+        }
 
         if let Some(parent_rad) = variant_opt {
             let meaning_vi = parent_rad.meaning_vi.as_ref()
@@ -177,8 +196,13 @@ fn build_decomposition_tree<'a>(
 
             let child_chars = extract_components(&c.decomposition);
             let mut children = Vec::new();
-            for child in child_chars {
-                let child_node = build_decomposition_tree(child, state, visited_copy.clone()).await;
+            for (idx, child) in child_chars.iter().enumerate() {
+                let is_left = if child == "阝" {
+                    Some(idx == 0)
+                } else {
+                    None
+                };
+                let child_node = build_decomposition_tree(child.clone(), state, visited_copy.clone(), is_left).await;
                 children.push(child_node);
             }
 
@@ -223,8 +247,13 @@ fn build_decomposition_tree<'a>(
             let mut children = Vec::new();
             if let Some(decomp) = &s.decomposition {
                 let child_chars = extract_components(decomp);
-                for child in child_chars {
-                    let child_node = build_decomposition_tree(child, state, visited_copy.clone()).await;
+                for (idx, child) in child_chars.iter().enumerate() {
+                    let is_left = if child == "阝" {
+                        Some(idx == 0)
+                    } else {
+                        None
+                    };
+                    let child_node = build_decomposition_tree(child.clone(), state, visited_copy.clone(), is_left).await;
                     children.push(child_node);
                 }
             }
@@ -367,6 +396,6 @@ pub async fn lookup_decomposition(
     }
 
     let visited = HashSet::new();
-    let tree = build_decomposition_tree(trimmed.to_string(), &state, visited).await;
+    let tree = build_decomposition_tree(trimmed.to_string(), &state, visited, None).await;
     Ok(tree)
 }

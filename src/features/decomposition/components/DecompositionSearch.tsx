@@ -2,16 +2,15 @@ import React, { useRef, useEffect } from "react";
 import { Search } from "lucide-react";
 import { Input } from "../../../components/ui/Input";
 import { Card } from "../../../components/ui/Card";
-import { cn, getInputFontClass } from "../../../lib/utils";
+import { cn } from "../../../lib/utils";
 import type { DecompositionSearchResponse, DecompositionNode } from "../types";
 import { HanziWriterAnimator } from "./HanziWriterAnimator";
 
 const SAMPLE_CHARS = [
-  { char: "想", label: "Nghĩ" },
-  { char: "家", label: "Nhà" },
-  { char: "国", label: "Quốc" },
   { char: "我", label: "Tôi" },
   { char: "学", label: "Học" },
+  { char: "中", label: "Trung" },
+  { char: "文", label: "Văn" },
 ];
 
 interface DecompositionSearchProps {
@@ -97,7 +96,7 @@ export function DecompositionSearch({
   };
 
   return (
-    <div className="w-[340px] border rounded-xl flex flex-col p-5 gap-6 shrink-0 overflow-y-auto bg-white dark:bg-zinc-900/40 border-zinc-200 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md scrollbar-thin">
+    <div className="w-[280px] border rounded-xl flex flex-col p-4 gap-4 shrink-0 overflow-y-auto bg-white dark:bg-zinc-900/40 border-zinc-200 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md scrollbar-thin">
       {/* Search container */}
       <div ref={searchContainerRef} className="relative">
         <form onSubmit={handleSearchSubmit} className="relative flex items-center">
@@ -111,8 +110,8 @@ export function DecompositionSearch({
             }}
             onFocus={() => setShowSuggestions(true)}
             className={cn(
-              "pl-10 pr-3 py-2.5 text-base bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800/80 focus-visible:ring-fuchsia-500/30 focus-visible:border-fuchsia-500/50 hover:border-zinc-300 dark:hover:border-zinc-700/80 transition-all focus:shadow-[0_0_15px_rgba(217,70,239,0.08)]",
-              getInputFontClass(query)
+              "pl-10 pr-3 py-3 text-lg bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800/80 focus-visible:ring-fuchsia-500/30 focus-visible:border-fuchsia-500/50 hover:border-zinc-300 dark:hover:border-zinc-700/80 transition-all focus:shadow-[0_0_15px_rgba(217,70,239,0.08)]",
+              "font-mixed"
             )}
           />
         </form>
@@ -159,17 +158,17 @@ export function DecompositionSearch({
 
       {/* Character selector grid for multi-character word */}
       {wordChars.length > 0 && (
-        <Card className="p-3.5 bg-cyan-500/5 border border-dashed border-cyan-500/30 dark:border-cyan-500/20 rounded-xl">
-          <h4 className="text-xs font-bold mb-2.5 uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+        <Card className="shrink-0 p-3 bg-cyan-500/5 border border-dashed border-cyan-500/30 dark:border-cyan-500/20 rounded-xl flex flex-col">
+          <h4 className="text-xs font-bold mb-2 uppercase tracking-wider text-cyan-600/70 dark:text-cyan-400/70">
             Chọn chữ để chiết tự:
           </h4>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 overflow-hidden">
             {wordChars.map((char) => (
               <button
                 key={char}
                 onClick={() => loadDecomposition(char)}
                 className={cn(
-                  "w-11 h-11 border rounded-lg flex items-center justify-center font-hanzi text-xl font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer",
+                  "w-9 h-9 border rounded-lg flex items-center justify-center font-hanzi text-lg font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer",
                   activeChar === char
                     ? "border-cyan-500 bg-cyan-500 text-white shadow-sm"
                     : "hover:border-cyan-500 border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-950"
@@ -184,8 +183,8 @@ export function DecompositionSearch({
 
       {/* Quick HSK Characters */}
       <div className="flex flex-col gap-2.5">
-        <h4 className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Chữ Hán tiêu biểu</h4>
-        <div className="grid grid-cols-5 gap-1.5">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Chữ Hán tiêu biểu</h4>
+        <div className="grid grid-cols-4 gap-1.5">
           {SAMPLE_CHARS.map((item) => (
             <button
               key={item.char}
@@ -206,21 +205,7 @@ export function DecompositionSearch({
 
       {/* Node Character Hero card & Animator (Redesigned layout) */}
       {selectedNode && (
-        <div className="mt-auto pt-5 border-t border-zinc-100 dark:border-zinc-800/60 flex flex-col gap-4">
-          <div className="flex items-center gap-4.5 p-4 rounded-2xl border border-zinc-200/60 dark:border-zinc-800/70 bg-gradient-to-br from-zinc-50/80 to-zinc-100/30 dark:from-zinc-900/80 dark:to-zinc-950/20 shadow-2xs">
-            <div className="w-16 h-16 rounded-xl bg-white dark:bg-zinc-950 flex items-center justify-center border border-zinc-100 dark:border-zinc-800 shadow-2xs font-hanzi text-5xl font-bold text-zinc-900 dark:text-zinc-100 select-none animate-pulse-slow">
-              {selectedNode.character}
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <span className="text-lg font-bold text-cyan-600 dark:text-cyan-400 font-sans tracking-wide">
-                {selectedNode.pinyin ? `[ ${selectedNode.pinyin} ]` : "[ — ]"}
-              </span>
-              <span className={cn("text-[9px] font-extrabold tracking-widest uppercase px-2.5 py-0.5 rounded-full self-start shadow-3xs border border-white/5", getBadgeColor(selectedNode.type))}>
-                {selectedNode.display_type}
-              </span>
-            </div>
-          </div>
-
+        <div className="mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800/60 flex flex-col gap-4">
           <HanziWriterAnimator character={selectedNode.character} hex_code={selectedNode.hex_code} />
         </div>
       )}

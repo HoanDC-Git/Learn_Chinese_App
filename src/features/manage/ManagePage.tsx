@@ -8,6 +8,7 @@ import { Card } from "../../components/ui/Card";
 import { invoke } from "@tauri-apps/api/core";
 import { useAppStore } from "../../stores";
 import type { Flashcard } from "../../types";
+import { useDebounce } from "../../hooks";
 
 type SortField = "level" | "date_added";
 type SortOrder = "asc" | "desc";
@@ -40,7 +41,7 @@ export function ManagePage() {
   const [totalCards, setTotalCards] = useState(0);
   const [isSearching, setIsSearching] = useState(false);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
-  const [scrollResetTrigger, setScrollResetTrigger] = useState(0);
+  const debouncedSearch = useDebounce(search, 300);
 
   useEffect(() => {
     if (activeTab !== "manage") return;
@@ -52,7 +53,7 @@ export function ManagePage() {
       }
       try {
         const result = await searchFlashcards({
-          query: search,
+          query: debouncedSearch,
           page,
           page_size: pageSize,
           sort_field: sortField,
@@ -62,7 +63,6 @@ export function ManagePage() {
         if (!active) return;
         setLoadedCards(result.cards);
         setTotalCards(result.total);
-        setScrollResetTrigger((v) => v + 1);
       } catch (e) {
         console.error("Search failed:", e);
       } finally {
@@ -76,7 +76,7 @@ export function ManagePage() {
     return () => {
       active = false;
     };
-  }, [search, page, sortField, sortOrder, filterLevel, searchFlashcards, refreshTrigger, activeTab]);
+  }, [debouncedSearch, page, sortField, sortOrder, filterLevel, searchFlashcards, refreshTrigger, activeTab]);
 
   useEffect(() => {
     const checkAudio = async () => {
@@ -124,14 +124,20 @@ export function ManagePage() {
   const handleBatchAudio = async () => {
     if (allCards.length === 0) return;
 
+    const pendingCards = allCards.filter(c => !audioStatus[c.id]);
+    if (pendingCards.length === 0) {
+      // All cards already have audio
+      return;
+    }
+
     batchCancelRef.current = false;
     setBatchRunning(true);
-    setBatchProgress({ current: 0, total: allCards.length });
+    setBatchProgress({ current: 0, total: pendingCards.length });
 
-    for (let i = 0; i < allCards.length; i++) {
+    for (let i = 0; i < pendingCards.length; i++) {
       if (batchCancelRef.current) break;
 
-      const card = allCards[i];
+      const card = pendingCards[i];
       try {
         const result = await generateAudio(card.hanzi);
         if (result.success) {
@@ -141,7 +147,9 @@ export function ManagePage() {
         // ignore errors
       }
 
-      setBatchProgress({ current: i + 1, total: allCards.length });
+      // Chờ 500ms để tránh bị edge-tts chặn IP
+      await new Promise((res) => setTimeout(res, 500));
+      setBatchProgress({ current: i + 1, total: pendingCards.length });
     }
 
     setBatchRunning(false);
@@ -238,7 +246,6 @@ export function ManagePage() {
           onDeleteAudio={handleDeleteAudio}
           onDelete={handleDelete}
           onSave={handleSaveEdit}
-          scrollResetTrigger={scrollResetTrigger}
         />
         <Pagination
           currentPage={page}

@@ -226,9 +226,16 @@ export function DecompositionPage() {
           <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
             Chiết tự chữ Hán
             {activeChar && (
-              <span className="text-2xl font-hanzi font-semibold text-cyan-500 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 px-2 py-0.5 rounded-lg border border-cyan-200/40 dark:border-cyan-800/40 shadow-sm">
-                {activeChar}
-              </span>
+              <div className="flex items-center gap-2.5 ml-1">
+                <span className="text-2xl font-hanzi font-semibold text-cyan-500 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 px-2.5 py-0.5 rounded-lg border border-cyan-200/40 dark:border-cyan-800/40 shadow-sm">
+                  {activeChar}
+                </span>
+                {treeData?.pinyin && (
+                  <span className="text-[17px] font-bold text-zinc-500 dark:text-zinc-400 font-sans tracking-wide">
+                    {treeData.pinyin}
+                  </span>
+                )}
+              </div>
             )}
           </h2>
         </div>

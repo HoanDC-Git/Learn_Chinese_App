@@ -78,19 +78,6 @@ export function DecompositionDetails({
       </div>
 
       <div className="p-5 flex flex-col gap-6">
-        {/* Analysis navigation */}
-        {selectedNode.character !== activeChar && (
-          <button
-            onClick={() => {
-              setQuery(selectedNode.character);
-              setWordChars([]);
-              loadDecomposition(selectedNode.character);
-            }}
-            className="py-2.5 px-4 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white font-medium text-sm flex items-center justify-center gap-2 shadow-sm transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-          >
-            <Network className="w-4 h-4" /> Chiết tự chữ này
-          </button>
-        )}
 
         {/* Meanings */}
         <div className="flex flex-col gap-4">
@@ -116,16 +103,9 @@ export function DecompositionDetails({
         {/* Composite fields (Etymology & IDS) */}
         {selectedNode.type === "composite" && (
           <div className="flex flex-col gap-5 border-t pt-5 border-zinc-200 dark:border-zinc-800/60">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-1.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Hạng HSK</span>
-                <Badge className={cn("self-start px-2.5 py-0.5 rounded-md", getHskBadgeColor(selectedNode.hsk_level))}>
-                  {selectedNode.hsk_level ? `HSK ${selectedNode.hsk_level}` : "Ngoài HSK"}
-                </Badge>
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Bộ thủ chính</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Bộ thủ (Radical)</span>
                 <span className="text-lg font-hanzi font-bold px-3.5 py-0.5 rounded-lg border border-zinc-200/60 dark:border-zinc-800 self-start text-zinc-900 dark:text-zinc-100 bg-zinc-100/50 dark:bg-zinc-950/40">
                   {selectedNode.radical || "N/A"}
                 </span>

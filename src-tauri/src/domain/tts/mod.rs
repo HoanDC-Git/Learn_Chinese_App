@@ -1,3 +1,4 @@
+use edge_tts_rust::{EdgeTtsClient, SpeakOptions};
 use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
 
@@ -34,61 +35,33 @@ pub fn select_voice(preferred: Option<&str>) -> String {
 }
 
 pub async fn generate_tts_audio(text: &str, voice: &str, output_path: &str) -> anyhow::Result<String> {
-    let mut cmd = tokio::process::Command::new("edge-tts");
-    cmd.arg("--voice").arg(voice);
-
+    let client = EdgeTtsClient::new()?;
+    
+    let mut rate = "+0%".to_string();
+    let mut volume = "+0%".to_string();
+    
     if voice.contains("Yunjian") {
-        cmd.arg("--rate=-10%");
+        rate = "-10%".to_string();
     }
     if !voice.contains("Xiaoxiao") {
-        cmd.arg("--volume=+40%");
+        volume = "+40%".to_string();
     }
-
-    cmd.arg("--text")
-        .arg(text)
-        .arg("--write-media")
-        .arg(output_path);
-
-    let mut child = cmd.spawn()?;
-
-    let status_result = tokio::time::timeout(
-        tokio::time::Duration::from_secs(10),
-        child.wait()
-    ).await;
-
-    let status = match status_result {
-        Ok(Ok(s)) => s,
-        Ok(Err(e)) => {
-            let _ = std::fs::remove_file(output_path);
-            anyhow::bail!("edge-tts failed to execute: {}", e);
-        }
-        Err(_) => {
-            let _ = std::fs::remove_file(output_path);
-            let _ = child.kill().await;
-            anyhow::bail!("edge-tts timed out after 10 seconds");
-        }
+    
+    let options = SpeakOptions {
+        voice: voice.into(),
+        rate,
+        volume,
+        ..SpeakOptions::default()
     };
-
-    if !status.success() {
-        let _ = std::fs::remove_file(output_path);
-        anyhow::bail!("edge-tts failed with status: {}", status);
+    
+    let result = client.synthesize(text, options).await?;
+    
+    if result.audio.is_empty() {
+        anyhow::bail!("edge-tts generated an empty audio file");
     }
-
-    // Check if the generated file is empty or missing
-    match std::fs::metadata(output_path) {
-        Ok(m) if m.len() == 0 => {
-            let _ = std::fs::remove_file(output_path);
-            anyhow::bail!("edge-tts generated an empty audio file");
-        }
-        Err(e) => {
-            let _ = std::fs::remove_file(output_path);
-            anyhow::bail!("Failed to verify generated audio file: {}", e);
-        }
-        _ => {}
-    }
-
-    tokio::time::sleep(tokio::time::Duration::from_millis(200)).await;
-
+    
+    tokio::fs::write(output_path, &result.audio).await?;
+    
     Ok(output_path.to_string())
 }
 
@@ -103,11 +76,6 @@ fn sanitize_filename(text: &str) -> String {
 pub fn get_available_voices() -> Vec<String> {
     VOICES.iter().map(|&s| s.to_string()).collect()
 }
-
-
-
-
-
 
 #[cfg(test)]
 mod tests {
@@ -134,6 +102,6 @@ mod tests {
     #[test]
     fn test_get_available_voices_count() {
         let voices = get_available_voices();
-        assert_eq!(voices.len(), 4);
+        assert_eq!(voices.len(), 3);
     }
 }

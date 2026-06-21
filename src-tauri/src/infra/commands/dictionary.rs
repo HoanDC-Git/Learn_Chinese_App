@@ -24,64 +24,67 @@ pub async fn search_dictionary(
     state: State<'_, AppState>,
     req: DictionarySearchRequest,
 ) -> Result<DictionarySearchResult, String> {
-    let cache = state.dict_cache.read().map_err(|e| e.to_string())?;
-    let mut entries: Vec<DictionaryEntry> = cache.values().cloned().collect();
-    drop(cache);
-
     let query = req.query.trim();
-
-    if !query.is_empty() {
-        let mut scored: Vec<(i32, DictionaryEntry)> = entries
-            .into_iter()
-            .filter_map(|e| {
-                let word = &e.word;
-                if word.contains(query) {
-                    let score = if word == query {
-                        0
-                    } else {
-                        word.len() as i32
-                    };
-                    Some((score, e))
-                } else {
-                    None
-                }
-            })
-            .collect();
-
-        scored.sort_by_key(|(score, _)| *score);
-        entries = scored.into_iter().map(|(_, e)| e).collect();
-    }
-
-    if req.sort_by == "hsk" {
-        entries.sort_by(|a, b| {
-            let a_level = a
-                .hsk_level
-                .as_ref()
-                .and_then(|s| s.parse::<i32>().ok())
-                .unwrap_or(99);
-            let b_level = b
-                .hsk_level
-                .as_ref()
-                .and_then(|s| s.parse::<i32>().ok())
-                .unwrap_or(99);
-            a_level.cmp(&b_level).then_with(|| a.word.cmp(&b.word))
-        });
+    let offset = req.page * req.page_size;
+    
+    let order_clause = if req.sort_by == "hsk" {
+        // Sắp xếp theo cấp độ HSK, nếu null thì cho xuống cuối (99)
+        "ORDER BY COALESCE(CAST(hsk_level AS INTEGER), 99) ASC, word ASC"
     } else {
-        entries.sort_by(|a, b| a.word.cmp(&b.word));
-    }
-
-    let total = entries.len() as i64;
-    let start = (req.page * req.page_size) as usize;
-    let end = (start + req.page_size as usize).min(entries.len());
-
-    let page_results = if start < entries.len() {
-        entries[start..end].to_vec()
-    } else {
-        Vec::new()
+        "ORDER BY word ASC"
     };
 
+    let total: i64;
+    let results: Vec<DictionaryEntry>;
+
+    if query.is_empty() {
+        let count_query = "SELECT COUNT(*) FROM vocabulary";
+        total = sqlx::query_scalar(count_query)
+            .fetch_one(&state.db.dict_db)
+            .await
+            .map_err(|e| e.to_string())?;
+
+        let sql = format!(
+            "SELECT id, hsk_level, word, pinyin, pos, meaning_vi, meaning_en FROM vocabulary {} LIMIT ? OFFSET ?",
+            order_clause
+        );
+        results = sqlx::query_as::<_, DictionaryEntry>(&sql)
+            .bind(req.page_size)
+            .bind(offset)
+            .fetch_all(&state.db.dict_db)
+            .await
+            .map_err(|e| e.to_string())?;
+    } else {
+        let count_query = "SELECT COUNT(*) FROM vocabulary WHERE word LIKE ? OR pinyin LIKE ? OR meaning_vi LIKE ? OR meaning_en LIKE ?";
+        let like_query = format!("%{}%", query);
+        total = sqlx::query_scalar(count_query)
+            .bind(&like_query)
+            .bind(&like_query)
+            .bind(&like_query)
+            .bind(&like_query)
+            .fetch_one(&state.db.dict_db)
+            .await
+            .map_err(|e| e.to_string())?;
+
+        // Mặc dù LIKE chậm hơn MATCH, nhưng với DB nhỏ dưới 100k, LIKE vẫn xử lý trong vài chục ms
+        let sql = format!(
+            "SELECT id, hsk_level, word, pinyin, pos, meaning_vi, meaning_en FROM vocabulary WHERE word LIKE ? OR pinyin LIKE ? OR meaning_vi LIKE ? OR meaning_en LIKE ? {} LIMIT ? OFFSET ?",
+            order_clause
+        );
+        results = sqlx::query_as::<_, DictionaryEntry>(&sql)
+            .bind(&like_query)
+            .bind(&like_query)
+            .bind(&like_query)
+            .bind(&like_query)
+            .bind(req.page_size)
+            .bind(offset)
+            .fetch_all(&state.db.dict_db)
+            .await
+            .map_err(|e| e.to_string())?;
+    }
+
     Ok(DictionarySearchResult {
-        results: page_results,
+        results,
         total,
         page: req.page,
         page_size: req.page_size,
@@ -93,36 +96,20 @@ pub async fn lookup_word(
     state: State<'_, AppState>,
     word: String,
 ) -> Result<Option<DictionaryEntry>, String> {
-    let cache_len;
-    let entry = {
-        let cache = state.dict_cache.read().map_err(|e| e.to_string())?;
-        cache_len = cache.len();
-        cache.get(&word).cloned()
-    };
+    let db_entry = sqlx::query_as::<_, DictionaryEntry>(
+        r#"
+        SELECT id, hsk_level, word, pinyin, pos, meaning_vi, meaning_en
+        FROM vocabulary
+        WHERE word = ?
+        LIMIT 1
+        "#,
+    )
+    .bind(&word)
+    .fetch_optional(&state.db.dict_db)
+    .await
+    .map_err(|e| e.to_string())?;
 
-    if entry.is_some() {
-        return Ok(entry);
-    }
-
-    if cache_len == 0 {
-        log::warn!("Dictionary cache is empty, querying database directly");
-        let db_entry = sqlx::query_as::<_, DictionaryEntry>(
-            r#"
-            SELECT id, hsk_level, word, pinyin, pos, meaning_vi, meaning_en
-            FROM vocabulary
-            WHERE word = ?
-            LIMIT 1
-            "#,
-        )
-        .bind(&word)
-        .fetch_optional(&state.db.dict_db)
-        .await
-        .map_err(|e| e.to_string())?;
-
-        return Ok(db_entry);
-    }
-
-    Ok(None)
+    Ok(db_entry)
 }
 
 #[tauri::command]
@@ -131,7 +118,6 @@ pub async fn lookup_hover(
     text: String,
     cursor_index: usize,
 ) -> Result<Vec<HoverResult>, String> {
-    let cache = state.dict_cache.read().map_err(|e| e.to_string())?;
     let chars: Vec<char> = text.chars().collect();
     let len = chars.len();
 
@@ -139,28 +125,50 @@ pub async fn lookup_hover(
         return Ok(Vec::new());
     }
 
-    let mut results: Vec<HoverResult> = Vec::new();
+    let mut substrings = Vec::new();
 
-    // Longest-match: try 4, 3, 2, 1 chars starting from cursor position
-    // Return ALL matches found, longest first
-    for sub_len in (1..=4).rev() {
-        if cursor_index + sub_len > len {
-            continue;
-        }
-
-        let substring: String = chars[cursor_index..cursor_index + sub_len].iter().collect();
-
-        if let Some(entry) = cache.get(&substring) {
-            results.push(HoverResult {
-                word: entry.word.clone(),
-                pinyin: entry.pinyin.clone().unwrap_or_default(),
-                hsk_level: entry.hsk_level.clone().unwrap_or_default(),
-                pos: entry.pos.clone().unwrap_or_default(),
-                meaning_vi: entry.meaning_vi.clone().unwrap_or_default(),
-                meaning_en: entry.meaning_en.clone().unwrap_or_default(),
-            });
+    for sub_len in 1..=4 {
+        if cursor_index + sub_len <= len {
+            let substring: String = chars[cursor_index..cursor_index + sub_len].iter().collect();
+            substrings.push(substring);
         }
     }
+
+    if substrings.is_empty() {
+        return Ok(Vec::new());
+    }
+    
+    let mut padded = substrings.clone();
+    while padded.len() < 4 {
+        padded.push("".to_string());
+    }
+
+    let entries = sqlx::query_as::<_, DictionaryEntry>(
+        r#"
+        SELECT id, hsk_level, word, pinyin, pos, meaning_vi, meaning_en
+        FROM vocabulary
+        WHERE word IN (?, ?, ?, ?)
+        "#
+    )
+    .bind(&padded[0])
+    .bind(&padded[1])
+    .bind(&padded[2])
+    .bind(&padded[3])
+    .fetch_all(&state.db.dict_db)
+    .await
+    .map_err(|e| e.to_string())?;
+
+    let mut results: Vec<HoverResult> = entries.into_iter().map(|entry| HoverResult {
+        word: entry.word.clone(),
+        pinyin: entry.pinyin.unwrap_or_default(),
+        hsk_level: entry.hsk_level.unwrap_or_default(),
+        pos: entry.pos.unwrap_or_default(),
+        meaning_vi: entry.meaning_vi.unwrap_or_default(),
+        meaning_en: entry.meaning_en.unwrap_or_default(),
+    }).collect();
+
+    // Sắp xếp kết quả dài nhất lên đầu (như logic cũ)
+    results.sort_by(|a, b| b.word.chars().count().cmp(&a.word.chars().count()));
 
     Ok(results)
 }
