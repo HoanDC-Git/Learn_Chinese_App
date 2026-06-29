@@ -128,3 +128,4 @@ For a deep dive into the code structure, backend Tauri command mappings, SQLite 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# Learn_Chinese_App
