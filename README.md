@@ -1,131 +1,53 @@
-# 🇨🇳 Hoan Chinese (Hoan Học Tiếng Trung)
+# Learn Chinese App
 
-[![Tauri Version](https://img.shields.io/badge/Tauri-v2.1.1-blue?logo=tauri&logoColor=white&style=flat-square)](https://tauri.app/)
-[![React Version](https://img.shields.io/badge/React-v18.3-61DAFB?logo=react&logoColor=black&style=flat-square)](https://react.dev/)
-[![Rust Backend](https://img.shields.io/badge/Rust-2021-dea584?logo=rust&logoColor=white&style=flat-square)](https://www.rust-lang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#installation)
+A cross-platform desktop application for learning Chinese, built on a modern architecture combining the high performance of Rust (Backend) and a modern UI with React (Frontend) via Tauri.
 
-**Hoan Chinese** is a premium, high-performance desktop application designed for modern Chinese language learners. Combining a robust **Rust** backend powered by **Tauri v2** with a fluid, editorial **React & TypeScript** frontend, it delivers an lightning-fast (<50ms latency), offline-first workspace for mastering vocabulary and grammar.
+## 🏗 System Architecture
 
-Featuring a smart Spaced Repetition System (SRS), hover dictionary lookup, neural Text-to-Speech (TTS) voice rotation, and interactive grammar notebooks, Hoan Chinese is your ultimate companion to conquer HSK 1-6.
+The project utilizes a hybrid architecture combining **React (Frontend)** and **Rust (Backend)**, communicating through the **Tauri IPC Bridge**.
 
----
+### API Communication & IPC Bridge Flow
+- **Tauri Invoke:** The frontend communicates with the backend via asynchronous calls using Tauri's `invoke` API (e.g., `invoke("get_due_flashcards")`).
+- **Data Flow:** 
+  1. The user interacts with the React UI (Sends a request).
+  2. The Rust backend receives the request via `#[tauri::command]` functions, then processes the business logic.
+  3. Rust interacts with the SQLite database using the `sqlx` library.
+  4. The backend returns the result to the frontend (serializing data to JSON via `serde`).
+- **State Management:** The backend utilizes an `AppState` to manage the Database connection pool and In-memory Caching. Caching ensures extremely fast retrieval of flashcards and heavy datasets.
 
 ## 🌟 Key Features
 
-### 🧠 Smart Spaced Repetition System (SRS)
-* **Exponential Backoff Engine**: Automated scheduling algorithm (Levels 0–8) that calculates optimal review intervals.
-* **Three-Step Active Recall**: Fluid card flip flow (Meaning → Pinyin → Hanzi) designed to stimulate memory recall.
-* **Flexible Learning Modes**: Switch between **Smart Review** (due cards) and **Cram Session** (randomized vocabulary pool).
-* **Keyboard-Driven Workflow**: High-speed, touchless review sessions using shortcuts (`Space` or `ArrowDown` to reveal, `ArrowLeft` for forgot, `ArrowRight` for remembered).
+1. **Vocabulary Learning & Spaced Repetition System (SRS):** Flashcard management with an algorithm that automatically calculates optimal review schedules based on the user's retention level.
+2. **Dictionary & Character Decomposition:** Vocabulary lookup with a feature that breaks down Chinese characters (Decomposition) from the local database.
+3. **Text-to-Speech (TTS):** Pronunciation support through an automated TTS system with local audio cache management.
+4. **Grammar:** A system to store and manage learned grammar points.
+5. **Soft Delete & Auto Cleanup:** A Trash feature that allows restoring or permanently auto-deleting trashed data after a certain period to optimize the database size.
 
-### 🔍 Instant Hover Dictionary
-* **Contextual Lookups**: Hover over any Hanzi character in the app to instantly display its Pinyin, HSK level, part of speech, Vietnamese definition, and English translation.
-* **Longest-Match Algorithm**: Rapid O(1) in-memory lookup parsing 4 → 3 → 2 → 1 characters to resolve multi-word terms.
-* **Rich Lexicon**: Comes pre-packaged with a dictionary of **10,989 words** covering HSK 1-6.
-* **Debounced Interaction**: Smooth 80ms hover debounce prevents performance lag and accidental tooltips.
+## 📁 Project Directory Structure
 
-### 🎙️ Neural AI Text-to-Speech (TTS)
-* **Natural Speech Patterns**: Features 4 distinct Microsoft Edge Neural Chinese voices (Xiaoxiao, Xiaoyi, Yunxi, Yunjian).
-* **Smart Voice Rotation**: Randomly alternates voices on each playback to train your ears to different accents and pitches.
-* **Local Audio Caching**: Automatically saves generated MP3 audio files locally (using MD5 hashing) to reduce API consumption and support offline learning.
-* **Batch Generator**: Generate audio files for your entire vocabulary library in a single click with real-time progress indicators.
+The directory structure follows the standard of a Tauri project, implementing Clean Architecture on the backend:
 
-### 📚 Vocabulary & Grammar Management
-* **Rich Flashcard Editor**: Create, read, update, and delete cards. Features auto-pinyin generation via `pinyin-pro` integration.
-* **Safe-Delete Trash Bin**: Soft-delete items with a 10-day automatic permanent deletion counter, letting you restore accidental removals easily.
-* **Grammar Notebook**: Editorial Master-Detail interface displaying HSK-categorized grammar formulas, clear explanations, and highlighted sentence examples.
-* **Global Search & Filter**: Search vocabulary and grammar by Hanzi, Pinyin, or meaning with pagination and level sorting.
+```text
+├── src/                # React Frontend code (TypeScript, Vite, TailwindCSS)
+│   ├── components/     # Reusable UI Components
+│   ├── lib/            # Utilities and helpers
+│   └── ...             # Other frontend directories (stores, hooks, etc.)
+│
+├── src-tauri/          # Rust Backend code
+│   ├── Cargo.toml      # Rust dependencies configuration
+│   ├── tauri.conf.json # Tauri app configuration
+│   └── src/
+│       ├── app/        # AppState, startup configuration (Init, State management)
+│       ├── domain/     # Core business logic (SRS algorithm, TTS logic...)
+│       ├── infra/      # External communication: Database (SQLite), Tauri commands (IPC)
+│       └── main.rs     # Application entry point, IPC Handlers registration
+```
 
-### 📊 Analytics Dashboard
-* **Key Metrics**: Real-time counters showing total cards, cards due today, mastered items, and review accuracy rates.
-* **Level Progression**: Dynamic progress bars tracking vocabulary mastery across 5 distinct phases (New → Mastered).
-* **7-Day Review Forecast**: Visual bar chart projecting upcoming review workloads to help you plan your studies.
+## 🛡 Error Handling & Edge Cases
 
----
-
-## 🎨 Premium Aesthetics & UX
-
-Hoan Chinese is built following modern, editorial user interface standards to create a calm, focused, and immersive learning environment:
-* **Glassmorphism & Fluid Motion**: Sleek glass panels, smooth hover states, and physics-based flip animations.
-* **Tailored Color Palette**: Rich Slate bases accented with energetic Jade, Cobalt, and Crimson highlights.
-* **Adaptive Typography**: Large Chinese characters automatically scale their font sizes dynamically based on word length.
-* **Frameless Title Bar**: Minimalist, custom-built window title bar supporting drag-to-move, maximize, minimize, and close controls.
-* **Persistent Dark Mode**: Toggle between light and dark themes with system persistence using local storage.
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technologies & Libraries |
-| :--- | :--- |
-| **Framework** | **Tauri v2** (Desktop Shell) |
-| **Frontend Core** | **React 18**, **TypeScript**, **Vite 6** |
-| **Styling & Assets** | **Tailwind CSS 3**, **Lucide React** (Icons) |
-| **State Management** | **Zustand 5** (Local & Session UI), **TanStack Query 5** (Server RPC) |
-| **Backend Core** | **Rust** (Async-Tokio runtime, highly concurrent & memory-safe) |
-| **Database** | **SQLx 0.8** (Async SQLite connection pooling) |
-| **Audio & TTS** | **edge-tts** (Microsoft Neural voices), **ffplay / paplay** (Audio engines) |
-| **Pinyin Engine** | **pinyin** crate (Rust backend), **pinyin-pro** (Vite frontend) |
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-Ensure you have the following installed on your machine:
-* **Rust**: Rust toolchain (1.75+) -> [Install Rust](https://www.rust-lang.org/tools/install)
-* **Node.js**: Node.js (v18+) -> [Install Node.js](https://nodejs.org/)
-* **Python**: Python 3.x with `pip`
-* **FFmpeg**: Required for audio playback (`ffplay`)
-
-### Setup Instructions
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/HoanHocTiengTrung.git
-   cd HoanHocTiengTrung
-   ```
-
-2. **Install Python Dependencies**
-   ```bash
-   pip install edge-tts pypinyin
-   ```
-
-3. **Install System Audio Player (FFmpeg)**
-   * **Ubuntu/Debian**: `sudo apt install ffmpeg`
-   * **macOS**: `brew install ffmpeg`
-   * **Windows**: `choco install ffmpeg` or download from official sources.
-
-4. **Install Node.js Packages**
-   ```bash
-   npm install
-   ```
-
-5. **Run the Development Server**
-   ```bash
-   npm run tauri dev
-   ```
-
-6. **Build for Production**
-   ```bash
-   npm run tauri build
-   ```
-   The compiled desktop installation package (`.deb`/`.AppImage` on Linux, `.dmg` on macOS, `.msi` on Windows) will be located in `src-tauri/target/release/bundle/`.
-
----
-
-## 📂 Project Architecture
-
-For a deep dive into the code structure, backend Tauri command mappings, SQLite database schemas, in-memory caching strategies, and development guidelines, please refer to:
-
-👉 **[DEVELOPER.md](file:///home/naoh/Documents/HoanHocTiengTrung/DEVELOPER.md)** (Technical Architecture & Development Guide)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-# Learn_Chinese_App
+- **Backend (Rust):** IPC functions (Tauri commands) return a `Result<T, String>` type. Any errors (SQLite database errors, memory errors, file system errors when saving audio) are safely mapped into string error messages (`map_err`) and returned to the client, preventing the application from panicking or crashing.
+- **Frontend (React):** Catches errors returned from Rust using `try/catch` blocks or Promise `.catch()`, and displays appropriate Toast notifications or error states to the user.
+- **Edge Cases:** 
+  - **Memory & Concurrency:** The application manages shared state via `Mutex`/`RwLock` within the Rust `AppState`. This guarantees thread-safety when handling multiple concurrent requests from the frontend.
+  - **Input Validation:** Filtered and blocked directly at the UI level, followed by a validation layer on the backend before writing to the database.
+  - **Resource Cleanup:** Temporary audio files and expired trashed flashcards are automatically cleaned up when the app starts (`cleanup_temp_files`), freeing up disk space.
