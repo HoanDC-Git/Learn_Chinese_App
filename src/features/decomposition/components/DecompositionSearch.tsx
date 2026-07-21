@@ -27,19 +27,7 @@ interface DecompositionSearchProps {
   selectedNode: DecompositionNode | null;
 }
 
-const getBadgeColor = (type: string) => {
-  switch (type) {
-    case "composite":
-      return "bg-blue-500 text-white";
-    case "basic":
-    case "variant":
-      return "bg-emerald-500 text-white";
-    case "circular":
-      return "bg-rose-500 text-white animate-pulse";
-    default:
-      return "bg-zinc-500 text-white";
-  }
-};
+
 
 export function DecompositionSearch({
   query,

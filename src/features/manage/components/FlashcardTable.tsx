@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
 import { cn } from "../../../lib/utils";
 import { FlashcardRow } from "./FlashcardRow";

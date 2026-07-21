@@ -125,20 +125,29 @@ pub async fn get_statistics(state: State<'_, AppState>) -> Result<SrsStatistics,
 
 #[tauri::command]
 pub async fn get_review_plan(state: State<'_, AppState>) -> Result<Vec<DailyPlan>, String> {
-    let now = Utc::now();
     let mut plan = Vec::new();
 
-    for i in 0..7 {
-        let day = now + Duration::days(i);
-        let day_end = day + Duration::days(1);
+    let local_now = chrono::Local::now();
+    let local_today_midnight = local_now
+        .date_naive()
+        .and_hms_opt(0, 0, 0)
+        .unwrap()
+        .and_local_timezone(chrono::Local)
+        .unwrap();
 
-        let date_str = day.format("%Y-%m-%d").to_string();
+    let utc_now = Utc::now();
+
+    for i in 0..7 {
+        let day_start = local_today_midnight + Duration::days(i);
+        let day_end = day_start + Duration::days(1);
+
+        let date_str = day_start.format("%Y-%m-%d").to_string();
         let day_label = if i == 0 {
             "Hôm nay".to_string()
         } else if i == 1 {
             "Ngày mai".to_string()
         } else {
-            day.format("%d/%m").to_string()
+            day_start.format("%d/%m").to_string()
         };
 
         let count: (i64,) = if i == 0 {
@@ -149,11 +158,14 @@ pub async fn get_review_plan(state: State<'_, AppState>) -> Result<Vec<DailyPlan
                   AND (next_review IS NULL OR next_review <= ?)
                 "#,
             )
-            .bind(now)
+            .bind(utc_now)
             .fetch_one(&state.db.app_db)
             .await
             .map_err(|e| e.to_string())?
         } else {
+            let start_utc = day_start.with_timezone(&Utc);
+            let end_utc = day_end.with_timezone(&Utc);
+
             sqlx::query_as(
                 r#"
                 SELECT COUNT(*) FROM flashcards
@@ -163,8 +175,8 @@ pub async fn get_review_plan(state: State<'_, AppState>) -> Result<Vec<DailyPlan
                   AND next_review < ?
                 "#,
             )
-            .bind(day.date_naive().and_hms_opt(0, 0, 0).unwrap().and_utc())
-            .bind(day_end.date_naive().and_hms_opt(0, 0, 0).unwrap().and_utc())
+            .bind(start_utc)
+            .bind(end_utc)
             .fetch_one(&state.db.app_db)
             .await
             .map_err(|e| e.to_string())?

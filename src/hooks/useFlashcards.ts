@@ -73,7 +73,7 @@ export function useFlashcards() {
       invoke<ReviewResult>("record_review_result", { cardId, remembered }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["flashcards"] });
-      queryClient.invalidateQueries({ queryKey: ["srs", "statistics"] });
+      queryClient.invalidateQueries({ queryKey: ["srs"] });
     },
   });
 

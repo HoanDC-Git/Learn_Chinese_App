@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Info, Network, X } from "lucide-react";
-import { Badge } from "../../../components/ui/Badge";
-import { cn, getHskBadgeColor } from "../../../lib/utils";
+import { Info, X } from "lucide-react";
+import { cn } from "../../../lib/utils";
 import { parseRadicalMeaning } from "./DecompositionTree";
 import type { DecompositionNode } from "../types";
 import styles from "../DecompositionPage.module.css";
@@ -28,10 +27,6 @@ interface DecompositionDetailsProps {
 
 export function DecompositionDetails({
   selectedNode,
-  activeChar,
-  setQuery,
-  setWordChars,
-  loadDecomposition,
   onClose,
 }: DecompositionDetailsProps) {
   const detailsRef = useRef<HTMLDivElement>(null);
