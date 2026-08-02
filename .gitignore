@@ -43,7 +43,6 @@ data/config.json
 data/audio/
 data/*.db.bak
 data/*_backup.db
-data/app_database.db
 data/*.db-shm
 data/*.db-wal
 
