@@ -28,3 +28,8 @@ once_cell = "1"
 uuid = { version = "1", features = ["v4", "serde"] }
 base64 = "0.22.1"
 edge-tts-rust = "0.1.3"
+
+# Tối ưu hóa hiệu năng trong quá trình dev (chạy npm run tauri dev)
+# Giúp các dependencies (như sqlx, sqlite) chạy nhanh hơn rất nhiều, giảm lag
+[profile.dev.package."*"]
+opt-level = 3
