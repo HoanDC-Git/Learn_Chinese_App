@@ -17,26 +17,16 @@ export function Sidebar() {
   const { activeTab, setActiveTab } = useAppStore();
   const { hoverEnabled, toggleHover, theme, setTheme } = useUiStore();
 
-  const iconColors: Record<TabId, string> = {
-    review: "text-sky-400",
-    manage: "text-violet-400",
-    dashboard: "text-emerald-400",
-    grammar: "text-amber-400",
-    dictionary: "text-cyan-400",
-    decomposition: "text-fuchsia-400",
-    trash: "text-rose-400",
-  };
-
   return (
     <aside className="w-64 flex flex-col border-r bg-zinc-900 border-zinc-800">
       <div className="p-6 border-b flex items-center gap-3 border-zinc-800">
-        <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-lg font-bold select-none flex-shrink-0">
+        <div className="w-10 h-10 rounded-xl bg-accent text-white flex items-center justify-center text-lg font-bold select-none flex-shrink-0">
           中
         </div>
         <div>
           <h1 className="text-base font-bold text-white flex items-center gap-1 leading-tight select-none">
             Learn Chinese
-            <span className="text-indigo-400 text-xs">✦</span>
+            <span className="text-accent-light text-xs">✦</span>
           </h1>
           <p className="text-xs text-zinc-400 leading-tight mt-0.5 select-none">学中文</p>
         </div>
@@ -51,13 +41,13 @@ export function Sidebar() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left",
+                "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-left",
                 isActive
-                  ? "bg-zinc-800 text-white dark:text-sky-400 font-medium"
-                  : "text-zinc-300 hover:bg-zinc-800/60"
+                  ? "bg-zinc-800 text-white"
+                  : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"
               )}
             >
-              <Icon className={cn("w-5 h-5", isActive ? iconColors[tab.id] : "text-zinc-400")} />
+              <Icon className={cn("w-5 h-5 transition-colors", isActive ? "text-accent-light" : "text-zinc-500 group-hover:text-zinc-400")} />
               {tab.label}
             </button>
           );
@@ -67,7 +57,7 @@ export function Sidebar() {
       <div className="p-4 border-t space-y-3 border-zinc-800">
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors bg-zinc-800 text-zinc-400 hover:bg-zinc-700/60"
+          className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 bg-zinc-800 text-zinc-400 hover:bg-zinc-700/60 hover:text-zinc-200"
         >
           {theme === "dark" ? (
             <Sun className="w-5 h-5 text-amber-400" />
@@ -80,10 +70,10 @@ export function Sidebar() {
         <button
           onClick={toggleHover}
           className={cn(
-            "w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+            "w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
             hoverEnabled
-              ? "bg-zinc-800 text-white dark:text-sky-400"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700/60"
+              ? "bg-zinc-800 text-white"
+              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700/60 hover:text-zinc-200"
           )}
         >
           {hoverEnabled ? (
@@ -94,7 +84,7 @@ export function Sidebar() {
           <span>Tra từ khi di chuột</span>
           <span
             className={cn(
-              "ml-auto text-xs px-2 py-0.5 rounded-full",
+              "ml-auto text-xs px-2 py-0.5 rounded-md font-medium",
               hoverEnabled
                 ? "bg-emerald-500/20 text-emerald-400"
                 : "bg-zinc-700 text-zinc-500"

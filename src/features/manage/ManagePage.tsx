@@ -206,7 +206,7 @@ export function ManagePage() {
         <AddCardForm onAdd={handleAdd} />
       </div>
 
-      <Card className="flex-1 flex flex-col min-h-0 py-4 px-6 overflow-hidden">
+      <Card className="flex-1 flex flex-col min-h-0 p-4 overflow-hidden">
         <ManageFilters
           search={search}
           onSearchChange={(val) => {

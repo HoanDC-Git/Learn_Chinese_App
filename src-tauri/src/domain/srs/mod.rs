@@ -14,13 +14,18 @@ pub fn calculate_next_review(current_level: i32, remembered: bool) -> SrsResult 
     let new_level = if remembered {
         (current_level + 1).min(MAX_LEVEL)
     } else {
-        (current_level - 2).max(0)
+        (current_level - 1).max(0)
     };
 
     let days_interval = match new_level {
         0 => 0,
         1 | 2 => 1,
-        _ => 2i64.pow((new_level - 2) as u32),
+        3 => 3,
+        4 => 7,
+        5 => 14,
+        6 => 30,
+        7 => 60,
+        _ => 120,
     };
 
     let next_review = if new_level == 0 {
@@ -75,31 +80,31 @@ mod tests {
 
         let r2 = calculate_next_review(2, true);
         assert_eq!(r2.new_level, 3);
-        assert_eq!(r2.days_interval, 2);
+        assert_eq!(r2.days_interval, 3);
 
         let r3 = calculate_next_review(3, true);
         assert_eq!(r3.new_level, 4);
-        assert_eq!(r3.days_interval, 4);
+        assert_eq!(r3.days_interval, 7);
 
         let r5 = calculate_next_review(5, true);
         assert_eq!(r5.new_level, 6);
-        assert_eq!(r5.days_interval, 16);
+        assert_eq!(r5.days_interval, 30);
 
         let r7 = calculate_next_review(7, true);
         assert_eq!(r7.new_level, 8);
-        assert_eq!(r7.days_interval, 64);
+        assert_eq!(r7.days_interval, 120);
 
         let r8 = calculate_next_review(8, true);
         assert_eq!(r8.new_level, 8);
-        assert_eq!(r8.days_interval, 64);
+        assert_eq!(r8.days_interval, 120);
     }
 
     #[test]
     fn test_srs_forgotten_progression() {
-        // level 5 forgotten -> new level 3, interval 2 days
+        // level 5 forgotten -> new level 4, interval 7 days
         let r5 = calculate_next_review(5, false);
-        assert_eq!(r5.new_level, 3);
-        assert_eq!(r5.days_interval, 2);
+        assert_eq!(r5.new_level, 4);
+        assert_eq!(r5.days_interval, 7);
 
         // level 1 forgotten -> new level 0, interval 0 days
         let r1 = calculate_next_review(1, false);

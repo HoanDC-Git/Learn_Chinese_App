@@ -8,6 +8,11 @@ export default {
         zinc: {
           850: "#202023",
         },
+        accent: {
+          DEFAULT: "#6366f1",
+          light: "#818cf8",
+          dark: "#4f46e5",
+        },
       },
       fontSize: {
         'xs': ['14px', { lineHeight: '20px' }],

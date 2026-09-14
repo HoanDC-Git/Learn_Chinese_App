@@ -43,18 +43,7 @@ function CustomIcon({ name, className }: CustomIconProps) {
   );
 }
 
-// Single-accent desaturated badges representing progression
-const badgeClasses: Record<number, string> = {
-  0: "bg-zinc-50/50 dark:bg-zinc-800/20 text-zinc-500 dark:text-zinc-500 border border-dashed border-zinc-300 dark:border-zinc-700",
-  1: "bg-emerald-100 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/30",
-  2: "badge-bronze",
-  3: "badge-silver",
-  4: "badge-gold",
-  5: "badge-diamond",
-  6: "badge-mythic",
-  7: "badge-fire",
-  8: "badge-ultimate",
-};
+
 
 export function Flashcard({
   card,
@@ -212,7 +201,7 @@ export function Flashcard({
   return (
     <div className="flex flex-col items-center gap-6 w-full max-w-4xl mx-auto animate-slide-up">
       {/* Flashcard Sheet */}
-      <div className="w-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border p-8 md:p-12 min-h-[440px] md:min-h-[460px] flex items-center justify-center relative bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800/80 hover:border-indigo-200/80 dark:hover:border-indigo-900/40 hover:shadow-[0_12px_40px_rgba(99,102,241,0.03)] dark:hover:shadow-[0_12px_40px_rgba(99,102,241,0.02)] transition-all duration-300">
+      <div className="w-full rounded-2xl border p-8 md:p-12 min-h-[440px] md:min-h-[460px] flex items-center justify-center relative bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300">
         {/* Top Header Row of Card */}
         <div className="absolute top-6 left-8 right-8 flex items-center justify-between">
           {onPlayAudio ? (
@@ -222,7 +211,7 @@ export function Flashcard({
                 onPlayAudio();
               }}
               title="Phát âm thanh"
-              className="flex items-center gap-1.5 px-3 py-1.5 -ml-3 text-zinc-400 dark:text-zinc-500 hover:text-indigo-600 dark:hover:text-sky-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="flex items-center gap-1.5 px-3 py-1.5 -ml-3 text-zinc-400 dark:text-zinc-500 hover:text-accent dark:hover:text-accent-light hover:bg-zinc-100 dark:hover:bg-zinc-800/60 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50"
             >
               <Volume2 className="w-4 h-4" />
               <span className="text-xs font-bold tracking-wider">(V)</span>
@@ -231,16 +220,10 @@ export function Flashcard({
             <div /> /* Spacer */
           )}
           <Badge
-            className={cn(
-              "px-2.5 py-0.5 text-[11px]",
-              badgeClasses[card.level] || badgeClasses[0]
-            )}
+            level={card.level}
+            className="px-3 py-1 text-[11px]"
           >
-            {card.level === 8 ? (
-              <span className="badge-ultimate-text">{getMasteryLabel(card.level)}</span>
-            ) : (
-              getMasteryLabel(card.level)
-            )}
+            {getMasteryLabel(card.level)}
           </Badge>
         </div>
 
@@ -276,7 +259,7 @@ export function Flashcard({
                 <div className="flex items-center justify-center gap-2.5">
                   <p
                     style={{ fontSize: `${pinyinFontSizeStep2}px` }}
-                    className="font-semibold text-indigo-600 dark:text-indigo-400 tracking-wide font-sans leading-snug whitespace-nowrap"
+                    className="font-semibold text-accent dark:text-accent-light tracking-wide font-sans leading-snug whitespace-nowrap"
                   >
                     {card.pinyin || "—"}
                   </p>
@@ -297,7 +280,7 @@ export function Flashcard({
                 <div className="flex items-center justify-center gap-2 w-full">
                   <p
                     style={{ fontSize: `${pinyinFontSizeStep3}px` }}
-                    className="font-semibold text-indigo-600 dark:text-indigo-400 font-sans whitespace-nowrap"
+                    className="font-semibold text-accent dark:text-accent-light font-sans whitespace-nowrap"
                   >
                     {card.pinyin || "—"}
                   </p>
@@ -335,10 +318,10 @@ export function Flashcard({
           <div className="flex gap-4 animate-fade-in">
             <button
               onClick={onForget}
-              className="relative px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-3 text-base bg-rose-50 dark:bg-rose-950/20 hover:bg-rose-100/80 dark:hover:bg-rose-950/40 hover:scale-[1.02] active:scale-[0.98] hover:shadow-md hover:border-rose-300 dark:hover:border-rose-800 text-rose-700 dark:text-rose-400 border border-rose-200 dark:border-rose-900/30 shadow-sm cursor-pointer group"
+              className="relative px-8 py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center gap-3 text-base bg-rose-50 dark:bg-rose-950/20 hover:bg-rose-100/80 dark:hover:bg-rose-950/40 hover:scale-[1.02] active:scale-[0.98] text-rose-700 dark:text-rose-400 border border-rose-200 dark:border-rose-900/30 cursor-pointer group"
             >
               Quên
-              <kbd className="inline-flex items-center px-1.5 py-0.5 rounded bg-rose-300 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 text-rose-800 dark:text-rose-400 shadow-sm select-none transition-transform duration-200 group-hover:-translate-x-0.5">
+              <kbd className="inline-flex items-center px-1.5 py-0.5 rounded-md bg-rose-300/50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 text-rose-800 dark:text-rose-400 select-none transition-transform duration-200 group-hover:-translate-x-0.5">
                 <CustomIcon
                   name="arrow_left"
                   className="text-rose-700 dark:text-rose-400"
@@ -348,10 +331,10 @@ export function Flashcard({
 
             <button
               onClick={onRemember}
-              className="relative px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-3 text-base bg-emerald-50 dark:bg-emerald-950/20 hover:bg-emerald-100/80 dark:hover:bg-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-800 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/30 shadow-sm cursor-pointer group"
+              className="relative px-8 py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center gap-3 text-base bg-emerald-50 dark:bg-emerald-950/20 hover:bg-emerald-100/80 dark:hover:bg-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/30 cursor-pointer group"
             >
               Nhớ
-              <kbd className="inline-flex items-center px-1.5 py-0.5 rounded bg-emerald-300 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-400 shadow-sm select-none transition-transform duration-200 group-hover:translate-x-0.5">
+              <kbd className="inline-flex items-center px-1.5 py-0.5 rounded-md bg-emerald-300/50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-400 select-none transition-transform duration-200 group-hover:translate-x-0.5">
                 <CustomIcon
                   name="arrow_right"
                   className="text-emerald-700 dark:text-emerald-400"
@@ -364,7 +347,7 @@ export function Flashcard({
             {canUndo && onUndo && (
               <button
                 onClick={onUndo}
-                className="px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2.5 text-base bg-zinc-50 hover:bg-zinc-100/80 hover:scale-[1.02] active:scale-[0.98] hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 text-zinc-700 border border-zinc-200 dark:bg-zinc-850 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-800 shadow-sm cursor-pointer group"
+                className="px-6 py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-2.5 text-base bg-zinc-50 hover:bg-zinc-100/80 hover:scale-[1.02] active:scale-[0.98] text-zinc-700 border border-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-zinc-300 dark:border-zinc-700 cursor-pointer group"
                 title="Quay lại thẻ trước"
               >
                 <CustomIcon
@@ -372,7 +355,7 @@ export function Flashcard({
                   className="w-4 h-4 text-zinc-500 dark:text-zinc-400 transition-transform duration-300 group-hover:-rotate-45"
                 />
                 Hoàn tác
-                <kbd className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono rounded bg-white/60 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 shadow-sm select-none">
+                <kbd className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono rounded-md bg-white/60 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 select-none">
                   Ctrl+Z
                 </kbd>
               </button>
@@ -380,10 +363,10 @@ export function Flashcard({
 
             <button
               onClick={onNext}
-              className="px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2.5 text-base bg-emerald-700/80 dark:bg-emerald-800/60 text-white dark:text-zinc-100 hover:bg-emerald-700 dark:hover:bg-emerald-800 hover:scale-[1.02] active:scale-[0.98] hover:shadow-md shadow-sm border border-transparent dark:border-indigo-500/30 cursor-pointer group"
+              className="px-8 py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-2.5 text-base bg-accent hover:bg-accent-dark text-white dark:hover:bg-accent-light hover:scale-[1.02] active:scale-[0.98] shadow-sm cursor-pointer group"
             >
               Bước tiếp
-              <kbd className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono rounded bg-emerald-700/50 dark:bg-emerald-950/40 border border-emerald-500/30 dark:border-emerald-900/40 text-indigo-100 dark:text-indigo-200 shadow-sm select-none transition-all duration-200 group-hover:scale-105">
+              <kbd className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono rounded-md bg-white/20 border border-white/20 text-white/90 select-none transition-all duration-200 group-hover:scale-105">
                 Space
               </kbd>
             </button>

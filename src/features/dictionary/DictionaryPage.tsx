@@ -97,7 +97,7 @@ export function DictionaryPage() {
         </h2>
       </div>
 
-      <Card className="shrink-0 py-4 px-6">
+      <Card variant="outlined" className="shrink-0 py-4 px-6">
         <div className="flex gap-4">
           <div className="relative flex-1">
             <Search
@@ -115,9 +115,9 @@ export function DictionaryPage() {
           <button
             onClick={handleSort}
             className={cn(
-              "px-4 py-2 rounded-lg border transition-colors flex items-center gap-2 text-sm font-medium",
+              "px-4 py-2 rounded-xl border transition-all duration-200 flex items-center gap-2 text-sm font-medium",
               sortBy === "hsk"
-                ? "bg-indigo-50 border-indigo-300 text-indigo-700 dark:bg-sky-950/60 dark:border-sky-800 dark:text-sky-400"
+                ? "bg-accent/10 border-accent/30 text-accent dark:bg-accent/20 dark:text-accent-light"
                 : "bg-white border-zinc-300 text-zinc-600 hover:bg-zinc-50 dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-700"
             )}
           >
@@ -127,7 +127,7 @@ export function DictionaryPage() {
         </div>
       </Card>
 
-      <Card className="flex-1 flex flex-col min-h-0 py-4 px-6 overflow-hidden">
+      <Card variant="outlined" className="flex-1 flex flex-col min-h-0 py-4 px-6 overflow-hidden">
         <div className="flex items-center justify-between mb-4 shrink-0">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             {total} kết quả
@@ -136,13 +136,22 @@ export function DictionaryPage() {
         </div>
 
         {isSearching && results.length === 0 ? (
-          <p className="text-center py-8 text-zinc-600 dark:text-zinc-400 shrink-0">Đang tìm...</p>
+          <div className="flex-1 space-y-3">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="h-20 bg-zinc-100 dark:bg-zinc-800 rounded-xl animate-pulse" />
+            ))}
+          </div>
         ) : results.length === 0 ? (
-          <p className="text-center py-8 text-zinc-600 dark:text-zinc-400 shrink-0">
-            {debouncedQuery
-              ? `Không tìm thấy kết quả cho "${debouncedQuery}"`
-              : "Chưa có dữ liệu"}
-          </p>
+          <div className="flex-1 flex flex-col items-center justify-center text-center space-y-3">
+            <div className="w-16 h-16 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+              <Search className="w-8 h-8 text-zinc-400 dark:text-zinc-600" />
+            </div>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {debouncedQuery
+                ? `Không tìm thấy kết quả cho "${debouncedQuery}"`
+                : "Nhập từ để tìm kiếm"}
+            </p>
+          </div>
         ) : (
           <div className={cn("flex-1 min-h-0 transition-opacity duration-200", isSearching && "opacity-60 pointer-events-none")}>
             <Virtuoso
@@ -166,7 +175,7 @@ export function DictionaryPage() {
               }}
               itemContent={(_index, entry) => (
                 <div
-                  className="flex items-start justify-between p-4 mb-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50/80 dark:hover:bg-zinc-800/60 transition-colors"
+                  className="flex items-start justify-between p-4 mb-2 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50/80 dark:hover:bg-zinc-800/60 transition-colors"
                 >
                   <div className="flex-1 flex gap-10">
                     <div className="flex-shrink-0 w-56">
@@ -179,13 +188,13 @@ export function DictionaryPage() {
                         <button
                           onClick={() => speakText(entry.word, 300)}
                           title="Phát âm"
-                          className="p-1 rounded-full text-zinc-400 hover:text-indigo-600 dark:hover:text-sky-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                          className="p-1 rounded-full text-zinc-400 hover:text-accent dark:hover:text-accent-light hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                         >
                           <Volume2 className="w-4 h-4" />
                         </button>
                       </div>
                       {entry.pinyin && (
-                        <p className="text-lg mt-1 text-indigo-600 dark:text-sky-400 font-semibold">
+                        <p className="text-lg mt-1 text-accent dark:text-accent-light font-semibold">
                           {entry.pinyin}
                         </p>
                       )}
@@ -212,6 +221,7 @@ export function DictionaryPage() {
                   </div>
                   {entry.hsk_level && (
                     <Badge
+                      variant="neutral"
                       className={cn(
                         "shrink-0 ml-4",
                         getHskBadgeColor(entry.hsk_level),

@@ -29,7 +29,7 @@ export function ManageFilters({
   onClearCache,
 }: ManageFiltersProps) {
   return (
-    <div className="flex items-center justify-between mb-4 gap-4 select-none">
+    <div className="flex items-center justify-between mb-3 gap-4 select-none">
       <div className="flex items-center gap-3 flex-1">
         <Search className="w-5 h-5 shrink-0 text-zinc-400 dark:text-zinc-500" />
         <Input
@@ -37,7 +37,7 @@ export function ManageFilters({
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           className={cn(
-            "text-zinc-900 dark:text-zinc-100",
+            "h-10 text-zinc-900 dark:text-zinc-100",
             "font-mixed"
           )}
         />
@@ -45,7 +45,7 @@ export function ManageFilters({
 
       <div className="relative">
         <select
-          className="appearance-none w-48 px-3 py-2 border rounded-lg text-sm pr-8 bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-sans transition-colors duration-200 cursor-pointer"
+          className="appearance-none w-48 px-3 py-2 border rounded-xl text-sm pr-8 bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-accent/50 font-sans transition-all duration-200 cursor-pointer"
           value={filterLevel === null ? "" : filterLevel}
           onChange={(e) => {
             onFilterLevelChange(e.target.value === "" ? null : Number(e.target.value));

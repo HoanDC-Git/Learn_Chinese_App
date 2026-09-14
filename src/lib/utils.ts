@@ -33,12 +33,12 @@ export function getMasteryColor(level: number): string {
 }
 
 export function getHskBadgeColor(hskLevel: string | null | undefined): string {
-  if (!hskLevel) return "bg-zinc-100 text-zinc-800 border border-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700/60";
+  if (!hskLevel) return "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400";
   const level = parseInt(hskLevel, 10);
-  if (isNaN(level)) return "bg-zinc-100 text-zinc-800 border border-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700/60";
-  if (level <= 2) return "bg-green-100 text-green-800 border border-green-300 dark:bg-green-950/60 dark:text-green-400 dark:border-green-900/50";
-  if (level <= 4) return "bg-amber-100 text-amber-800 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-400 dark:border-amber-900/50";
-  return "bg-rose-100 text-rose-800 border border-rose-300 dark:bg-rose-950/60 dark:text-rose-400 dark:border-rose-900/50";
+  if (isNaN(level)) return "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400";
+  if (level <= 2) return "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400";
+  if (level <= 4) return "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400";
+  return "bg-rose-50 text-rose-700 dark:bg-rose-950/50 dark:text-rose-400";
 }
 
 export function isHanzi(char: string): boolean {

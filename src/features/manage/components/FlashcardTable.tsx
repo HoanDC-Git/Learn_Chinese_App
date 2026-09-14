@@ -49,15 +49,15 @@ export function FlashcardTable({
       return <ArrowUpDown className="w-3.5 h-3.5 inline ml-1 text-zinc-400 dark:text-zinc-500" />;
     }
     return sortOrder === "asc" ? (
-      <ArrowUp className="w-3.5 h-3.5 inline ml-1 text-indigo-500" />
+      <ArrowUp className="w-3.5 h-3.5 inline ml-1 text-accent" />
     ) : (
-      <ArrowDown className="w-3.5 h-3.5 inline ml-1 text-indigo-500" />
+      <ArrowDown className="w-3.5 h-3.5 inline ml-1 text-accent" />
     );
   };
 
   return (
     <div
-      className={cn("flex-1 overflow-y-auto scroll-smooth-gpu scrollbar-thin min-h-0 pr-1 transition-opacity duration-200", isSearching && "opacity-60 pointer-events-none")}
+      className={cn("flex-1 overflow-y-auto scroll-smooth-gpu scrollbar-thin min-h-0 pr-1 transition-opacity duration-200 mt-2", isSearching && "opacity-60 pointer-events-none")}
     >
       <TableVirtuoso
         className="h-full w-full"
@@ -73,13 +73,13 @@ export function FlashcardTable({
               Nghĩa tiếng Việt
             </th>
             <th
-              className="bg-white dark:bg-zinc-900 py-3.5 px-2 font-bold text-[11px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 cursor-pointer select-none hover:text-indigo-600 dark:hover:text-sky-400 transition-colors duration-200 w-28 text-center"
+              className="bg-white dark:bg-zinc-900 py-3.5 px-2 font-bold text-[11px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 cursor-pointer select-none hover:text-accent dark:hover:text-accent-light transition-colors duration-200 w-28 text-center"
               onClick={() => onToggleSort("level")}
             >
               Cấp độ{getSortIcon("level")}
             </th>
             <th
-              className="bg-white dark:bg-zinc-900 py-3.5 px-2 font-bold text-[11px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 cursor-pointer select-none hover:text-indigo-600 dark:hover:text-sky-400 transition-colors duration-200 w-32 text-center"
+              className="bg-white dark:bg-zinc-900 py-3.5 px-2 font-bold text-[11px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 cursor-pointer select-none hover:text-accent dark:hover:text-accent-light transition-colors duration-200 w-32 text-center"
               onClick={() => onToggleSort("date_added")}
             >
               Ngày thêm{getSortIcon("date_added")}

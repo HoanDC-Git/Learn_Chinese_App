@@ -18,18 +18,6 @@ import { convertPinyin } from "../../../lib/pinyin";
 import type { Flashcard } from "../../../types";
 
 
-const badgeClasses: Record<number, string> = {
-  0: "bg-zinc-50/50 dark:bg-zinc-800/20 text-zinc-500 dark:text-zinc-500 border border-dashed border-zinc-300 dark:border-zinc-700",
-  1: "bg-emerald-100 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/30",
-  2: "badge-bronze",
-  3: "badge-silver",
-  4: "badge-gold",
-  5: "badge-diamond",
-  6: "badge-mythic",
-  7: "badge-fire",
-  8: "badge-ultimate",
-};
-
 interface FlashcardRowProps {
   card: Flashcard;
   hasAudio: boolean;
@@ -115,7 +103,7 @@ export const FlashcardRow = memo(function FlashcardRow({
                 <Input
                   value={editPinyin}
                   onChange={(e) => setEditPinyin(e.target.value)}
-                  className="text-sm w-full text-indigo-600 dark:text-sky-400 font-semibold"
+                  className="text-sm w-full text-accent dark:text-accent-light font-semibold"
                   placeholder="Pinyin"
                 />
                 <Button
@@ -140,13 +128,10 @@ export const FlashcardRow = memo(function FlashcardRow({
           </td>
           <td className="py-3 px-2 text-center">
             <Badge
-              className={`w-24 justify-center whitespace-nowrap ${badgeClasses[card.level] || badgeClasses[0]}`}
+              level={card.level}
+              className="w-24 justify-center"
             >
-              {card.level === 8 ? (
-                <span className="badge-ultimate-text">{getMasteryLabel(card.level)}</span>
-              ) : (
-                getMasteryLabel(card.level)
-              )}
+              {getMasteryLabel(card.level)}
             </Badge>
           </td>
           <td className="py-3 px-2 text-center text-sm text-zinc-400 dark:text-zinc-500">
@@ -177,11 +162,11 @@ export const FlashcardRow = memo(function FlashcardRow({
         <>
           <td className="py-3 px-1 text-center">
             {isGenerating ? (
-              <Loader2 className="w-5 h-5 animate-spin mx-auto text-indigo-600 dark:text-sky-400" />
+              <Loader2 className="w-5 h-5 animate-spin mx-auto text-accent" />
             ) : hasAudio ? (
               <button
                 onClick={() => onPlayAudio(card.id, card.hanzi)}
-                className="p-1.5 rounded-lg transition-all duration-200 mx-auto flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 text-indigo-500 hover:text-indigo-600 dark:text-sky-400 dark:hover:text-sky-300 hover:scale-110 active:scale-95 cursor-pointer"
+                className="p-1.5 rounded-lg transition-all duration-200 mx-auto flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 text-accent hover:scale-110 active:scale-95 cursor-pointer"
                 title="Phát âm thanh"
               >
                 <Volume2 className="w-5 h-5" />
@@ -189,7 +174,7 @@ export const FlashcardRow = memo(function FlashcardRow({
             ) : (
               <button
                 onClick={() => onPlayAudio(card.id, card.hanzi)}
-                className="p-1.5 rounded-lg transition-all duration-200 mx-auto flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 hover:text-indigo-500 dark:text-zinc-500 dark:hover:text-sky-400 hover:scale-110 active:scale-95 cursor-pointer"
+                className="p-1.5 rounded-lg transition-all duration-200 mx-auto flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 hover:text-accent hover:scale-110 active:scale-95 cursor-pointer"
                 title="Tạo và phát âm thanh"
               >
                 <VolumeX className="w-5 h-5" />
@@ -201,7 +186,7 @@ export const FlashcardRow = memo(function FlashcardRow({
               <span className="text-zinc-900 dark:text-zinc-100">
                 {renderHanziText(card.hanzi)}
               </span>
-              <span className="text-sm text-indigo-600 dark:text-sky-400 font-semibold">
+              <span className="text-sm text-accent dark:text-accent-light font-semibold">
                 {card.pinyin || (
                   <span className="text-zinc-400 dark:text-zinc-500">—</span>
                 )}
@@ -215,13 +200,10 @@ export const FlashcardRow = memo(function FlashcardRow({
           </td>
           <td className="py-3 px-2 text-center">
             <Badge
-              className={`w-24 justify-center whitespace-nowrap ${badgeClasses[card.level] || badgeClasses[0]}`}
+              level={card.level}
+              className="w-24 justify-center"
             >
-              {card.level === 8 ? (
-                <span className="badge-ultimate-text">{getMasteryLabel(card.level)}</span>
-              ) : (
-                getMasteryLabel(card.level)
-              )}
+              {getMasteryLabel(card.level)}
             </Badge>
           </td>
           <td className="py-3 px-2 text-center text-sm text-zinc-400 dark:text-zinc-500">
@@ -242,10 +224,10 @@ export const FlashcardRow = memo(function FlashcardRow({
               )}
               <button
                 onClick={startEdit}
-                className="p-1.5 rounded-lg transition-all duration-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-indigo-600 dark:text-sky-400 hover:scale-110 active:scale-95 cursor-pointer"
+                className="p-1.5 rounded-lg transition-all duration-200 hover:bg-accent/10 dark:hover:bg-accent/20 text-accent hover:scale-110 active:scale-95 cursor-pointer"
                 title="Sửa"
               >
-                <Pencil className="w-4 h-4 text-indigo-600 dark:text-sky-400" />
+                <Pencil className="w-4 h-4 text-accent" />
               </button>
               <button
                 onClick={() => onDelete(card.id)}
