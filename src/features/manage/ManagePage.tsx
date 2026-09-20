@@ -139,6 +139,13 @@ export function ManagePage() {
 
       const card = pendingCards[i];
       try {
+        const exists = await invoke<boolean>("check_audio_exists", { text: card.hanzi });
+        if (exists) {
+          setAudioStatus((prev) => ({ ...prev, [card.id]: true }));
+          setBatchProgress({ current: i + 1, total: pendingCards.length });
+          continue; // Skip sleep if file already exists
+        }
+
         const result = await generateAudio(card.hanzi);
         if (result.success) {
           setAudioStatus((prev) => ({ ...prev, [card.id]: true }));
@@ -162,7 +169,6 @@ export function ManagePage() {
   const handleClearCache = async () => {
     try {
       const removed = await invoke<number>("clear_audio_cache");
-      setAudioStatus({});
       console.log(`Đã xóa ${removed} file audio thừa`);
     } catch (e) {
       console.error("Lỗi xóa cache:", e);
