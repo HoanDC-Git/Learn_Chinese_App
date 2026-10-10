@@ -1,0 +1,3179 @@
+[
+  {
+    "id": 1,
+    "character": "一",
+    "radical_number": 1,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yī",
+    "meaning_vi": "Bộ nhất: Số một",
+    "type": "radical"
+  },
+  {
+    "id": 2,
+    "character": "丨",
+    "radical_number": 2,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gǔn",
+    "meaning_vi": "Bộ cổn: Nét sổ dọc",
+    "type": "radical"
+  },
+  {
+    "id": 3,
+    "character": "丶",
+    "radical_number": 3,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhǔ",
+    "meaning_vi": "Bộ chủ: Nét chấm",
+    "type": "radical"
+  },
+  {
+    "id": 4,
+    "character": "丿",
+    "radical_number": 4,
+    "variants": "乀, 乁, ㇒",
+    "simplified": "",
+    "pinyin": "piě",
+    "meaning_vi": "Bộ phiệt: Nét phẩy",
+    "type": "radical"
+  },
+  {
+    "id": 5,
+    "character": "乙",
+    "radical_number": 5,
+    "variants": "乚, 乛, ⺄, 𠃊",
+    "simplified": "",
+    "pinyin": "yì",
+    "meaning_vi": "Bộ ất: Can Ất",
+    "type": "radical"
+  },
+  {
+    "id": 6,
+    "character": "亅",
+    "radical_number": 6,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jué",
+    "meaning_vi": "Bộ quyết: Nét móc",
+    "type": "radical"
+  },
+  {
+    "id": 7,
+    "character": "二",
+    "radical_number": 7,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "èr",
+    "meaning_vi": "Bộ nhị: Số hai",
+    "type": "radical"
+  },
+  {
+    "id": 8,
+    "character": "亠",
+    "radical_number": 8,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "tóu",
+    "meaning_vi": "Bộ đầu: Phần đầu",
+    "type": "radical"
+  },
+  {
+    "id": 9,
+    "character": "人",
+    "radical_number": 9,
+    "variants": "亻, 𠆢",
+    "simplified": "",
+    "pinyin": "rén",
+    "meaning_vi": "Bộ nhân: Người",
+    "type": "radical"
+  },
+  {
+    "id": 10,
+    "character": "儿",
+    "radical_number": 10,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "ér",
+    "meaning_vi": "Bộ nhi: Trẻ con, đôi chân",
+    "type": "radical"
+  },
+  {
+    "id": 11,
+    "character": "入",
+    "radical_number": 11,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "rù",
+    "meaning_vi": "Bộ nhập: Vào",
+    "type": "radical"
+  },
+  {
+    "id": 12,
+    "character": "八",
+    "radical_number": 12,
+    "variants": "丷",
+    "simplified": null,
+    "pinyin": "bā",
+    "meaning_vi": "Bộ bát: Số tám, tách ra",
+    "type": "radical"
+  },
+  {
+    "id": 13,
+    "character": "冂",
+    "radical_number": 13,
+    "variants": "⺆",
+    "simplified": null,
+    "pinyin": "jiǒng",
+    "meaning_vi": "Bộ quynh: Vùng biên giới",
+    "type": "radical"
+  },
+  {
+    "id": 14,
+    "character": "冖",
+    "radical_number": 14,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mì",
+    "meaning_vi": "Bộ mịch: Che phủ",
+    "type": "radical"
+  },
+  {
+    "id": 15,
+    "character": "冫",
+    "radical_number": 15,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bīng",
+    "meaning_vi": "Bộ băng: Nước đá",
+    "type": "radical"
+  },
+  {
+    "id": 16,
+    "character": "几",
+    "radical_number": 16,
+    "variants": "𠘨",
+    "simplified": "",
+    "pinyin": "jī",
+    "meaning_vi": "Bộ kỷ: Cái bàn nhỏ",
+    "type": "radical"
+  },
+  {
+    "id": 17,
+    "character": "凵",
+    "radical_number": 17,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "qǔ",
+    "meaning_vi": "Bộ khảm: Chỗ trũng, há miệng",
+    "type": "radical"
+  },
+  {
+    "id": 18,
+    "character": "刀",
+    "radical_number": 18,
+    "variants": "刂, ⺈, 𠂊",
+    "simplified": "",
+    "pinyin": "dāo",
+    "meaning_vi": "Bộ đao: Con dao",
+    "type": "radical"
+  },
+  {
+    "id": 19,
+    "character": "力",
+    "radical_number": 19,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lì",
+    "meaning_vi": "Bộ lực: Sức mạnh",
+    "type": "radical"
+  },
+  {
+    "id": 20,
+    "character": "勹",
+    "radical_number": 20,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bāo",
+    "meaning_vi": "Bộ bao: Bao bọc",
+    "type": "radical"
+  },
+  {
+    "id": 21,
+    "character": "匕",
+    "radical_number": 21,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bǐ",
+    "meaning_vi": "Bộ chủy: Cái thìa",
+    "type": "radical"
+  },
+  {
+    "id": 22,
+    "character": "匚",
+    "radical_number": 22,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "fāng",
+    "meaning_vi": "Bộ phương: Tủ đựng",
+    "type": "radical"
+  },
+  {
+    "id": 23,
+    "character": "匸",
+    "radical_number": 23,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xǐ",
+    "meaning_vi": "Bộ hệ: Che giấu",
+    "type": "radical"
+  },
+  {
+    "id": 24,
+    "character": "十",
+    "radical_number": 24,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shí",
+    "meaning_vi": "Bộ thập: Số mười",
+    "type": "radical"
+  },
+  {
+    "id": 25,
+    "character": "卜",
+    "radical_number": 25,
+    "variants": "⺊",
+    "simplified": "",
+    "pinyin": "bǔ",
+    "meaning_vi": "Bộ bốc: Xem bói",
+    "type": "radical"
+  },
+  {
+    "id": 26,
+    "character": "卩",
+    "radical_number": 26,
+    "variants": "㔾",
+    "simplified": "",
+    "pinyin": "jié",
+    "meaning_vi": "Bộ tiết: Đốt tre, con dấu",
+    "type": "radical"
+  },
+  {
+    "id": 27,
+    "character": "厂",
+    "radical_number": 27,
+    "variants": "𠂆",
+    "simplified": null,
+    "pinyin": "hàn",
+    "meaning_vi": "Bộ hán: Sườn núi, vách đá",
+    "type": "radical"
+  },
+  {
+    "id": 28,
+    "character": "厶",
+    "radical_number": 28,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "sī",
+    "meaning_vi": "Bộ tư: Riêng tư",
+    "type": "radical"
+  },
+  {
+    "id": 29,
+    "character": "又",
+    "radical_number": 29,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yòu",
+    "meaning_vi": "Bộ hựu: Bàn tay phải, lại nữa",
+    "type": "radical"
+  },
+  {
+    "id": 30,
+    "character": "口",
+    "radical_number": 30,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "kǒu",
+    "meaning_vi": "Bộ khẩu: Cái miệng",
+    "type": "radical"
+  },
+  {
+    "id": 31,
+    "character": "囗",
+    "radical_number": 31,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "wéi",
+    "meaning_vi": "Bộ vi: Vây quanh",
+    "type": "radical"
+  },
+  {
+    "id": 32,
+    "character": "土",
+    "radical_number": 32,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "tǔ",
+    "meaning_vi": "Bộ thổ: Đất",
+    "type": "radical"
+  },
+  {
+    "id": 33,
+    "character": "士",
+    "radical_number": 33,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shì",
+    "meaning_vi": "Bộ sĩ: Kẻ sĩ, quan",
+    "type": "radical"
+  },
+  {
+    "id": 34,
+    "character": "夂",
+    "radical_number": 34,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhǐ",
+    "meaning_vi": "Bộ truy: Theo sau",
+    "type": "radical"
+  },
+  {
+    "id": 35,
+    "character": "夊",
+    "radical_number": 35,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "suī",
+    "meaning_vi": "Bộ tuy: Đi chậm rãi",
+    "type": "radical"
+  },
+  {
+    "id": 36,
+    "character": "夕",
+    "radical_number": 36,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xī",
+    "meaning_vi": "Bộ tịch: Buổi tối",
+    "type": "radical"
+  },
+  {
+    "id": 37,
+    "character": "大",
+    "radical_number": 37,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "dà",
+    "meaning_vi": "Bộ đại: To lớn",
+    "type": "radical"
+  },
+  {
+    "id": 38,
+    "character": "女",
+    "radical_number": 38,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "nǚ",
+    "meaning_vi": "Bộ nữ: Phụ nữ",
+    "type": "radical"
+  },
+  {
+    "id": 39,
+    "character": "子",
+    "radical_number": 39,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zǐ",
+    "meaning_vi": "Bộ tử: Con cái",
+    "type": "radical"
+  },
+  {
+    "id": 40,
+    "character": "宀",
+    "radical_number": 40,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mián",
+    "meaning_vi": "Bộ miên: Mái nhà",
+    "type": "radical"
+  },
+  {
+    "id": 41,
+    "character": "寸",
+    "radical_number": 41,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "cùn",
+    "meaning_vi": "Bộ thốn: Tấc",
+    "type": "radical"
+  },
+  {
+    "id": 42,
+    "character": "小",
+    "radical_number": 42,
+    "variants": "⺌, ⺍, 𭕄",
+    "simplified": "",
+    "pinyin": "xiǎo",
+    "meaning_vi": "Bộ tiểu: Nhỏ bé",
+    "type": "radical"
+  },
+  {
+    "id": 43,
+    "character": "尢",
+    "radical_number": 43,
+    "variants": "尣",
+    "simplified": null,
+    "pinyin": "wāng",
+    "meaning_vi": "Bộ uông: Khập khiễng",
+    "type": "radical"
+  },
+  {
+    "id": 44,
+    "character": "尸",
+    "radical_number": 44,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shī",
+    "meaning_vi": "Bộ thi: Thây ma",
+    "type": "radical"
+  },
+  {
+    "id": 45,
+    "character": "屮",
+    "radical_number": 45,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chè",
+    "meaning_vi": "Bộ triệt: Mầm cỏ non",
+    "type": "radical"
+  },
+  {
+    "id": 46,
+    "character": "山",
+    "radical_number": 46,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shān",
+    "meaning_vi": "Bộ sơn: Ngọn núi",
+    "type": "radical"
+  },
+  {
+    "id": 47,
+    "character": "川",
+    "radical_number": 47,
+    "variants": "巛, 巜",
+    "simplified": null,
+    "pinyin": "chuān",
+    "meaning_vi": "Bộ xuyên: Sông ngòi",
+    "type": "radical"
+  },
+  {
+    "id": 48,
+    "character": "工",
+    "radical_number": 48,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gōng",
+    "meaning_vi": "Bộ công: Người thợ, công việc",
+    "type": "radical"
+  },
+  {
+    "id": 49,
+    "character": "己",
+    "radical_number": 49,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jǐ",
+    "meaning_vi": "Bộ kỷ: Bản thân",
+    "type": "radical"
+  },
+  {
+    "id": 50,
+    "character": "巾",
+    "radical_number": 50,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jīn",
+    "meaning_vi": "Bộ cân: Cái khăn",
+    "type": "radical"
+  },
+  {
+    "id": 51,
+    "character": "干",
+    "radical_number": 51,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gān",
+    "meaning_vi": "Bộ can: Cái khiên, can thiệp",
+    "type": "radical"
+  },
+  {
+    "id": 52,
+    "character": "幺",
+    "radical_number": 52,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yāo",
+    "meaning_vi": "Bộ yêu: Nhỏ nhắn",
+    "type": "radical"
+  },
+  {
+    "id": 53,
+    "character": "广",
+    "radical_number": 53,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "guǎn",
+    "meaning_vi": "Bộ nghiễm: Mái hiên",
+    "type": "radical"
+  },
+  {
+    "id": 54,
+    "character": "廴",
+    "radical_number": 54,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǐn",
+    "meaning_vi": "Bộ dẫn: Bước dài",
+    "type": "radical"
+  },
+  {
+    "id": 55,
+    "character": "廾",
+    "radical_number": 55,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gǒng",
+    "meaning_vi": "Bộ củng: Chắp tay",
+    "type": "radical"
+  },
+  {
+    "id": 56,
+    "character": "弋",
+    "radical_number": 56,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yì",
+    "meaning_vi": "Bộ dực: Bắn tên",
+    "type": "radical"
+  },
+  {
+    "id": 57,
+    "character": "弓",
+    "radical_number": 57,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gōng",
+    "meaning_vi": "Bộ cung: Cây cung",
+    "type": "radical"
+  },
+  {
+    "id": 58,
+    "character": "彐",
+    "radical_number": 58,
+    "variants": "彑, ⺕",
+    "simplified": "",
+    "pinyin": "jì",
+    "meaning_vi": "Bộ ký: Mõm lợn",
+    "type": "radical"
+  },
+  {
+    "id": 59,
+    "character": "彡",
+    "radical_number": 59,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shān",
+    "meaning_vi": "Bộ sam: Lông tóc dài",
+    "type": "radical"
+  },
+  {
+    "id": 60,
+    "character": "彳",
+    "radical_number": 60,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chì",
+    "meaning_vi": "Bộ xích: Bước ngắn",
+    "type": "radical"
+  },
+  {
+    "id": 61,
+    "character": "心",
+    "radical_number": 61,
+    "variants": "忄, ⺗",
+    "simplified": "",
+    "pinyin": "xīn",
+    "meaning_vi": "Bộ tâm: Quả tim, tâm trí",
+    "type": "radical"
+  },
+  {
+    "id": 62,
+    "character": "戈",
+    "radical_number": 62,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gē",
+    "meaning_vi": "Bộ qua: Cây giáo",
+    "type": "radical"
+  },
+  {
+    "id": 63,
+    "character": "戶",
+    "radical_number": 63,
+    "variants": "户, 戸",
+    "simplified": "户",
+    "pinyin": "hù",
+    "meaning_vi": "Bộ hộ: Cửa một cánh",
+    "type": "radical"
+  },
+  {
+    "id": 64,
+    "character": "手",
+    "radical_number": 64,
+    "variants": "扌, 龵",
+    "simplified": "",
+    "pinyin": "shǒu",
+    "meaning_vi": "Bộ thủ: Bàn tay",
+    "type": "radical"
+  },
+  {
+    "id": 65,
+    "character": "支",
+    "radical_number": 65,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhī",
+    "meaning_vi": "Bộ chi: Cành nhánh",
+    "type": "radical"
+  },
+  {
+    "id": 66,
+    "character": "攴",
+    "radical_number": 66,
+    "variants": "攵",
+    "simplified": null,
+    "pinyin": "pū",
+    "meaning_vi": "Bộ phộc: Đánh nhẹ",
+    "type": "radical"
+  },
+  {
+    "id": 67,
+    "character": "文",
+    "radical_number": 67,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "wén",
+    "meaning_vi": "Bộ văn: Văn vẻ, chữ viết",
+    "type": "radical"
+  },
+  {
+    "id": 68,
+    "character": "斗",
+    "radical_number": 68,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "dǒu",
+    "meaning_vi": "Bộ đẩu: Cái đấu đong gạo",
+    "type": "radical"
+  },
+  {
+    "id": 69,
+    "character": "斤",
+    "radical_number": 69,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jīn",
+    "meaning_vi": "Bộ cân: Cái búa, cân lạng",
+    "type": "radical"
+  },
+  {
+    "id": 70,
+    "character": "方",
+    "radical_number": 70,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "fāng",
+    "meaning_vi": "Bộ phương: Vuông vắn, phương hướng",
+    "type": "radical"
+  },
+  {
+    "id": 71,
+    "character": "无",
+    "radical_number": 71,
+    "variants": "旡",
+    "simplified": "",
+    "pinyin": "wú",
+    "meaning_vi": "Bộ vô: Không có",
+    "type": "radical"
+  },
+  {
+    "id": 72,
+    "character": "日",
+    "radical_number": 72,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "rì",
+    "meaning_vi": "Bộ nhật: Mặt trời, ban ngày",
+    "type": "radical"
+  },
+  {
+    "id": 73,
+    "character": "曰",
+    "radical_number": 73,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yuē",
+    "meaning_vi": "Bộ viết: Nói rằng",
+    "type": "radical"
+  },
+  {
+    "id": 74,
+    "character": "月",
+    "radical_number": 74,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yuè",
+    "meaning_vi": "Bộ nguyệt: Mặt trăng, tháng",
+    "type": "radical"
+  },
+  {
+    "id": 75,
+    "character": "木",
+    "radical_number": 75,
+    "variants": "朩",
+    "simplified": null,
+    "pinyin": "mù",
+    "meaning_vi": "Bộ mộc: Cây cối, gỗ",
+    "type": "radical"
+  },
+  {
+    "id": 76,
+    "character": "欠",
+    "radical_number": 76,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "qiàn",
+    "meaning_vi": "Bộ khiếm: Thiếu thốn",
+    "type": "radical"
+  },
+  {
+    "id": 77,
+    "character": "止",
+    "radical_number": 77,
+    "variants": "龰",
+    "simplified": null,
+    "pinyin": "zhǐ",
+    "meaning_vi": "Bộ chỉ: Dừng lại",
+    "type": "radical"
+  },
+  {
+    "id": 78,
+    "character": "歹",
+    "radical_number": 78,
+    "variants": "歺",
+    "simplified": "",
+    "pinyin": "dǎi",
+    "meaning_vi": "Bộ đãi: Xấu xa, tồi tệ",
+    "type": "radical"
+  },
+  {
+    "id": 79,
+    "character": "殳",
+    "radical_number": 79,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shū",
+    "meaning_vi": "Bộ thù: Binh khí dài",
+    "type": "radical"
+  },
+  {
+    "id": 80,
+    "character": "毋",
+    "radical_number": 80,
+    "variants": "母, ⺟",
+    "simplified": "",
+    "pinyin": "wú",
+    "meaning_vi": "Bộ vô: Đừng, chớ",
+    "type": "radical"
+  },
+  {
+    "id": 81,
+    "character": "比",
+    "radical_number": 81,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bǐ",
+    "meaning_vi": "Bộ tỷ: So sánh",
+    "type": "radical"
+  },
+  {
+    "id": 82,
+    "character": "毛",
+    "radical_number": 82,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "máo",
+    "meaning_vi": "Bộ mao: Lông thú, lông vũ",
+    "type": "radical"
+  },
+  {
+    "id": 83,
+    "character": "氏",
+    "radical_number": 83,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shì",
+    "meaning_vi": "Bộ thị: Họ",
+    "type": "radical"
+  },
+  {
+    "id": 84,
+    "character": "气",
+    "radical_number": 84,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "qì",
+    "meaning_vi": "Bộ khí: Hơi thở, không khí",
+    "type": "radical"
+  },
+  {
+    "id": 85,
+    "character": "水",
+    "radical_number": 85,
+    "variants": "氵, 氺",
+    "simplified": "",
+    "pinyin": "shuǐ",
+    "meaning_vi": "Bộ thủy: Nước",
+    "type": "radical"
+  },
+  {
+    "id": 86,
+    "character": "火",
+    "radical_number": 86,
+    "variants": "灬",
+    "simplified": null,
+    "pinyin": "huǒ",
+    "meaning_vi": "Bộ hỏa: Lửa",
+    "type": "radical"
+  },
+  {
+    "id": 87,
+    "character": "爪",
+    "radical_number": 87,
+    "variants": "爫",
+    "simplified": null,
+    "pinyin": "zhǎo",
+    "meaning_vi": "Bộ trảo: Móng vuốt",
+    "type": "radical"
+  },
+  {
+    "id": 88,
+    "character": "父",
+    "radical_number": 88,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "fù",
+    "meaning_vi": "Bộ phụ: Cha",
+    "type": "radical"
+  },
+  {
+    "id": 89,
+    "character": "爻",
+    "radical_number": 89,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yáo",
+    "meaning_vi": "Bộ hào: Hào (trong Kinh Dịch)",
+    "type": "radical"
+  },
+  {
+    "id": 90,
+    "character": "爿",
+    "radical_number": 90,
+    "variants": "丬",
+    "simplified": "丬",
+    "pinyin": "pán",
+    "meaning_vi": "Bộ tường: Mảnh gỗ",
+    "type": "radical"
+  },
+  {
+    "id": 91,
+    "character": "片",
+    "radical_number": 91,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "piàn",
+    "meaning_vi": "Bộ phiến: Mảnh mỏng",
+    "type": "radical"
+  },
+  {
+    "id": 92,
+    "character": "牙",
+    "radical_number": 92,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yá",
+    "meaning_vi": "Bộ nha: Răng nanh",
+    "type": "radical"
+  },
+  {
+    "id": 93,
+    "character": "牛",
+    "radical_number": 93,
+    "variants": "牜, ⺧, 𠂒",
+    "simplified": "",
+    "pinyin": "niú",
+    "meaning_vi": "Bộ ngưu: Con bò",
+    "type": "radical"
+  },
+  {
+    "id": 94,
+    "character": "犬",
+    "radical_number": 94,
+    "variants": "犭",
+    "simplified": null,
+    "pinyin": "quǎn",
+    "meaning_vi": "Bộ khuyển: Con chó",
+    "type": "radical"
+  },
+  {
+    "id": 95,
+    "character": "玄",
+    "radical_number": 95,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xuán",
+    "meaning_vi": "Bộ huyền: Màu đen",
+    "type": "radical"
+  },
+  {
+    "id": 96,
+    "character": "玉",
+    "radical_number": 96,
+    "variants": "王, ⺩",
+    "simplified": "",
+    "pinyin": "yù",
+    "meaning_vi": "Bộ ngọc: Đá quý",
+    "type": "radical"
+  },
+  {
+    "id": 97,
+    "character": "瓜",
+    "radical_number": 97,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "guā",
+    "meaning_vi": "Bộ qua: Quả dưa",
+    "type": "radical"
+  },
+  {
+    "id": 98,
+    "character": "瓦",
+    "radical_number": 98,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "wǎ",
+    "meaning_vi": "Bộ ngõa: Ngói đất",
+    "type": "radical"
+  },
+  {
+    "id": 99,
+    "character": "甘",
+    "radical_number": 99,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gān",
+    "meaning_vi": "Bộ cam: Ngọt",
+    "type": "radical"
+  },
+  {
+    "id": 100,
+    "character": "生",
+    "radical_number": 100,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shēng",
+    "meaning_vi": "Bộ sinh: Sinh đẻ, sống",
+    "type": "radical"
+  },
+  {
+    "id": 101,
+    "character": "用",
+    "radical_number": 101,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yòng",
+    "meaning_vi": "Bộ dụng: Sử dụng",
+    "type": "radical"
+  },
+  {
+    "id": 102,
+    "character": "田",
+    "radical_number": 102,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "tián",
+    "meaning_vi": "Bộ điền: Ruộng đất",
+    "type": "radical"
+  },
+  {
+    "id": 103,
+    "character": "疋",
+    "radical_number": 103,
+    "variants": "⺪",
+    "simplified": "",
+    "pinyin": "pǐ",
+    "meaning_vi": "Bộ thất: Cuộn vải",
+    "type": "radical"
+  },
+  {
+    "id": 104,
+    "character": "疒",
+    "radical_number": 104,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chuáng",
+    "meaning_vi": "Bộ nạch: Bệnh tật",
+    "type": "radical"
+  },
+  {
+    "id": 105,
+    "character": "癶",
+    "radical_number": 105,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bò",
+    "meaning_vi": "Bộ bát: Trèo lên",
+    "type": "radical"
+  },
+  {
+    "id": 106,
+    "character": "白",
+    "radical_number": 106,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bái",
+    "meaning_vi": "Bộ bạch: Màu trắng",
+    "type": "radical"
+  },
+  {
+    "id": 107,
+    "character": "皮",
+    "radical_number": 107,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "pí",
+    "meaning_vi": "Bộ bì: Da",
+    "type": "radical"
+  },
+  {
+    "id": 108,
+    "character": "皿",
+    "radical_number": 108,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mǐn",
+    "meaning_vi": "Bộ mãnh: Bát dĩa",
+    "type": "radical"
+  },
+  {
+    "id": 109,
+    "character": "目",
+    "radical_number": 109,
+    "variants": "⺫",
+    "simplified": "",
+    "pinyin": "mù",
+    "meaning_vi": "Bộ mục: Con mắt",
+    "type": "radical"
+  },
+  {
+    "id": 110,
+    "character": "矛",
+    "radical_number": 110,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "máo",
+    "meaning_vi": "Bộ mâu: Cái giáo",
+    "type": "radical"
+  },
+  {
+    "id": 111,
+    "character": "矢",
+    "radical_number": 111,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shǐ",
+    "meaning_vi": "Bộ thỉ: Mũi tên",
+    "type": "radical"
+  },
+  {
+    "id": 112,
+    "character": "石",
+    "radical_number": 112,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shí",
+    "meaning_vi": "Bộ thạch: Đá",
+    "type": "radical"
+  },
+  {
+    "id": 113,
+    "character": "示",
+    "radical_number": 113,
+    "variants": "礻, ⺬",
+    "simplified": "",
+    "pinyin": "shì",
+    "meaning_vi": "Bộ thị: Chỉ cho thấy",
+    "type": "radical"
+  },
+  {
+    "id": 114,
+    "character": "禸",
+    "radical_number": 114,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "rǒu",
+    "meaning_vi": "Bộ nhựu: Vết chân thú",
+    "type": "radical"
+  },
+  {
+    "id": 115,
+    "character": "禾",
+    "radical_number": 115,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "hé",
+    "meaning_vi": "Bộ hòa: Cây lúa",
+    "type": "radical"
+  },
+  {
+    "id": 116,
+    "character": "穴",
+    "radical_number": 116,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xuè",
+    "meaning_vi": "Bộ huyệt: Cái hang",
+    "type": "radical"
+  },
+  {
+    "id": 117,
+    "character": "立",
+    "radical_number": 117,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lì",
+    "meaning_vi": "Bộ lập: Đứng",
+    "type": "radical"
+  },
+  {
+    "id": 118,
+    "character": "竹",
+    "radical_number": 118,
+    "variants": "⺮",
+    "simplified": null,
+    "pinyin": "zhú",
+    "meaning_vi": "Bộ trúc: Cây tre",
+    "type": "radical"
+  },
+  {
+    "id": 119,
+    "character": "米",
+    "radical_number": 119,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mǐ",
+    "meaning_vi": "Bộ mễ: Gạo",
+    "type": "radical"
+  },
+  {
+    "id": 120,
+    "character": "糸",
+    "radical_number": 120,
+    "variants": "纟, 糹",
+    "simplified": "纟",
+    "pinyin": "mì",
+    "meaning_vi": "Bộ mịch: Sợi tơ nhỏ",
+    "type": "radical"
+  },
+  {
+    "id": 121,
+    "character": "缶",
+    "radical_number": 121,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "fǒu",
+    "meaning_vi": "Bộ phẫu: Đồ sành",
+    "type": "radical"
+  },
+  {
+    "id": 122,
+    "character": "网",
+    "radical_number": 122,
+    "variants": "罒, 㓁, 罓, ⺳",
+    "simplified": "网",
+    "pinyin": "wǎng",
+    "meaning_vi": "Bộ võng: Cái lưới",
+    "type": "radical"
+  },
+  {
+    "id": 123,
+    "character": "羊",
+    "radical_number": 123,
+    "variants": "⺷, 𦍌",
+    "simplified": "",
+    "pinyin": "yáng",
+    "meaning_vi": "Bộ dương: Con cừu",
+    "type": "radical"
+  },
+  {
+    "id": 124,
+    "character": "羽",
+    "radical_number": 124,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǔ",
+    "meaning_vi": "Bộ vũ: Lông chim",
+    "type": "radical"
+  },
+  {
+    "id": 125,
+    "character": "老",
+    "radical_number": 125,
+    "variants": "耂",
+    "simplified": "",
+    "pinyin": "lǎo",
+    "meaning_vi": "Bộ lão: Người già",
+    "type": "radical"
+  },
+  {
+    "id": 126,
+    "character": "而",
+    "radical_number": 126,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "ér",
+    "meaning_vi": "Bộ nhi: Mà, và",
+    "type": "radical"
+  },
+  {
+    "id": 127,
+    "character": "耒",
+    "radical_number": 127,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lěi",
+    "meaning_vi": "Bộ lỗi: Cái cày",
+    "type": "radical"
+  },
+  {
+    "id": 128,
+    "character": "耳",
+    "radical_number": 128,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "ěr",
+    "meaning_vi": "Bộ nhĩ: Lỗ tai",
+    "type": "radical"
+  },
+  {
+    "id": 129,
+    "character": "聿",
+    "radical_number": 129,
+    "variants": "肀, ⺻",
+    "simplified": "",
+    "pinyin": "yù",
+    "meaning_vi": "Bộ duật: Cây bút",
+    "type": "radical"
+  },
+  {
+    "id": 130,
+    "character": "肉",
+    "radical_number": 130,
+    "variants": "⺼",
+    "simplified": null,
+    "pinyin": "ròu",
+    "meaning_vi": "Bộ nhục: Thịt",
+    "type": "radical"
+  },
+  {
+    "id": 131,
+    "character": "臣",
+    "radical_number": 131,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chén",
+    "meaning_vi": "Bộ thần: Quan bầy tôi",
+    "type": "radical"
+  },
+  {
+    "id": 132,
+    "character": "自",
+    "radical_number": 132,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zì",
+    "meaning_vi": "Bộ tự: Bản thân, từ",
+    "type": "radical"
+  },
+  {
+    "id": 133,
+    "character": "至",
+    "radical_number": 133,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhì",
+    "meaning_vi": "Bộ chí: Đến nơi",
+    "type": "radical"
+  },
+  {
+    "id": 134,
+    "character": "臼",
+    "radical_number": 134,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiù",
+    "meaning_vi": "Bộ cữu: Cái cối giã",
+    "type": "radical"
+  },
+  {
+    "id": 135,
+    "character": "舌",
+    "radical_number": 135,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shé",
+    "meaning_vi": "Bộ thiệt: Cái lưỡi",
+    "type": "radical"
+  },
+  {
+    "id": 136,
+    "character": "舛",
+    "radical_number": 136,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chuǎn",
+    "meaning_vi": "Bộ suyễn: Sai lầm",
+    "type": "radical"
+  },
+  {
+    "id": 137,
+    "character": "舟",
+    "radical_number": 137,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhōu",
+    "meaning_vi": "Bộ chu: Con thuyền",
+    "type": "radical"
+  },
+  {
+    "id": 138,
+    "character": "艮",
+    "radical_number": 138,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gèn",
+    "meaning_vi": "Bộ cấn: Ranh giới, ngăn lại",
+    "type": "radical"
+  },
+  {
+    "id": 139,
+    "character": "色",
+    "radical_number": 139,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "sè",
+    "meaning_vi": "Bộ sắc: Màu sắc, dung nhan",
+    "type": "radical"
+  },
+  {
+    "id": 140,
+    "character": "艸",
+    "radical_number": 140,
+    "variants": "艹",
+    "simplified": "",
+    "pinyin": "cǎo",
+    "meaning_vi": "Bộ thảo: Cỏ",
+    "type": "radical"
+  },
+  {
+    "id": 141,
+    "character": "虍",
+    "radical_number": 141,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "hū",
+    "meaning_vi": "Bộ hô: Vằn vện của hổ",
+    "type": "radical"
+  },
+  {
+    "id": 142,
+    "character": "虫",
+    "radical_number": 142,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chóng",
+    "meaning_vi": "Bộ trùng: Côn trùng",
+    "type": "radical"
+  },
+  {
+    "id": 143,
+    "character": "血",
+    "radical_number": 143,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xuě",
+    "meaning_vi": "Bộ huyết: Máu",
+    "type": "radical"
+  },
+  {
+    "id": 144,
+    "character": "行",
+    "radical_number": 144,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xíng",
+    "meaning_vi": "Bộ hành: Đi, thi hành",
+    "type": "radical"
+  },
+  {
+    "id": 145,
+    "character": "衣",
+    "radical_number": 145,
+    "variants": "衤, ⺢, 𧘇",
+    "simplified": "",
+    "pinyin": "yī",
+    "meaning_vi": "Bộ y: Quần áo",
+    "type": "radical"
+  },
+  {
+    "id": 146,
+    "character": "襾",
+    "radical_number": 146,
+    "variants": "覀",
+    "simplified": null,
+    "pinyin": "yà",
+    "meaning_vi": "Bộ á: Che đậy",
+    "type": "radical"
+  },
+  {
+    "id": 147,
+    "character": "見",
+    "radical_number": 147,
+    "variants": null,
+    "simplified": "见",
+    "pinyin": "jiàn",
+    "meaning_vi": "Bộ kiến: Trông thấy",
+    "type": "radical"
+  },
+  {
+    "id": 148,
+    "character": "角",
+    "radical_number": 148,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jué",
+    "meaning_vi": "Bộ giác: Cái sừng",
+    "type": "radical"
+  },
+  {
+    "id": 149,
+    "character": "言",
+    "radical_number": 149,
+    "variants": "讠, 訁",
+    "simplified": "讠",
+    "pinyin": "yán",
+    "meaning_vi": "Bộ ngôn: Lời nói",
+    "type": "radical"
+  },
+  {
+    "id": 150,
+    "character": "谷",
+    "radical_number": 150,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gǔ",
+    "meaning_vi": "Bộ cốc: Thung lũng",
+    "type": "radical"
+  },
+  {
+    "id": 151,
+    "character": "豆",
+    "radical_number": 151,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "dòu",
+    "meaning_vi": "Bộ đậu: Hạt đậu",
+    "type": "radical"
+  },
+  {
+    "id": 152,
+    "character": "豕",
+    "radical_number": 152,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shǐ",
+    "meaning_vi": "Bộ thỉ: Con lợn",
+    "type": "radical"
+  },
+  {
+    "id": 153,
+    "character": "豸",
+    "radical_number": 153,
+    "variants": "𧰨",
+    "simplified": null,
+    "pinyin": "zhì",
+    "meaning_vi": "Bộ trĩ: Loài bò sát, thú không sừng",
+    "type": "radical"
+  },
+  {
+    "id": 154,
+    "character": "貝",
+    "radical_number": 154,
+    "variants": null,
+    "simplified": "贝",
+    "pinyin": "bèi",
+    "meaning_vi": "Bộ bối: Vỏ sò, tiền bạc",
+    "type": "radical"
+  },
+  {
+    "id": 155,
+    "character": "赤",
+    "radical_number": 155,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chì",
+    "meaning_vi": "Bộ xích: Màu đỏ",
+    "type": "radical"
+  },
+  {
+    "id": 156,
+    "character": "走",
+    "radical_number": 156,
+    "variants": "赱",
+    "simplified": "",
+    "pinyin": "zǒu",
+    "meaning_vi": "Bộ tẩu: Chạy",
+    "type": "radical"
+  },
+  {
+    "id": 157,
+    "character": "足",
+    "radical_number": 157,
+    "variants": "⻊",
+    "simplified": "⻊",
+    "pinyin": "zú",
+    "meaning_vi": "Bộ túc: Bàn chân",
+    "type": "radical"
+  },
+  {
+    "id": 158,
+    "character": "身",
+    "radical_number": 158,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shēn",
+    "meaning_vi": "Bộ thân: Thân thể",
+    "type": "radical"
+  },
+  {
+    "id": 159,
+    "character": "車",
+    "radical_number": 159,
+    "variants": null,
+    "simplified": "车",
+    "pinyin": "chē",
+    "meaning_vi": "Bộ xa: Cỗ xe",
+    "type": "radical"
+  },
+  {
+    "id": 160,
+    "character": "辛",
+    "radical_number": 160,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xīn",
+    "meaning_vi": "Bộ tân: Cay đắng",
+    "type": "radical"
+  },
+  {
+    "id": 161,
+    "character": "辰",
+    "radical_number": 161,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chén",
+    "meaning_vi": "Bộ thần: Buổi sáng, ngôi thần",
+    "type": "radical"
+  },
+  {
+    "id": 162,
+    "character": "辵",
+    "radical_number": 162,
+    "variants": "辶, ⻌, ⻍",
+    "simplified": "辶",
+    "pinyin": "chuò",
+    "meaning_vi": "Bộ xước: Đi rồi dừng",
+    "type": "radical"
+  },
+  {
+    "id": 163,
+    "character": "邑",
+    "radical_number": 163,
+    "variants": "阝",
+    "simplified": "",
+    "pinyin": "yì",
+    "meaning_vi": "Bộ ấp: Vùng đất, làng",
+    "type": "radical"
+  },
+  {
+    "id": 164,
+    "character": "酉",
+    "radical_number": 164,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǒu",
+    "meaning_vi": "Bộ dậu: Bình rượu",
+    "type": "radical"
+  },
+  {
+    "id": 165,
+    "character": "釆",
+    "radical_number": 165,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "biàn",
+    "meaning_vi": "Bộ biện: Phân biệt",
+    "type": "radical"
+  },
+  {
+    "id": 166,
+    "character": "里",
+    "radical_number": 166,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lǐ",
+    "meaning_vi": "Bộ lý: Dặm, làng xóm",
+    "type": "radical"
+  },
+  {
+    "id": 167,
+    "character": "金",
+    "radical_number": 167,
+    "variants": "钅, 釒",
+    "simplified": "钅",
+    "pinyin": "jīn",
+    "meaning_vi": "Bộ kim: Vàng, kim loại",
+    "type": "radical"
+  },
+  {
+    "id": 168,
+    "character": "長",
+    "radical_number": 168,
+    "variants": "长, 镸",
+    "simplified": "长",
+    "pinyin": "cháng",
+    "meaning_vi": "Bộ trường: Dài, lớn lên",
+    "type": "radical"
+  },
+  {
+    "id": 169,
+    "character": "門",
+    "radical_number": 169,
+    "variants": "门",
+    "simplified": "门",
+    "pinyin": "mén",
+    "meaning_vi": "Bộ môn: Cánh cửa",
+    "type": "radical"
+  },
+  {
+    "id": 170,
+    "character": "阜",
+    "radical_number": 170,
+    "variants": "阝",
+    "simplified": "",
+    "pinyin": "fù",
+    "meaning_vi": "Bộ phụ: Gò đất",
+    "type": "radical"
+  },
+  {
+    "id": 171,
+    "character": "隶",
+    "radical_number": 171,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lì",
+    "meaning_vi": "Bộ đãi: Lệ thuộc; bắt kịp",
+    "type": "radical"
+  },
+  {
+    "id": 172,
+    "character": "隹",
+    "radical_number": 172,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhuī",
+    "meaning_vi": "Bộ chuy: Chim đuôi ngắn",
+    "type": "radical"
+  },
+  {
+    "id": 173,
+    "character": "雨",
+    "radical_number": 173,
+    "variants": "⻗",
+    "simplified": "",
+    "pinyin": "yǔ",
+    "meaning_vi": "Bộ vũ: Mưa",
+    "type": "radical"
+  },
+  {
+    "id": 174,
+    "character": "青",
+    "radical_number": 174,
+    "variants": "靑",
+    "simplified": "",
+    "pinyin": "qīng",
+    "meaning_vi": "Bộ thanh: Màu xanh",
+    "type": "radical"
+  },
+  {
+    "id": 175,
+    "character": "非",
+    "radical_number": 175,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "fēi",
+    "meaning_vi": "Bộ phi: Không đúng",
+    "type": "radical"
+  },
+  {
+    "id": 176,
+    "character": "面",
+    "radical_number": 176,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "miàn",
+    "meaning_vi": "Bộ diện: Khuôn mặt",
+    "type": "radical"
+  },
+  {
+    "id": 177,
+    "character": "革",
+    "radical_number": 177,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gé",
+    "meaning_vi": "Bộ cách: Da thú",
+    "type": "radical"
+  },
+  {
+    "id": 178,
+    "character": "韋",
+    "radical_number": 178,
+    "variants": null,
+    "simplified": "韦",
+    "pinyin": "wéi",
+    "meaning_vi": "Bộ vi: Da đã thuộc",
+    "type": "radical"
+  },
+  {
+    "id": 179,
+    "character": "韭",
+    "radical_number": 179,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiǔ",
+    "meaning_vi": "Bộ cửu: Rau hẹ",
+    "type": "radical"
+  },
+  {
+    "id": 180,
+    "character": "音",
+    "radical_number": 180,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yīn",
+    "meaning_vi": "Bộ âm: Âm thanh",
+    "type": "radical"
+  },
+  {
+    "id": 181,
+    "character": "頁",
+    "radical_number": 181,
+    "variants": "页",
+    "simplified": "页",
+    "pinyin": "yè",
+    "meaning_vi": "Bộ hiệt: Cái đầu, trang giấy",
+    "type": "radical"
+  },
+  {
+    "id": 182,
+    "character": "風",
+    "radical_number": 182,
+    "variants": null,
+    "simplified": "风",
+    "pinyin": "fēng",
+    "meaning_vi": "Bộ phong: Gió",
+    "type": "radical"
+  },
+  {
+    "id": 183,
+    "character": "飛",
+    "radical_number": 183,
+    "variants": "飞",
+    "simplified": "飞",
+    "pinyin": "fēi",
+    "meaning_vi": "Bộ phi: Bay",
+    "type": "radical"
+  },
+  {
+    "id": 184,
+    "character": "食",
+    "radical_number": 184,
+    "variants": "飠, 饣, 𩙿",
+    "simplified": "饣",
+    "pinyin": "shí",
+    "meaning_vi": "Bộ thực: Ăn, thức ăn",
+    "type": "radical"
+  },
+  {
+    "id": 185,
+    "character": "首",
+    "radical_number": 185,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shǒu",
+    "meaning_vi": "Bộ thủ: Cái đầu",
+    "type": "radical"
+  },
+  {
+    "id": 186,
+    "character": "香",
+    "radical_number": 186,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xiāng",
+    "meaning_vi": "Bộ hương: Mùi thơm",
+    "type": "radical"
+  },
+  {
+    "id": 187,
+    "character": "馬",
+    "radical_number": 187,
+    "variants": null,
+    "simplified": "马",
+    "pinyin": "mǎ",
+    "meaning_vi": "Bộ mã: Con ngựa",
+    "type": "radical"
+  },
+  {
+    "id": 188,
+    "character": "骨",
+    "radical_number": 188,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gǔ",
+    "meaning_vi": "Bộ cốt: Xương",
+    "type": "radical"
+  },
+  {
+    "id": 189,
+    "character": "高",
+    "radical_number": 189,
+    "variants": "髙",
+    "simplified": "",
+    "pinyin": "gāo",
+    "meaning_vi": "Bộ cao: Cao lớn",
+    "type": "radical"
+  },
+  {
+    "id": 190,
+    "character": "髟",
+    "radical_number": 190,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "biāo",
+    "meaning_vi": "Bộ tiêu: Tóc dài",
+    "type": "radical"
+  },
+  {
+    "id": 191,
+    "character": "鬥",
+    "radical_number": 191,
+    "variants": null,
+    "simplified": "斗",
+    "pinyin": "dòu",
+    "meaning_vi": "Bộ đấu: Đánh nhau",
+    "type": "radical"
+  },
+  {
+    "id": 192,
+    "character": "鬯",
+    "radical_number": 192,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chàng",
+    "meaning_vi": "Bộ xưởng: Rượu thơm",
+    "type": "radical"
+  },
+  {
+    "id": 193,
+    "character": "鬲",
+    "radical_number": 193,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lì",
+    "meaning_vi": "Bộ cách: Nồi đun",
+    "type": "radical"
+  },
+  {
+    "id": 194,
+    "character": "鬼",
+    "radical_number": 194,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "guǐ",
+    "meaning_vi": "Bộ quỷ: Ma quỷ",
+    "type": "radical"
+  },
+  {
+    "id": 195,
+    "character": "魚",
+    "radical_number": 195,
+    "variants": null,
+    "simplified": "鱼",
+    "pinyin": "yú",
+    "meaning_vi": "Bộ ngư: Con cá",
+    "type": "radical"
+  },
+  {
+    "id": 196,
+    "character": "鳥",
+    "radical_number": 196,
+    "variants": null,
+    "simplified": "鸟",
+    "pinyin": "niǎo",
+    "meaning_vi": "Bộ điểu: Con chim",
+    "type": "radical"
+  },
+  {
+    "id": 197,
+    "character": "鹵",
+    "radical_number": 197,
+    "variants": null,
+    "simplified": "卤",
+    "pinyin": "lǔ",
+    "meaning_vi": "Bộ lỗ: Đất mặn",
+    "type": "radical"
+  },
+  {
+    "id": 198,
+    "character": "鹿",
+    "radical_number": 198,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lù",
+    "meaning_vi": "Bộ lộc: Con hươu",
+    "type": "radical"
+  },
+  {
+    "id": 199,
+    "character": "麥",
+    "radical_number": 199,
+    "variants": null,
+    "simplified": "麦",
+    "pinyin": "mài",
+    "meaning_vi": "Bộ mạch: Lúa mạch",
+    "type": "radical"
+  },
+  {
+    "id": 200,
+    "character": "麻",
+    "radical_number": 200,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "má",
+    "meaning_vi": "Bộ ma: Cây gai",
+    "type": "radical"
+  },
+  {
+    "id": 201,
+    "character": "黃",
+    "radical_number": 201,
+    "variants": null,
+    "simplified": "黄",
+    "pinyin": "huáng",
+    "meaning_vi": "Bộ hoàng: Màu vàng",
+    "type": "radical"
+  },
+  {
+    "id": 202,
+    "character": "黍",
+    "radical_number": 202,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shǔ",
+    "meaning_vi": "Bộ thử: Lúa nếp",
+    "type": "radical"
+  },
+  {
+    "id": 203,
+    "character": "黑",
+    "radical_number": 203,
+    "variants": "黒",
+    "simplified": "",
+    "pinyin": "hēi",
+    "meaning_vi": "Bộ hắc: Màu đen",
+    "type": "radical"
+  },
+  {
+    "id": 204,
+    "character": "黹",
+    "radical_number": 204,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhǐ",
+    "meaning_vi": "Bộ chỉ: Thêu thùa",
+    "type": "radical"
+  },
+  {
+    "id": 205,
+    "character": "黽",
+    "radical_number": 205,
+    "variants": null,
+    "simplified": "黾",
+    "pinyin": "mǐn",
+    "meaning_vi": "Bộ mãnh: Con ếch",
+    "type": "radical"
+  },
+  {
+    "id": 206,
+    "character": "鼎",
+    "radical_number": 206,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "dǐng",
+    "meaning_vi": "Bộ đỉnh: Cái vạc",
+    "type": "radical"
+  },
+  {
+    "id": 207,
+    "character": "鼓",
+    "radical_number": 207,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gǔ",
+    "meaning_vi": "Bộ cổ: Cái trống",
+    "type": "radical"
+  },
+  {
+    "id": 208,
+    "character": "鼠",
+    "radical_number": 208,
+    "variants": "鼡",
+    "simplified": null,
+    "pinyin": "shǔ",
+    "meaning_vi": "Bộ thử: Con chuột",
+    "type": "radical"
+  },
+  {
+    "id": 209,
+    "character": "鼻",
+    "radical_number": 209,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bí",
+    "meaning_vi": "Bộ tị: Cái mũi",
+    "type": "radical"
+  },
+  {
+    "id": 210,
+    "character": "齊",
+    "radical_number": 210,
+    "variants": null,
+    "simplified": "齐",
+    "pinyin": "qí",
+    "meaning_vi": "Bộ tề: Bằng phẳng, đều",
+    "type": "radical"
+  },
+  {
+    "id": 211,
+    "character": "齒",
+    "radical_number": 211,
+    "variants": null,
+    "simplified": "齿",
+    "pinyin": "chǐ",
+    "meaning_vi": "Bộ xỉ: Răng",
+    "type": "radical"
+  },
+  {
+    "id": 212,
+    "character": "龍",
+    "radical_number": 212,
+    "variants": null,
+    "simplified": "龙",
+    "pinyin": "lóng",
+    "meaning_vi": "Bộ long: Con rồng",
+    "type": "radical"
+  },
+  {
+    "id": 213,
+    "character": "龜",
+    "radical_number": 213,
+    "variants": null,
+    "simplified": "龟",
+    "pinyin": "guī",
+    "meaning_vi": "Bộ quy: Con rùa",
+    "type": "radical"
+  },
+  {
+    "id": 214,
+    "character": "龠",
+    "radical_number": 214,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yuè",
+    "meaning_vi": "Bộ dược: Sáo trúc",
+    "type": "radical"
+  },
+  {
+    "id": 215,
+    "character": "凹",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "āo",
+    "meaning_vi": "Ao: lõm, khuyết",
+    "type": "other"
+  },
+  {
+    "id": 216,
+    "character": "曳",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yè",
+    "meaning_vi": "Duệ: kéo lê, dắt đi",
+    "type": "other"
+  },
+  {
+    "id": 217,
+    "character": "巨",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jù",
+    "meaning_vi": "Cự: to lớn, khổng lồ; người đứng đầu",
+    "type": "other"
+  },
+  {
+    "id": 218,
+    "character": "才",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "cái",
+    "meaning_vi": "Tài: tài năng, năng lực; vừa mới, chỉ",
+    "type": "other"
+  },
+  {
+    "id": 219,
+    "character": "卌",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xì",
+    "meaning_vi": "Tấp: bốn mươi",
+    "type": "other"
+  },
+  {
+    "id": 220,
+    "character": "丩",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiū",
+    "meaning_vi": "Củ: liên kết, quấn quýt; dây leo",
+    "type": "other"
+  },
+  {
+    "id": 221,
+    "character": "世",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shì",
+    "meaning_vi": "Thế: thế hệ, thời đại; thế giới",
+    "type": "other"
+  },
+  {
+    "id": 222,
+    "character": "肃",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "sù",
+    "meaning_vi": "Túc: tôn kính, nghiêm túc",
+    "type": "other"
+  },
+  {
+    "id": 223,
+    "character": "也",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yě",
+    "meaning_vi": "Dã: cũng",
+    "type": "other"
+  },
+  {
+    "id": 224,
+    "character": "𦣞",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Di: cằm, hàm",
+    "type": "other"
+  },
+  {
+    "id": 225,
+    "character": "𡿨",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Quái: lách nước, rạch nhỏ",
+    "type": "other"
+  },
+  {
+    "id": 226,
+    "character": "𠃍",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét ngang gập trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 227,
+    "character": "龴",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán (biến thể đầu chữ)",
+    "type": "other"
+  },
+  {
+    "id": 228,
+    "character": "㇀",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét hất trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 229,
+    "character": "乐",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "lè",
+    "meaning_vi": "Nhạc, lạc: vui vẻ, hạnh phúc; âm nhạc",
+    "type": "other"
+  },
+  {
+    "id": 230,
+    "character": "㇇",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét ngang phẩy trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 231,
+    "character": "𠄎",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Dạng cổ của chữ 乃 (nãi - bèn, vậy mà)",
+    "type": "other"
+  },
+  {
+    "id": 233,
+    "character": "𫝀",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán (biến thể nét)",
+    "type": "other"
+  },
+  {
+    "id": 235,
+    "character": "以",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǐ",
+    "meaning_vi": "Dĩ: bằng, bởi vì, để mà, theo như",
+    "type": "other"
+  },
+  {
+    "id": 236,
+    "character": "巳",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "sì",
+    "meaning_vi": "Tị: chi Tị (địa chi thứ 6, từ 9 đến 11 giờ sáng)",
+    "type": "other"
+  },
+  {
+    "id": 237,
+    "character": "兆",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhào",
+    "meaning_vi": "Triệu: điềm báo, triệu chứng; triệu (10^6 hoặc 10^12)",
+    "type": "other"
+  },
+  {
+    "id": 238,
+    "character": "丐",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "gài",
+    "meaning_vi": "Cái: ăn xin, người ăn xin; cho",
+    "type": "other"
+  },
+  {
+    "id": 239,
+    "character": "甲",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiǎ",
+    "meaning_vi": "Giáp: áo giáp, vỏ bọc; móng tay; thiên can thứ nhất",
+    "type": "other"
+  },
+  {
+    "id": 240,
+    "character": "凸",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "tū",
+    "meaning_vi": "Đột: lồi ra, gồ lên",
+    "type": "other"
+  },
+  {
+    "id": 241,
+    "character": "戉",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yuè",
+    "meaning_vi": "Việt: cái búa lớn, rìu chiến",
+    "type": "other"
+  },
+  {
+    "id": 242,
+    "character": "𠃊",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét sổ gập trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 243,
+    "character": "㐄",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán (thường liên quan đến bàn chân)",
+    "type": "other"
+  },
+  {
+    "id": 244,
+    "character": "𠂎",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán (biến thể nét)",
+    "type": "other"
+  },
+  {
+    "id": 245,
+    "character": "𠃌",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét ngang gập cong trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 246,
+    "character": "𠃋",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét phẩy gập trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 247,
+    "character": "专",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhuān",
+    "meaning_vi": "Chuyên: chuyên môn, tập trung; độc chiếm",
+    "type": "other"
+  },
+  {
+    "id": 248,
+    "character": "巴",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "bā",
+    "meaning_vi": "Ba: mong mỏi, hy vọng; bám vào, dính",
+    "type": "other"
+  },
+  {
+    "id": 249,
+    "character": "𠂉",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán (biến thể người nằm)",
+    "type": "other"
+  },
+  {
+    "id": 250,
+    "character": "毌",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "guàn",
+    "meaning_vi": "Dạng cổ của chữ 貫 (quán - xuyên qua)",
+    "type": "other"
+  },
+  {
+    "id": 251,
+    "character": "已",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǐ",
+    "meaning_vi": "Dĩ: đã, rồi; kết thúc, dừng lại",
+    "type": "other"
+  },
+  {
+    "id": 252,
+    "character": "乑",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yín",
+    "meaning_vi": "Chúng: đứng cạnh nhau, xếp hàng",
+    "type": "other"
+  },
+  {
+    "id": 253,
+    "character": "永",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǒng",
+    "meaning_vi": "Vĩnh: lâu dài, vĩnh viễn, mãi mãi",
+    "type": "other"
+  },
+  {
+    "id": 254,
+    "character": "及",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jí",
+    "meaning_vi": "Cập: và, đạt đến, kịp thời",
+    "type": "other"
+  },
+  {
+    "id": 256,
+    "character": "承",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chéng",
+    "meaning_vi": "Thừa: tiếp nhận, gánh vác, thừa kế",
+    "type": "other"
+  },
+  {
+    "id": 257,
+    "character": "发",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "fā",
+    "meaning_vi": "Phát: phát ra, gửi đi; tóc",
+    "type": "other"
+  },
+  {
+    "id": 258,
+    "character": "熏",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "xūn",
+    "meaning_vi": "Huân: hun khói, xông khói; hơi khói, sương mù",
+    "type": "other"
+  },
+  {
+    "id": 259,
+    "character": "コ",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán (dạng góc chữ U nằm ngang)",
+    "type": "other"
+  },
+  {
+    "id": 260,
+    "character": "母",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mǔ",
+    "meaning_vi": "Mẫu: mẹ; người bề trên là nữ; giống cái",
+    "type": "other"
+  },
+  {
+    "id": 262,
+    "character": "𠂇",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Bộ tả: tay trái",
+    "type": "other"
+  },
+  {
+    "id": 263,
+    "character": "乎",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "hū",
+    "meaning_vi": "Hồ: trợ từ ngữ khí nghi vấn hoặc cảm thán",
+    "type": "other"
+  },
+  {
+    "id": 264,
+    "character": "㠯",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǐ",
+    "meaning_vi": "Dĩ: biến thể cổ của 以 (bằng, dùng, để mà)",
+    "type": "other"
+  },
+  {
+    "id": 265,
+    "character": "书",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shū",
+    "meaning_vi": "Thư: sách, thư từ, văn bản",
+    "type": "other"
+  },
+  {
+    "id": 266,
+    "character": "㇉",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét sổ gập gập móc trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 267,
+    "character": "井",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jǐng",
+    "meaning_vi": "Tỉnh: giếng nước, mỏ sâu",
+    "type": "other"
+  },
+  {
+    "id": 268,
+    "character": "年",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "nián",
+    "meaning_vi": "Niên: năm; ngày kỷ niệm; tuổi tác",
+    "type": "other"
+  },
+  {
+    "id": 269,
+    "character": "㐆",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǐn",
+    "meaning_vi": "Dạng cổ của chữ 隱 (ẩn - ẩn giấu, bí mật)",
+    "type": "other"
+  },
+  {
+    "id": 270,
+    "character": "州",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhōu",
+    "meaning_vi": "Châu: tiểu bang, tỉnh, châu",
+    "type": "other"
+  },
+  {
+    "id": 271,
+    "character": "龶",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 272,
+    "character": "𠄌",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Nét sổ hất trong chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 275,
+    "character": "ス",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán",
+    "type": "other"
+  },
+  {
+    "id": 276,
+    "character": "旡",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jì",
+    "meaning_vi": "Nghẹn, mắc cổ",
+    "type": "other"
+  },
+  {
+    "id": 277,
+    "character": "久",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiǔ",
+    "meaning_vi": "Lâu dài, lâu năm, từ lâu",
+    "type": "other"
+  },
+  {
+    "id": 278,
+    "character": "𠃜",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": null,
+    "meaning_vi": "Thành phần chữ Hán cổ",
+    "type": "other"
+  },
+  {
+    "id": 279,
+    "character": "九",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiǔ",
+    "meaning_vi": "Cửu: chín",
+    "type": "other"
+  },
+  {
+    "id": 280,
+    "character": "丈",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhàng",
+    "meaning_vi": "Trượng: đơn vị đo chiều dài",
+    "type": "other"
+  },
+  {
+    "id": 281,
+    "character": "册",
+    "radical_number": null,
+    "variants": "冊",
+    "simplified": null,
+    "pinyin": "cè",
+    "meaning_vi": "Sách: cuốn sách",
+    "type": "other"
+  },
+  {
+    "id": 282,
+    "character": "东",
+    "radical_number": null,
+    "variants": "東",
+    "simplified": null,
+    "pinyin": "dōng",
+    "meaning_vi": "Đông: phương đông",
+    "type": "other"
+  },
+  {
+    "id": 283,
+    "character": "重",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhòng",
+    "meaning_vi": "Trọng: nặng",
+    "type": "other"
+  },
+  {
+    "id": 284,
+    "character": "来",
+    "radical_number": null,
+    "variants": "來",
+    "simplified": null,
+    "pinyin": "lái",
+    "meaning_vi": "Lai: đến",
+    "type": "other"
+  },
+  {
+    "id": 285,
+    "character": "头",
+    "radical_number": null,
+    "variants": "頭",
+    "simplified": null,
+    "pinyin": "tóu",
+    "meaning_vi": "Đầu: cái đầu",
+    "type": "other"
+  },
+  {
+    "id": 286,
+    "character": "史",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shǐ",
+    "meaning_vi": "Sử: lịch sử",
+    "type": "other"
+  },
+  {
+    "id": 287,
+    "character": "且",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "qiě",
+    "meaning_vi": "Thả: vả lại, sắp",
+    "type": "other"
+  },
+  {
+    "id": 288,
+    "character": "于",
+    "radical_number": null,
+    "variants": "於",
+    "simplified": null,
+    "pinyin": "yú",
+    "meaning_vi": "Vu: ở, tại",
+    "type": "other"
+  },
+  {
+    "id": 289,
+    "character": "束",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shù",
+    "meaning_vi": "Thúc: buộc, bó",
+    "type": "other"
+  },
+  {
+    "id": 291,
+    "character": "曲",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "qǔ",
+    "meaning_vi": "Khúc: uốn cong, bài hát",
+    "type": "other"
+  },
+  {
+    "id": 292,
+    "character": "丘",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "qiū",
+    "meaning_vi": "Khâu: cái gò",
+    "type": "other"
+  },
+  {
+    "id": 293,
+    "character": "冉",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "rǎn",
+    "meaning_vi": "Nhiễm: thong thả",
+    "type": "other"
+  },
+  {
+    "id": 294,
+    "character": "乡",
+    "radical_number": null,
+    "variants": "鄉",
+    "simplified": null,
+    "pinyin": "xiāng",
+    "meaning_vi": "Hương: quê hương",
+    "type": "other"
+  },
+  {
+    "id": 295,
+    "character": "丹",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "dān",
+    "meaning_vi": "Đan: màu đỏ, viên thuốc",
+    "type": "other"
+  },
+  {
+    "id": 296,
+    "character": "乍",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhà",
+    "meaning_vi": "Sạ: chợt, mới",
+    "type": "other"
+  },
+  {
+    "id": 297,
+    "character": "民",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mín",
+    "meaning_vi": "Dân: nhân dân",
+    "type": "other"
+  },
+  {
+    "id": 298,
+    "character": "戊",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "wù",
+    "meaning_vi": "Mậu: ngôi thứ 5 thiên can",
+    "type": "other"
+  },
+  {
+    "id": 299,
+    "character": "丑",
+    "radical_number": null,
+    "variants": "醜",
+    "simplified": null,
+    "pinyin": "chǒu",
+    "meaning_vi": "Sửu: ngôi thứ 2 địa chi",
+    "type": "other"
+  },
+  {
+    "id": 300,
+    "character": "朱",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "zhū",
+    "meaning_vi": "Chu: màu đỏ",
+    "type": "other"
+  },
+  {
+    "id": 301,
+    "character": "未",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "wèi",
+    "meaning_vi": "Vị: chưa, ngôi thứ 8 địa chi",
+    "type": "other"
+  },
+  {
+    "id": 302,
+    "character": "为",
+    "radical_number": null,
+    "variants": "為, 爲",
+    "simplified": null,
+    "pinyin": "wèi",
+    "meaning_vi": "Vi, Vị (làm, vì)",
+    "type": "other"
+  },
+  {
+    "id": 303,
+    "character": "柬",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "jiǎn",
+    "meaning_vi": "Giản: chọn, thiếp",
+    "type": "other"
+  },
+  {
+    "id": 304,
+    "character": "尺",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "chǐ",
+    "meaning_vi": "Xích: thước đo",
+    "type": "other"
+  },
+  {
+    "id": 305,
+    "character": "由",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yóu",
+    "meaning_vi": "Do: bởi, từ",
+    "type": "other"
+  },
+  {
+    "id": 306,
+    "character": "申",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shēn",
+    "meaning_vi": "Thân: bày tỏ, ngôi thứ 9 địa chi",
+    "type": "other"
+  },
+  {
+    "id": 307,
+    "character": "禺",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yú",
+    "meaning_vi": "Ngu: loài khỉ",
+    "type": "other"
+  },
+  {
+    "id": 308,
+    "character": "事",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "shì",
+    "meaning_vi": "Sự: sự việc",
+    "type": "other"
+  },
+  {
+    "id": 309,
+    "character": "本",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "běn",
+    "meaning_vi": "Bản: gốc rễ",
+    "type": "other"
+  },
+  {
+    "id": 310,
+    "character": "円",
+    "radical_number": null,
+    "variants": "圓",
+    "simplified": null,
+    "pinyin": "yuán",
+    "meaning_vi": "Viên: tiền Yên Nhật",
+    "type": "other"
+  },
+  {
+    "id": 311,
+    "character": "㐅",
+    "radical_number": null,
+    "variants": "五",
+    "simplified": null,
+    "pinyin": "wǔ",
+    "meaning_vi": "Ngũ: số năm",
+    "type": "other"
+  },
+  {
+    "id": 312,
+    "character": "冘",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yín",
+    "meaning_vi": "Dâm: đi lại chần chừ",
+    "type": "other"
+  },
+  {
+    "id": 313,
+    "character": "疌",
+    "radical_number": null,
+    "variants": "捷",
+    "simplified": null,
+    "pinyin": "jié",
+    "meaning_vi": "Tiệp: lanh lẹ",
+    "type": "other"
+  },
+  {
+    "id": 314,
+    "character": "朿",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "cì",
+    "meaning_vi": "Thích: cái gai",
+    "type": "other"
+  },
+  {
+    "id": 315,
+    "character": "末",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mò",
+    "meaning_vi": "Mạt: ngọn, cuối",
+    "type": "other"
+  },
+  {
+    "id": 316,
+    "character": "廿",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "niàn",
+    "meaning_vi": "Chấp: hai mươi",
+    "type": "other"
+  },
+  {
+    "id": 317,
+    "character": "𠑹",
+    "radical_number": null,
+    "variants": "瞽",
+    "simplified": null,
+    "pinyin": "gǔ",
+    "meaning_vi": "Cổ: mù",
+    "type": "other"
+  },
+  {
+    "id": 318,
+    "character": "𠃓",
+    "radical_number": null,
+    "variants": "昜",
+    "simplified": null,
+    "pinyin": "yáng",
+    "meaning_vi": "Dương: sáng sủa",
+    "type": "other"
+  },
+  {
+    "id": 319,
+    "character": "丏",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "miǎn",
+    "meaning_vi": "Miện: che khuất",
+    "type": "other"
+  },
+  {
+    "id": 320,
+    "character": "亦",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yì",
+    "meaning_vi": "cũng; tương tự",
+    "type": "other"
+  },
+  {
+    "id": 321,
+    "character": "𠂢",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "pài",
+    "meaning_vi": "dòng chảy rẽ nhánh",
+    "type": "other"
+  },
+  {
+    "id": 322,
+    "character": "尹",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "yǐn",
+    "meaning_vi": "Doãn: cai quản, người nắm quyền",
+    "type": "other"
+  },
+  {
+    "id": 323,
+    "character": "卫",
+    "radical_number": null,
+    "variants": "衛",
+    "simplified": null,
+    "pinyin": "wèi",
+    "meaning_vi": "Vệ: bảo vệ, phòng thủ",
+    "type": "other"
+  },
+  {
+    "id": 324,
+    "character": "冃",
+    "radical_number": null,
+    "variants": null,
+    "simplified": null,
+    "pinyin": "mào",
+    "meaning_vi": "Mũ, đồ đội đầu",
+    "type": "other"
+  },
+  {
+    "id": 325,
+    "character": "矦",
+    "pinyin": "hóu",
+    "meaning_vi": "Đích bắn",
+    "type": "other"
+  }
+]

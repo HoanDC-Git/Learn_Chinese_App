@@ -7,16 +7,21 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   level?: number;
 }
 
+// Thermal SRS progression: level 0 = unseen (gray dashed), levels 1-8 run cold -> hot
+// (sky -> cyan -> teal -> emerald -> yellow -> amber -> orange -> rose) so mastery
+// reads at a glance: cool colors = early, warm colors = advanced. Each level gets its
+// own hue (-200 fill / -900 text for punch at small sizes). Level 8 (mastered) is a
+// solid hot-red pill with a gold ring as the ultimate-tier marker.
 const LEVEL_STYLES: Record<number, string> = {
   0: "bg-zinc-100/80 text-zinc-400 border border-dashed border-zinc-300 dark:border-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-500",
-  1: "bg-sky-100 text-sky-700 dark:bg-sky-950/60 dark:text-sky-300",
-  2: "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300",
-  3: "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200",
-  4: "bg-yellow-100 text-yellow-800 dark:bg-yellow-950/60 dark:text-yellow-300",
-  5: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300",
-  6: "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300",
-  7: "bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300",
-  8: "bg-purple-100 text-purple-700 dark:bg-purple-950/60 dark:text-purple-300",
+  1: "bg-sky-200 text-sky-900 dark:bg-sky-950/60 dark:text-sky-300",
+  2: "bg-cyan-200 text-cyan-900 dark:bg-cyan-950/60 dark:text-cyan-300",
+  3: "bg-teal-200 text-teal-900 dark:bg-teal-950/60 dark:text-teal-300",
+  4: "bg-emerald-200 text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-300",
+  5: "bg-yellow-200 text-yellow-900 dark:bg-yellow-950/60 dark:text-yellow-300",
+  6: "bg-amber-300 text-amber-950 dark:bg-amber-900/60 dark:text-amber-200",
+  7: "bg-orange-300 text-orange-950 dark:bg-orange-900/60 dark:text-orange-200",
+  8: "bg-rose-600 text-white ring-1 ring-amber-300/80 dark:bg-rose-600/80 dark:text-white dark:ring-amber-300/50",
 };
 
 export function Badge({ className, variant = "default", children, level, ...props }: BadgeProps) {

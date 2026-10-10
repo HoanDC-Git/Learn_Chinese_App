@@ -23,27 +23,40 @@ function AppContent() {
 
   return (
     <Layout>
+      {/* Review stays mounted (hidden) so an in-progress SRS session is never lost on tab switch */}
       <div className={activeTab === "review" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
         <ReviewPage />
       </div>
-      <div className={activeTab === "dashboard" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
-        <DashboardPage />
-      </div>
-      <div className={activeTab === "dictionary" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
-        <DictionaryPage />
-      </div>
-      <div className={activeTab === "decomposition" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
-        <DecompositionPage />
-      </div>
-      <div className={activeTab === "grammar" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
-        <GrammarPage />
-      </div>
-      <div className={activeTab === "manage" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
-        <ManagePage />
-      </div>
-      <div className={activeTab === "trash" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
-        <TrashPage />
-      </div>
+      {activeTab === "dashboard" && (
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <DashboardPage />
+        </div>
+      )}
+      {activeTab === "dictionary" && (
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <DictionaryPage />
+        </div>
+      )}
+      {activeTab === "decomposition" && (
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <DecompositionPage />
+        </div>
+      )}
+      {activeTab === "grammar" && (
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <GrammarPage />
+        </div>
+      )}
+      {activeTab === "manage" && (
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <ManagePage />
+        </div>
+      )}
+      {activeTab === "trash" && (
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+          <TrashPage />
+        </div>
+      )}
     </Layout>
   );
 }

@@ -4,6 +4,7 @@ import { useFlashcardStore } from "../../stores";
 import { FlashcardList } from "./components/FlashcardList";
 import { Button } from "../../components/ui/Button";
 import { Card } from "../../components/ui/Card";
+import { cn } from "../../lib/utils";
 import { Play, Zap } from "lucide-react";
 
 
@@ -35,7 +36,8 @@ export function ReviewPage() {
   // Active Session rendering
   if (sessionActive) {
     const total = initialTotal;
-    const progress = total > 0 ? ((rememberedCount + forgottenCount) / total) * 100 : 0;
+    const completed = rememberedCount + forgottenCount;
+    const remaining = Math.max(total - completed, 0);
 
     return (
       <div className="flex-1 flex flex-col min-h-0 overflow-hidden space-y-4">
@@ -51,7 +53,7 @@ export function ReviewPage() {
           </div>
           <div className="flex items-center gap-6">
             <span className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
-              Tiến trình: <span className="font-semibold text-zinc-800 dark:text-zinc-200">{rememberedCount + forgottenCount} / {total}</span>
+              Còn lại: <span className="font-semibold text-zinc-800 dark:text-zinc-200">{remaining}</span>
             </span>
             <div className="flex gap-3">
               <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-100/80 dark:border-emerald-900/30">
@@ -64,13 +66,22 @@ export function ReviewPage() {
           </div>
         </div>
 
-        {/* 1px elegant progress line */}
-        <div className="w-full bg-zinc-100 dark:bg-zinc-800/80 h-1 shrink-0 overflow-hidden rounded-full">
-          <div
-            className="bg-indigo-600 dark:bg-indigo-400 h-full rounded-full transition-all duration-300 ease-out"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        {/* Segmented progress: one segment per card, unfilled segments = remaining */}
+        {total > 0 && (
+          <div className={cn("w-full flex shrink-0", total > 60 ? "gap-0" : "gap-1")}>
+            {Array.from({ length: total }).map((_, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "h-1.5 flex-1 rounded-full transition-all duration-300",
+                  i < completed
+                    ? "bg-indigo-600 dark:bg-indigo-400"
+                    : "bg-zinc-100 dark:bg-zinc-800/80"
+                )}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Flashcard container */}
         <div className="flex-1 flex items-center justify-center min-h-0 py-4 pr-1 overflow-y-auto">
