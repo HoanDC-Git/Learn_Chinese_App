@@ -13,7 +13,22 @@ interface HanziWriterAnimatorProps {
 export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimatorProps) {
   const targetRef = useRef<HTMLDivElement>(null);
   const writerRef = useRef<HanziWriter | null>(null);
-  
+  const cardRef = useRef<HTMLDivElement>(null);
+  // Fluid stage: fits the (now narrow) side panel instead of a fixed 180px.
+  const [stageSize, setStageSize] = useState(168);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    const measure = () => {
+      setStageSize(Math.max(120, Math.min(180, card.clientWidth - 24)));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(card);
+    return () => ro.disconnect();
+  }, []);
+
   const [mode, setMode] = useState<"animate" | "quiz">("animate");
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasAnimation, setHasAnimation] = useState(true);
@@ -55,8 +70,8 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
 
     try {
       const writer = HanziWriter.create(targetRef.current, character, {
-        width: 180,
-        height: 180,
+        width: stageSize,
+        height: stageSize,
         padding: 5,
         showOutline: true,
         strokeColor,
@@ -100,7 +115,7 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
     }
   };
 
-  // Re-init on character, theme, or mode change
+  // Re-init on character, theme, mode, or stage-size change
   useEffect(() => {
     initWriter();
     return () => {
@@ -111,7 +126,7 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
         }
       }
     };
-  }, [character, isDark, mode]);
+  }, [character, isDark, mode, stageSize]);
 
   const handlePlayPause = () => {
     if (!writerRef.current) return;
@@ -156,18 +171,22 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 select-none">
+    <div ref={cardRef} className="w-full flex flex-col items-center gap-4 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 select-none">
       <div className="relative">
-        <div 
-          ref={targetRef} 
+        <div
+          ref={targetRef}
+          style={{ width: stageSize, height: stageSize }}
           className={cn(
-            "relative z-10 w-[180px] h-[180px]",
+            "relative z-10",
             !hasAnimation && "hidden"
           )}
         />
-        
+
         {!hasAnimation && (
-          <div className="relative z-10 w-[180px] h-[180px] flex items-center justify-center">
+          <div
+            style={{ width: stageSize, height: stageSize }}
+            className="relative z-10 flex items-center justify-center"
+          >
             {hex_code && hasImage ? (
               <img 
                 src={`/components/${hex_code}.svg`} 
@@ -207,7 +226,7 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
         )}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 w-full">
         <Button
           variant={mode === "animate" ? "primary" : "ghost"}
           size="sm"
@@ -215,7 +234,7 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
             setMode("animate");
           }}
           disabled={!hasAnimation}
-          className="w-24"
+          className="flex-1"
         >
           <Eye className="w-4 h-4 mr-2" />
           Xem
@@ -227,7 +246,7 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
             setMode("quiz");
           }}
           disabled={!hasAnimation}
-          className="w-24"
+          className="flex-1"
         >
           <PenTool className="w-4 h-4 mr-2" />
           Luyện
