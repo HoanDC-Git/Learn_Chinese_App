@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { cn } from "../../../lib/utils";
 import styles from "../DecompositionPage.module.css";
 import type { DecompositionNode } from "../types";
-import { isCharRenderable, charCodeLabel } from "./glyph";
+import { isCharRenderable } from "./glyph";
 
 export const parseRadicalMeaning = (meaningVi: string | null, isRadicalOrVariant: boolean) => {
   if (!meaningVi) return { radicalName: "", cleanMeaning: "" };
@@ -104,14 +104,8 @@ export function DecompositionTreeNode({
             {node.character}
           </span>
         ) : (
-          <span
-            title={`${node.character} (${charCodeLabel(node.character)})`}
-            className="mt-2 w-[52px] h-[52px] rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-950/40 flex flex-col items-center justify-center select-none"
-          >
-            <span className="text-2xl font-bold leading-none text-zinc-300 dark:text-zinc-600">?</span>
-            <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 mt-1">
-              {charCodeLabel(node.character)}
-            </span>
+          <span className="mt-2 w-[52px] h-[52px] rounded-xl border-2 border-dashed border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/30 flex items-center justify-center select-none">
+            <span className="text-xl leading-none text-zinc-300 dark:text-zinc-700">?</span>
           </span>
         )}
         

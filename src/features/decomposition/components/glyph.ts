@@ -35,10 +35,3 @@ export function isCharRenderable(ch: string): boolean {
   cache.set(ch, ok);
   return ok;
 }
-
-export function charCodeLabel(ch: string): string {
-  const cp = ch.codePointAt(0);
-  return cp === undefined
-    ? ""
-    : `U+${cp.toString(16).toUpperCase().padStart(4, "0")}`;
-}
