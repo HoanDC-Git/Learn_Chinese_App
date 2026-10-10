@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import HanziWriter from "hanzi-writer";
 import { Play, Pause, RotateCcw, PenTool, Eye, CheckCircle } from "lucide-react";
 import { Button } from "../../../components/ui/Button";
 import { cn } from "../../../lib/utils";
+import { isCharRenderable, charCodeLabel } from "./glyph";
 
 interface HanziWriterAnimatorProps {
   character: string;
@@ -19,6 +20,8 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
   const [hasImage, setHasImage] = useState(true);
   const [quizSuccess, setQuizSuccess] = useState(false);
   const showGrid = true;
+  // Static fallback would show tofu (□) for glyphs the system fonts lack.
+  const renderable = useMemo(() => isCharRenderable(character), [character]);
 
   // Detect theme from DOM
   const [isDark, setIsDark] = useState(() =>
@@ -172,9 +175,19 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
                 className="w-24 h-24 dark:invert opacity-80"
                 onError={() => setHasImage(false)}
               />
-            ) : (
+            ) : renderable ? (
               <span className="text-8xl font-hanzi text-zinc-800 dark:text-zinc-200 opacity-90">
                 {character}
+              </span>
+            ) : (
+              <span
+                title={`${character} (${charCodeLabel(character)})`}
+                className="w-28 h-28 rounded-2xl border-2 border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-950/40 flex flex-col items-center justify-center select-none"
+              >
+                <span className="text-4xl font-bold leading-none text-zinc-300 dark:text-zinc-600">?</span>
+                <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 mt-1.5">
+                  {charCodeLabel(character)}
+                </span>
               </span>
             )}
           </div>

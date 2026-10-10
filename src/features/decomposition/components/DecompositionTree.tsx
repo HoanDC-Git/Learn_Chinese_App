@@ -1,6 +1,8 @@
+import { useMemo } from "react";
 import { cn } from "../../../lib/utils";
 import styles from "../DecompositionPage.module.css";
 import type { DecompositionNode } from "../types";
+import { isCharRenderable, charCodeLabel } from "./glyph";
 
 export const parseRadicalMeaning = (meaningVi: string | null, isRadicalOrVariant: boolean) => {
   if (!meaningVi) return { radicalName: "", cleanMeaning: "" };
@@ -32,6 +34,9 @@ export function DecompositionTreeNode({
   const isVariant = node.type === "variant";
   const { radicalName } = parseRadicalMeaning(node.meaning_vi, isRootRadical || isVariant);
   const badgeText = (isRootRadical || isVariant) ? radicalName : "";
+  // Characters with no system-font glyph would show as tofu (□);
+  // render an empty descriptive placeholder instead.
+  const renderable = useMemo(() => isCharRenderable(node.character), [node.character]);
 
   const isSpecial = node.type === "special";
 
@@ -94,9 +99,21 @@ export function DecompositionTreeNode({
           </span>
         )}
         
-        <span className="text-5xl font-hanzi font-bold leading-normal text-zinc-900 dark:text-zinc-100 tracking-wide mt-1">
-          {node.character}
-        </span>
+        {renderable ? (
+          <span className="text-5xl font-hanzi font-bold leading-normal text-zinc-900 dark:text-zinc-100 tracking-wide mt-1">
+            {node.character}
+          </span>
+        ) : (
+          <span
+            title={`${node.character} (${charCodeLabel(node.character)})`}
+            className="mt-2 w-[52px] h-[52px] rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-950/40 flex flex-col items-center justify-center select-none"
+          >
+            <span className="text-2xl font-bold leading-none text-zinc-300 dark:text-zinc-600">?</span>
+            <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 mt-1">
+              {charCodeLabel(node.character)}
+            </span>
+          </span>
+        )}
         
         {node.pinyin && (
           <span className="text-xs font-bold tracking-widest text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 dark:bg-cyan-950/65 px-2.5 py-0.5 rounded-full mt-1.5 border border-cyan-500/10 dark:border-cyan-950/50 shadow-3xs">
