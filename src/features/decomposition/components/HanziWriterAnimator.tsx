@@ -234,9 +234,9 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
             setMode("animate");
           }}
           disabled={!hasAnimation}
-          className="flex-1"
+          className="flex-1 min-w-0"
         >
-          <Eye className="w-4 h-4 mr-2" />
+          <Eye className="w-4 h-4 shrink-0" />
           Xem
         </Button>
         <Button
@@ -246,9 +246,9 @@ export function HanziWriterAnimator({ character, hex_code }: HanziWriterAnimator
             setMode("quiz");
           }}
           disabled={!hasAnimation}
-          className="flex-1"
+          className="flex-1 min-w-0"
         >
-          <PenTool className="w-4 h-4 mr-2" />
+          <PenTool className="w-4 h-4 shrink-0" />
           Luyện
         </Button>
       </div>
