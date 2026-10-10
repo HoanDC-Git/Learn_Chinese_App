@@ -89,7 +89,7 @@ export function DecompositionTreeNode({
       >
         {/* Radical badge in the corner */}
         {badgeText && (
-          <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 bg-fuchsia-500/10 dark:bg-fuchsia-950/80 text-fuchsia-600 dark:text-fuchsia-300 rounded-full border border-fuchsia-200/50 dark:border-fuchsia-900/40 shadow-3xs whitespace-nowrap">
+          <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 bg-fuchsia-500/10 dark:bg-fuchsia-950/80 text-fuchsia-600 dark:text-fuchsia-300 rounded-full border border-fuchsia-200/50 dark:border-fuchsia-900/40 shadow-3xs whitespace-nowrap">
             {badgeText}
           </span>
         )}
@@ -99,7 +99,7 @@ export function DecompositionTreeNode({
         </span>
         
         {node.pinyin && (
-          <span className="text-[10px] font-bold tracking-widest text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 dark:bg-cyan-950/65 px-2.5 py-0.5 rounded-full mt-1.5 border border-cyan-500/10 dark:border-cyan-950/50 shadow-3xs">
+          <span className="text-xs font-bold tracking-widest text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 dark:bg-cyan-950/65 px-2.5 py-0.5 rounded-full mt-1.5 border border-cyan-500/10 dark:border-cyan-950/50 shadow-3xs">
             {node.pinyin}
           </span>
         )}

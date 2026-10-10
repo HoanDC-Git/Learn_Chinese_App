@@ -42,7 +42,7 @@ export function DecompositionDetails({
       ref={detailsRef}
       data-no-zoom
       className={cn(
-        "absolute right-4 top-4 bottom-4 w-80 border rounded-2xl flex flex-col z-30 bg-white/90 dark:bg-zinc-900/90 border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.3)] backdrop-blur-md overflow-y-auto scrollbar-thin",
+        "absolute right-4 top-4 bottom-4 w-72 border rounded-2xl flex flex-col z-30 bg-white/90 dark:bg-zinc-900/90 border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.3)] backdrop-blur-md overflow-y-auto scrollbar-thin",
         styles.detailsPanel
       )}
     >
@@ -66,7 +66,7 @@ export function DecompositionDetails({
         {/* Meanings */}
         <div className="flex flex-col gap-1.5">
           <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Nghĩa tiếng Việt</span>
-          <p className="text-sm p-3 rounded-xl border leading-relaxed bg-zinc-50/50 dark:bg-zinc-950/20 border-zinc-200/50 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium">
+          <p className="text-[15px] p-3 rounded-xl border leading-relaxed bg-zinc-50/50 dark:bg-zinc-950/20 border-zinc-200/50 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium">
             {(() => {
               const isRadicalOrVariant = selectedNode.display_type === "Bộ thủ gốc" || selectedNode.type === "variant";
               const { cleanMeaning } = parseRadicalMeaning(selectedNode.meaning_vi, isRadicalOrVariant);
@@ -99,10 +99,10 @@ export function DecompositionDetails({
             {/* Cách nhớ — associative learning hint */}
             {selectedNode.hint_vi && (
               <div className="p-4 rounded-xl border flex flex-col gap-2 border-cyan-500/25 dark:border-cyan-500/20 bg-cyan-50/50 dark:bg-cyan-950/15 shadow-sm">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 leading-none">
+                <span className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 leading-none">
                   Cách nhớ
                 </span>
-                <p className="text-sm border-l-2 border-cyan-500 dark:border-cyan-500 pl-2.5 leading-relaxed text-zinc-800 dark:text-zinc-200 font-medium py-1">
+                <p className="text-[15px] border-l-2 border-cyan-500 dark:border-cyan-500 pl-2.5 leading-relaxed text-zinc-800 dark:text-zinc-200 font-medium py-1">
                   {selectedNode.hint_vi}
                 </p>
               </div>
@@ -110,10 +110,10 @@ export function DecompositionDetails({
 
             {selectedNode.hint && (
               <div className="flex flex-col gap-1.5">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">
+                <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">
                   Mnemonic Story
                 </span>
-                <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 bg-zinc-200/40 dark:bg-zinc-950/60 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800">
+                <p className="text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300 bg-zinc-200/40 dark:bg-zinc-950/60 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800">
                   {selectedNode.hint}
                 </p>
               </div>

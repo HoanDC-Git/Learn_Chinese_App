@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import { AlertTriangle, HelpCircle, Network, Plus, Minus, RotateCcw } from "lucide-react";
+import { AlertTriangle, HelpCircle, Network, Plus, Minus, RotateCcw, PanelLeftOpen } from "lucide-react";
 import { DecompositionSearch } from "./components/DecompositionSearch";
 import { DecompositionTree } from "./components/DecompositionTree";
 import { DecompositionDetails } from "./components/DecompositionDetails";
@@ -18,6 +18,7 @@ export function DecompositionPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [isCentering, setIsCentering] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(true);
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -227,11 +228,11 @@ export function DecompositionPage() {
             Chiết tự chữ Hán
             {activeChar && (
               <div className="flex items-center gap-2.5 ml-1">
-                <span className="text-2xl font-hanzi font-semibold text-cyan-500 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 px-2.5 py-0.5 rounded-lg border border-cyan-200/40 dark:border-cyan-800/40 shadow-sm">
+                <span className="text-3xl font-hanzi font-semibold text-cyan-500 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 px-2.5 py-0.5 rounded-lg border border-cyan-200/40 dark:border-cyan-800/40 shadow-sm">
                   {activeChar}
                 </span>
                 {treeData?.pinyin && (
-                  <span className="text-[17px] font-bold text-zinc-500 dark:text-zinc-400 font-sans tracking-wide">
+                  <span className="text-lg font-bold text-zinc-500 dark:text-zinc-400 font-sans tracking-wide">
                     {treeData.pinyin}
                   </span>
                 )}
@@ -245,20 +246,31 @@ export function DecompositionPage() {
       </div>
 
       <div className="flex-1 flex gap-4 min-h-0 overflow-hidden">
-        {/* Left Panel - Search */}
-        <DecompositionSearch
-          query={query}
-          setQuery={setQuery}
-          suggestions={suggestions}
-          showSuggestions={showSuggestions}
-          setShowSuggestions={setShowSuggestions}
-          wordChars={wordChars}
-          setWordChars={setWordChars}
-          activeChar={activeChar}
-          loadDecomposition={loadDecomposition}
-          handleWordSelect={handleWordSelect}
-          selectedNode={selectedNode}
-        />
+        {/* Left Panel - Search (collapsible) */}
+        {searchOpen ? (
+          <DecompositionSearch
+            query={query}
+            setQuery={setQuery}
+            suggestions={suggestions}
+            showSuggestions={showSuggestions}
+            setShowSuggestions={setShowSuggestions}
+            wordChars={wordChars}
+            setWordChars={setWordChars}
+            activeChar={activeChar}
+            loadDecomposition={loadDecomposition}
+            handleWordSelect={handleWordSelect}
+            selectedNode={selectedNode}
+            onCollapse={() => setSearchOpen(false)}
+          />
+        ) : (
+          <button
+            onClick={() => setSearchOpen(true)}
+            title="Hiện thanh tìm kiếm"
+            className="w-10 self-stretch shrink-0 border rounded-xl flex flex-col items-center pt-4 gap-2 bg-white dark:bg-zinc-900/40 border-zinc-200 dark:border-zinc-800/80 text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-200 cursor-pointer"
+          >
+            <PanelLeftOpen className="w-5 h-5" />
+          </button>
+        )}
 
         {/* Center Panel - Tree View Canvas */}
         <div

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Search } from "lucide-react";
+import { Search, PanelLeftClose } from "lucide-react";
 import { Input } from "../../../components/ui/Input";
 import { Card } from "../../../components/ui/Card";
 import { cn } from "../../../lib/utils";
@@ -25,6 +25,7 @@ interface DecompositionSearchProps {
   loadDecomposition: (char: string) => void;
   handleWordSelect: (word: string) => void;
   selectedNode: DecompositionNode | null;
+  onCollapse?: () => void;
 }
 
 
@@ -41,6 +42,7 @@ export function DecompositionSearch({
   loadDecomposition,
   handleWordSelect,
   selectedNode,
+  onCollapse,
 }: DecompositionSearchProps) {
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +86,20 @@ export function DecompositionSearch({
   };
 
   return (
-    <div className="w-[280px] border rounded-xl flex flex-col p-4 gap-4 shrink-0 overflow-y-auto bg-white dark:bg-zinc-900/40 border-zinc-200 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md scrollbar-thin">
+    <div className="w-[220px] border rounded-xl flex flex-col p-3.5 gap-3.5 shrink-0 overflow-y-auto bg-white dark:bg-zinc-900/40 border-zinc-200 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md scrollbar-thin">
+      {/* Panel header */}
+      <div className="flex items-center justify-between">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Tra cứu</h4>
+        {onCollapse && (
+          <button
+            onClick={onCollapse}
+            title="Ẩn thanh tìm kiếm"
+            className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all duration-200 cursor-pointer"
+          >
+            <PanelLeftClose className="w-4 h-4" />
+          </button>
+        )}
+      </div>
       {/* Search container */}
       <div ref={searchContainerRef} className="relative">
         <form onSubmit={handleSearchSubmit} className="relative flex items-center">

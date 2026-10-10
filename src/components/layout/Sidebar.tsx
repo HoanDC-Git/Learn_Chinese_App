@@ -13,88 +13,102 @@ const tabs: { id: TabId; label: string; icon: typeof BookOpen }[] = [
   { id: "trash", label: "Thùng rác", icon: Trash2 },
 ];
 
+function RailButton({
+  label,
+  isActive,
+  onClick,
+  children,
+}: {
+  label: string;
+  isActive?: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      title={label}
+      aria-label={label}
+      className={cn(
+        "group relative w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200 cursor-pointer",
+        "hover:-translate-y-0.5 active:scale-95",
+        isActive
+          ? "bg-zinc-800 text-white shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
+          : "text-zinc-500 hover:bg-zinc-800/60 hover:text-zinc-200"
+      )}
+    >
+      {isActive && (
+        <span className="absolute -left-[13px] top-1/2 -translate-y-1/2 w-1 h-6 rounded-full bg-cyan-400" />
+      )}
+      {children}
+      <span className="pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap text-sm font-medium px-2.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 border border-zinc-700/60 shadow-lg opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 z-50">
+        {label}
+      </span>
+    </button>
+  );
+}
+
 export function Sidebar() {
   const { activeTab, setActiveTab } = useAppStore();
   const { hoverEnabled, toggleHover, theme, setTheme } = useUiStore();
 
   return (
-    <aside className="w-64 flex flex-col border-r bg-zinc-900 border-zinc-800">
-      <div className="p-6 border-b flex items-center gap-3 border-zinc-800">
-        <div className="w-10 h-10 rounded-xl bg-accent text-white flex items-center justify-center text-lg font-bold select-none flex-shrink-0">
-          中
-        </div>
-        <div>
-          <h1 className="text-base font-bold text-white flex items-center gap-1 leading-tight select-none">
-            Learn Chinese
-            <span className="text-accent-light text-xs">✦</span>
-          </h1>
-          <p className="text-xs text-zinc-400 leading-tight mt-0.5 select-none">学中文</p>
-        </div>
+    <aside className="w-[76px] flex flex-col items-center border-r bg-zinc-900 border-zinc-800 py-4 gap-1 shrink-0">
+      <div
+        className="w-11 h-11 rounded-xl bg-accent text-white flex items-center justify-center text-xl font-bold select-none shrink-0 font-hanzi"
+        title="Learn Chinese — 学中文"
+      >
+        中
       </div>
 
-      <nav className="flex-1 p-4 space-y-1">
+      <nav className="flex-1 flex flex-col items-center gap-1 mt-4">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
           return (
-            <button
+            <RailButton
               key={tab.id}
+              label={tab.label}
+              isActive={isActive}
               onClick={() => setActiveTab(tab.id)}
-              className={cn(
-                "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-left",
-                isActive
-                  ? "bg-zinc-800 text-white"
-                  : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"
-              )}
             >
-              <Icon className={cn("w-5 h-5 transition-colors", isActive ? "text-accent-light" : "text-zinc-500 group-hover:text-zinc-400")} />
-              {tab.label}
-            </button>
+              <Icon className={cn("w-5 h-5 transition-colors", isActive ? "text-accent-light" : "")} />
+            </RailButton>
           );
         })}
       </nav>
 
-      <div className="p-4 border-t space-y-3 border-zinc-800">
-        <button
+      <div className="flex flex-col items-center gap-1 pt-3 border-t border-zinc-800 w-full">
+        <RailButton
+          label={theme === "dark" ? "Chế độ tối" : "Chế độ sáng"}
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 bg-zinc-800 text-zinc-400 hover:bg-zinc-700/60 hover:text-zinc-200"
         >
           {theme === "dark" ? (
             <Sun className="w-5 h-5 text-amber-400" />
           ) : (
             <Moon className="w-5 h-5 text-zinc-500" />
           )}
-          <span>{theme === "dark" ? "Tối" : "Sáng"}</span>
-        </button>
+        </RailButton>
 
-        <button
+        <RailButton
+          label="Tra từ khi di chuột"
+          isActive={hoverEnabled}
           onClick={toggleHover}
-          className={cn(
-            "w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
-            hoverEnabled
-              ? "bg-zinc-800 text-white"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700/60 hover:text-zinc-200"
-          )}
         >
-          {hoverEnabled ? (
-            <Eye className="w-5 h-5 text-emerald-400" />
-          ) : (
-            <EyeOff className="w-5 h-5 text-zinc-500" />
-          )}
-          <span>Tra từ khi di chuột</span>
-          <span
-            className={cn(
-              "ml-auto text-xs px-2 py-0.5 rounded-md font-medium",
-              hoverEnabled
-                ? "bg-emerald-500/20 text-emerald-400"
-                : "bg-zinc-700 text-zinc-500"
+          <span className="relative">
+            {hoverEnabled ? (
+              <Eye className="w-5 h-5 text-emerald-400" />
+            ) : (
+              <EyeOff className="w-5 h-5 text-zinc-500" />
             )}
-          >
-            {hoverEnabled ? "ON" : "OFF"}
+            <span
+              className={cn(
+                "absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full border border-zinc-900",
+                hoverEnabled ? "bg-emerald-400" : "bg-zinc-600"
+              )}
+            />
           </span>
-        </button>
-
-        <div className="text-xs text-center text-zinc-600">v1.0.0</div>
+        </RailButton>
       </div>
     </aside>
   );
