@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import { AlertTriangle, HelpCircle, Network, Plus, Minus, RotateCcw, PanelLeftOpen } from "lucide-react";
+import { AlertTriangle, HelpCircle, Plus, Minus, RotateCcw, PanelLeftOpen } from "lucide-react";
 import { DecompositionSearch } from "./components/DecompositionSearch";
 import { DecompositionTree } from "./components/DecompositionTree";
 import { DecompositionDetails } from "./components/DecompositionDetails";
@@ -221,9 +221,6 @@ export function DecompositionPage() {
       {/* Target header bar */}
       <div className="flex items-center justify-between shrink-0 h-14">
         <div className="flex items-center gap-3.5">
-          <div className="p-2.5 rounded-xl bg-fuchsia-500/10 dark:bg-fuchsia-500/15 text-fuchsia-600 dark:text-fuchsia-400 shadow-sm">
-            <Network className="w-5 h-5" />
-          </div>
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
             Chiết tự chữ Hán
             {activeChar && (
