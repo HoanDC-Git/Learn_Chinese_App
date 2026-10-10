@@ -29,6 +29,30 @@
   .hanzi-text {
     font-family: "FandolKai", "Noto Sans SC", "SimSun", sans-serif;
   }
+
+  /* Page-switch enter transition (transform + opacity only).
+     Replays on every switch because the wrapper toggles display:none,
+     which restarts CSS animations when re-shown. */
+  .page-enter {
+    animation: page-enter 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
 }
 
 @layer utilities {

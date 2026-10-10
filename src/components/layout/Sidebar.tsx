@@ -31,7 +31,10 @@ function RailButton({
       aria-label={label}
       className={cn(
         "group relative w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200 cursor-pointer",
-        "hover:-translate-y-0.5 active:scale-95",
+        // hover:z-50 keeps the tooltip above page layers: the hover translate
+        // creates a stacking context that would otherwise trap the tooltip
+        // below page panels (canvas z-10/20/30).
+        "hover:-translate-y-0.5 hover:z-50 focus-visible:z-50 active:scale-95",
         isActive
           ? "bg-zinc-800 text-white shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
           : "text-zinc-500 hover:bg-zinc-800/60 hover:text-zinc-200"

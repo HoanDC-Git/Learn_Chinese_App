@@ -219,12 +219,12 @@ export function DecompositionPage() {
   return (
     <div className="flex-1 flex flex-col min-h-0 overflow-hidden space-y-4">
       {/* Target header bar */}
-      <div className="flex items-center justify-between shrink-0 py-3 px-1 border-b border-zinc-200 dark:border-zinc-800/60">
+      <div className="flex items-center justify-between shrink-0 h-14">
         <div className="flex items-center gap-3.5">
           <div className="p-2.5 rounded-xl bg-fuchsia-500/10 dark:bg-fuchsia-500/15 text-fuchsia-600 dark:text-fuchsia-400 shadow-sm">
             <Network className="w-5 h-5" />
           </div>
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
             Chiết tự chữ Hán
             {activeChar && (
               <div className="flex items-center gap-2.5 ml-1">

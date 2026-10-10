@@ -42,12 +42,12 @@ export function ReviewPage() {
     return (
       <div className="flex-1 flex flex-col min-h-0 overflow-hidden space-y-4">
         {/* Session Header */}
-        <div className="flex items-center justify-between shrink-0 border-b border-zinc-100 dark:border-zinc-800/80 py-3">
+        <div className="flex items-center justify-between shrink-0 h-14">
           <div>
-            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 font-sans">
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 font-sans">
               Phiên ôn tập
             </h2>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
               {cramMode ? "Chế độ ôn cấp tốc" : "Chế độ lặp lại ngắt quãng"}
             </p>
           </div>
@@ -94,7 +94,7 @@ export function ReviewPage() {
   // Inactive Launcher screen rendering
   return (
     <div className="flex-1 flex flex-col min-h-0 overflow-hidden space-y-6">
-      <div className="flex items-center justify-between shrink-0 border-b border-zinc-100 dark:border-zinc-800/80 py-4">
+      <div className="flex items-center justify-between shrink-0 h-14">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-sans">
             Ôn tập thẻ từ vựng

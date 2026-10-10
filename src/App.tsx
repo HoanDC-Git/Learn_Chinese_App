@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Layout } from "./components/layout/Layout";
 import { useAppStore } from "./stores";
+import type { TabId } from "./types";
 import { ReviewPage } from "./features/review/ReviewPage";
 import { ManagePage } from "./features/manage/ManagePage";
 import { DashboardPage } from "./features/dashboard/DashboardPage";
@@ -20,40 +22,51 @@ const queryClient = new QueryClient({
 
 function AppContent() {
   const { activeTab } = useAppStore();
+  // Mount each page lazily on first visit, then keep it mounted (hidden).
+  // This preserves scroll/search state and avoids reload flashes on tab switch.
+  const [visited, setVisited] = useState<TabId[]>(["review"]);
+  useEffect(() => {
+    setVisited((prev) => (prev.includes(activeTab) ? prev : [...prev, activeTab]));
+  }, [activeTab]);
+
+  const wrapClass = (tab: TabId) =>
+    activeTab === tab
+      ? "flex-1 flex flex-col min-h-0 overflow-hidden page-enter"
+      : "hidden";
 
   return (
     <Layout>
       {/* Review stays mounted (hidden) so an in-progress SRS session is never lost on tab switch */}
-      <div className={activeTab === "review" ? "flex-1 flex flex-col min-h-0 overflow-hidden" : "hidden"}>
+      <div className={wrapClass("review")}>
         <ReviewPage />
       </div>
-      {activeTab === "dashboard" && (
-        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      {visited.includes("dashboard") && (
+        <div className={wrapClass("dashboard")}>
           <DashboardPage />
         </div>
       )}
-      {activeTab === "dictionary" && (
-        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      {visited.includes("dictionary") && (
+        <div className={wrapClass("dictionary")}>
           <DictionaryPage />
         </div>
       )}
-      {activeTab === "decomposition" && (
-        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      {visited.includes("decomposition") && (
+        <div className={wrapClass("decomposition")}>
           <DecompositionPage />
         </div>
       )}
-      {activeTab === "grammar" && (
-        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      {visited.includes("grammar") && (
+        <div className={wrapClass("grammar")}>
           <GrammarPage />
         </div>
       )}
-      {activeTab === "manage" && (
-        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      {visited.includes("manage") && (
+        <div className={wrapClass("manage")}>
           <ManagePage />
         </div>
       )}
-      {activeTab === "trash" && (
-        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      {visited.includes("trash") && (
+        <div className={wrapClass("trash")}>
           <TrashPage />
         </div>
       )}
