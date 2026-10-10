@@ -35,7 +35,7 @@ impl AppState {
 
     pub async fn load_decomposition_variants(&self) {
         let radicals = sqlx::query_as::<_, BasicCharacter>(
-            "SELECT character, radical_number, parent_radical, variants, simplified, pinyin, meaning_vi, meaning_en, strokecount, type FROM decomposition_radicals WHERE type = 'radical'"
+            "SELECT character, radical_number, variants, simplified, pinyin, meaning_vi, type FROM decomposition_radicals WHERE type = 'radical'"
         )
         .fetch_all(&self.db.dict_db)
         .await

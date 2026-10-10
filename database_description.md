@@ -28,43 +28,51 @@ Chứa các từ vựng phục vụ tra cứu từ điển và học tập theo 
 
 ### Bảng: `decomposition_radicals`
 
-Chứa dữ liệu của các chữ độc thể và bộ thủ gốc trong tiếng Trung.
+Chứa dữ liệu của các bộ thủ gốc (`type = 'radical'`) và chữ độc thể / thành phần nguyên tử (`type = 'other'`). Biến thể mặt chữ được suy ra từ cột `variants` / `simplified` (ví dụ: 亻→人, 氵→水).
 
 - **Cấu trúc bảng**:
   | Tên cột | Kiểu dữ liệu | Khóa | Mô tả |
   | :--- | :--- | :--- | :--- |
-  | `character` | `TEXT` | PRIMARY KEY | Ký tự chữ Hán (bộ thủ hoặc chữ độc thể) |
-  | `radical_number` | `INTEGER` | | Số hiệu bộ thủ theo chuẩn Khang Hy |
-  | `parent_radical` | `TEXT` | | Bộ thủ gốc của ký tự này (nếu là biến thể) |
+  | `id` | `INTEGER` | PRIMARY KEY | ID định danh |
+  | `character` | `TEXT` | UNIQUE NOT NULL | Ký tự chữ Hán (bộ thủ hoặc chữ độc thể) |
+  | `radical_number` | `INTEGER` | | Số hiệu bộ thủ theo chuẩn Khang Hy (NULL nếu không phải bộ Khang Hy) |
   | `variants` | `TEXT` | | Các biến thể chữ viết liên quan |
   | `simplified` | `TEXT` | | Ký tự dạng Giản thể |
   | `pinyin` | `TEXT` | | Phiên âm Pinyin chuẩn thanh điệu |
-  | `meaning_vi` | `TEXT` | | Nghĩa tiếng Việt của bộ thủ (Định dạng: `Bộ [Tên]: [Giải nghĩa]`) |
-  | `meaning_en` | `TEXT` | | Nghĩa tiếng Anh của bộ thủ |
-  | `strokecount` | `INTEGER` | | Số nét viết của bộ thủ/chữ độc thể |
-  | `type` | `TEXT` | | Phân loại ký tự (ví dụ: `radical` cho bộ thủ gốc, `basic` cho chữ độc thể) |
+  | `meaning_vi` | `TEXT` | | Nghĩa tiếng Việt (Định dạng: `Bộ [Tên]: [Giải nghĩa]`) |
+  | `type` | `TEXT` | | Phân loại ký tự (`radical` cho bộ thủ gốc, `other` cho thành phần khác) |
 
 ---
 
 ### Bảng: `decomposition_details`
 
-Chứa dữ liệu chi tiết cấu trúc phân tích chiết tự và tự nguyên (nguồn gốc cấu tạo) cho các chữ hợp thể.
+Chứa dữ liệu chi tiết cấu trúc phân tích chiết tự cho các chữ hợp thể, kèm câu chuyện "Cách nhớ" (tiếng Việt) giúp học thuộc dễ dàng.
 
 - **Cấu trúc bảng**:
   | Tên cột | Kiểu dữ liệu | Khóa | Mô tả |
   | :--- | :--- | :--- | :--- |
-  | `character` | `TEXT` | PRIMARY KEY | Chữ Hán hợp thể cần chiết tự |
+  | `id` | `INTEGER` | PRIMARY KEY | ID định danh |
+  | `character` | `TEXT` | UNIQUE NOT NULL | Chữ Hán hợp thể cần chiết tự |
   | `pinyin` | `TEXT` | | Phiên âm Pinyin chuẩn dấu thanh |
-  | `definition_en` | `TEXT` | | Định nghĩa/Nghĩa tiếng Anh |
+  | `definition_vi` | `TEXT` | | Định nghĩa/Nghĩa tiếng Việt |
   | `radical` | `TEXT` | | Bộ thủ chính chứa chữ này |
   | `decomposition` | `TEXT` | | Cấu trúc phân tích chiết tự theo chuẩn IDS (Ideographic Description Sequence) |
-  | `etymology_type` | `TEXT` | | Phân loại tự nguyên (`pictographic`, `ideographic`, `pictophonetic`, v.v.) |
-  | `etymology_hint` | `TEXT` | | Câu chuyện giải nghĩa nguồn gốc chữ viết bằng tiếng Anh |
-  | `etymology_semantic` | `TEXT` | | Thành phần biểu ý của chữ (bộ nghĩa) |
-  | `etymology_phonetic` | `TEXT` | | Thành phần biểu âm của chữ (bộ âm) |
-  | `hsk_level` | `INTEGER` | | Cấp độ HSK của chữ Hán |
-  | `definition_vi` | `TEXT` | | Định nghĩa/Nghĩa tiếng Việt |
-  | `etymology_hint_vi` | `TEXT` | | Câu chuyện giải nghĩa nguồn gốc chữ viết bằng tiếng Việt |
+  | `stroke_count` | `INTEGER` | | Số nét vẽ của chữ (NULL nếu chưa cập nhật) |
+  | `hint_vi` | `TEXT` | | Câu chuyện "Cách nhớ" bằng tiếng Việt |
+  | `hint` | `TEXT` | | Câu chuyện ghi nhớ bằng tiếng Anh (chỉ một số chữ có) |
+  | `definition_en` | `TEXT` | | Định nghĩa tiếng Anh (chỉ một số chữ có) |
+
+### Bảng: `decomposition_specials`
+
+Chứa các bộ kiện đặc biệt (mã Private Use Area) dùng làm "chất keo" cấu trúc cho các chữ có vị trí phức tạp.
+
+- **Cấu trúc bảng**:
+  | Tên cột | Kiểu dữ liệu | Khóa | Mô tả |
+  | :--- | :--- | :--- | :--- |
+  | `id` | `INTEGER` | PRIMARY KEY | ID định danh |
+  | `character` | `TEXT` | UNIQUE NOT NULL | Ký tự PUA (ví dụ: `\uE001`) |
+  | `hex_code` | `TEXT` | | Mã hex tham chiếu (ví dụ: `U+E001`) |
+  | `decomposition` | `TEXT` | | Chuỗi IDS chuẩn để bung bộ kiện đặc biệt |
 
 ---
 

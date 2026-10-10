@@ -18,23 +18,19 @@ export interface DecompositionSearchResponse {
 
 export interface DecompositionNode {
   character: string;
-  type: string; // "basic" | "variant" | "composite" | "circular" | "unknown"
+  type: string; // "basic" | "variant" | "composite" | "circular" | "unknown" | "special"
   display_type: string;
   pinyin: string | null;
   meaning_vi: string | null;
-  meaning_en: string | null;
-  strokecount: number | null;
+  stroke_count: number | null;
   radical_number: number | null;
   parent_radical: string | null;
   variants: string | null;
   simplified: string | null;
   radical: string | null;
   decomposition: string | null;
-  etymology_type: string | null;
-  etymology_hint: string | null;
-  etymology_hint_vi: string | null;
-  etymology_semantic: string | null;
-  etymology_phonetic: string | null;
+  hint_vi: string | null;
+  hint: string | null;
   hsk_level?: string;
   hex_code?: string;
   children: DecompositionNode[];

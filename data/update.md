@@ -30,3 +30,13 @@ A brand new table has been created to house the **182** virtual/special characte
 
 ## Data Flow
 The entire database now perfectly mirrors the 3-file local JSON architecture (`decomposition.json`, `decomposition_radicals.json`, `specials.json`), ensuring seamless integration between the database and local development workflows.
+
+## Migration 2026-10-10 — New simplified learning structure (`data/decompostion/`)
+
+Old etymology schema (`etymology_type/semantic/phonetic`, `definition_en`, `parent_radical`, `meaning_en`, `strokecount`) was dropped. Tables were recreated to mirror the new JSON files exactly:
+
+- `decomposition_details` (**6,225** rows): `id, character, pinyin, definition_vi, radical, decomposition, stroke_count, hint_vi` (+ sparse `hint`, `definition_en` kept nullable for the few rows that have them).
+- `decomposition_radicals` (**318** rows): `id, character, radical_number (nullable), variants, simplified, pinyin, meaning_vi, type ('radical' | 'other')`.
+- `decomposition_specials` (**203** rows): `id, character, hex_code, decomposition`.
+
+Backend (`decomposition.rs`, `models`, `state.rs`) and frontend (`types.ts`, `src/types`, `DecompositionDetails.tsx`) were redesigned: the details panel now leads with the **Cách nhớ** (`hint_vi`) story card plus radical/stroke-count badges; the etymology classifier and English mnemonic sections were removed. Variant resolution via `variants`/`simplified` columns is unchanged.

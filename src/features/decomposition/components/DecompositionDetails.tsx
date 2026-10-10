@@ -5,17 +5,6 @@ import { parseRadicalMeaning } from "./DecompositionTree";
 import type { DecompositionNode } from "../types";
 import styles from "../DecompositionPage.module.css";
 
-const formatEtymologyType = (type: string | null) => {
-  if (!type) return "Không xác định";
-  const mapping: Record<string, string> = {
-    pictographic: "Tượng hình (Pictographic)",
-    ideographic: "Chỉ sự / Hội ý (Ideographic)",
-    pictophonetic: "Hình thanh (Pictophonetic)",
-    indicative: "Chỉ sự (Indicative)",
-  };
-  return mapping[type.toLowerCase()] || type;
-};
-
 interface DecompositionDetailsProps {
   selectedNode: DecompositionNode | null;
   activeChar: string;
@@ -49,7 +38,7 @@ export function DecompositionDetails({
   }
 
   return (
-    <div 
+    <div
       ref={detailsRef}
       data-no-zoom
       className={cn(
@@ -62,7 +51,7 @@ export function DecompositionDetails({
           <Info className="w-4 h-4 text-zinc-400" /> Chi tiết thành phần
         </h3>
         {onClose && (
-          <button 
+          <button
             onClick={onClose}
             className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 cursor-pointer transition-colors"
             title="Đóng chi tiết"
@@ -75,113 +64,60 @@ export function DecompositionDetails({
       <div className="p-5 flex flex-col gap-6">
 
         {/* Meanings */}
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Nghĩa tiếng Việt</span>
-            <p className="text-sm p-3 rounded-xl border leading-relaxed bg-zinc-50/50 dark:bg-zinc-950/20 border-zinc-200/50 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium">
-              {(() => {
-                const isRadicalOrVariant = selectedNode.display_type === "Bộ thủ gốc" || selectedNode.type === "variant";
-                const { cleanMeaning } = parseRadicalMeaning(selectedNode.meaning_vi, isRadicalOrVariant);
-                return cleanMeaning || "Chưa cập nhật nghĩa tiếng Việt";
-              })()}
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Nghĩa tiếng Anh</span>
-            <p className="text-sm p-3 rounded-xl border leading-relaxed bg-zinc-50/50 dark:bg-zinc-950/20 border-zinc-200/50 dark:border-zinc-800 text-zinc-650 dark:text-zinc-455 font-medium">
-              {selectedNode.meaning_en || "No English meaning available"}
-            </p>
-          </div>
+        <div className="flex flex-col gap-1.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Nghĩa tiếng Việt</span>
+          <p className="text-sm p-3 rounded-xl border leading-relaxed bg-zinc-50/50 dark:bg-zinc-950/20 border-zinc-200/50 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium">
+            {(() => {
+              const isRadicalOrVariant = selectedNode.display_type === "Bộ thủ gốc" || selectedNode.type === "variant";
+              const { cleanMeaning } = parseRadicalMeaning(selectedNode.meaning_vi, isRadicalOrVariant);
+              return cleanMeaning || "Chưa cập nhật nghĩa tiếng Việt";
+            })()}
+          </p>
         </div>
 
-        {/* Composite fields (Etymology & IDS) */}
+        {/* Composite fields (Cách nhớ & meta) */}
         {selectedNode.type === "composite" && (
           <div className="flex flex-col gap-5 border-t pt-5 border-zinc-200 dark:border-zinc-800/60">
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
                 <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Bộ thủ (Radical)</span>
                 <span className="text-lg font-hanzi font-bold px-3.5 py-0.5 rounded-lg border border-zinc-200/60 dark:border-zinc-800 self-start text-zinc-900 dark:text-zinc-100 bg-zinc-100/50 dark:bg-zinc-950/40">
                   {selectedNode.radical || "N/A"}
                 </span>
               </div>
-            </div>
 
-            {/* Etymology details */}
-            <div className="p-4 rounded-xl border flex flex-col gap-4 border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/80 dark:bg-zinc-900/50 shadow-sm">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">Phân loại chữ</span>
-                  <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mt-1">
-                    {formatEtymologyType(selectedNode.etymology_type)}
+              {selectedNode.stroke_count != null && (
+                <div className="flex flex-col gap-1.5">
+                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Số nét vẽ</span>
+                  <span className="text-xs font-semibold py-1 px-2.5 rounded-lg self-start text-zinc-500 dark:text-zinc-400 bg-zinc-100/50 dark:bg-zinc-950/40 border border-zinc-200/45 dark:border-zinc-800">
+                    {selectedNode.stroke_count} nét
                   </span>
                 </div>
-
-                {/* Pictophonetic Visualizer */}
-                {selectedNode.etymology_type?.toLowerCase() === "pictophonetic" ? (
-                  <div className="grid grid-cols-2 gap-2 p-1.5 bg-zinc-200/50 dark:bg-zinc-950 border border-zinc-300/60 dark:border-zinc-800 rounded-xl">
-                    <div className="flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-white dark:bg-zinc-900 shadow-sm">
-                      <span className="text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest leading-none">
-                        Bộ chỉ ý
-                      </span>
-                      <span className="text-2xl font-hanzi font-bold text-zinc-900 dark:text-zinc-100 mt-2 select-none">
-                        {selectedNode.etymology_semantic || "?"}
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-white dark:bg-zinc-900 shadow-sm">
-                      <span className="text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest leading-none">
-                        Bộ chỉ thanh
-                      </span>
-                      <span className="text-2xl font-hanzi font-bold text-zinc-900 dark:text-zinc-100 mt-2 select-none">
-                        {selectedNode.etymology_phonetic || "?"}
-                      </span>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 gap-3">
-                    {selectedNode.etymology_semantic && (
-                      <div className="flex flex-col gap-1">
-                        <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">Bộ nghĩa</span>
-                        <span className="text-lg font-hanzi font-bold text-zinc-900 dark:text-zinc-100 mt-1 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 px-3 py-1 rounded-lg self-start shadow-sm">
-                          {selectedNode.etymology_semantic}
-                        </span>
-                      </div>
-                    )}
-
-                    {selectedNode.etymology_phonetic && (
-                      <div className="flex flex-col gap-1">
-                        <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">Bộ âm</span>
-                        <span className="text-lg font-hanzi font-bold text-zinc-900 dark:text-zinc-100 mt-1 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 px-3 py-1 rounded-lg self-start shadow-sm">
-                          {selectedNode.etymology_phonetic}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {selectedNode.etymology_hint_vi && (
-                  <div className="flex flex-col gap-1.5 pt-1">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 leading-none">
-                      Giải nghĩa
-                    </span>
-                    <p className="text-sm border-l-2 border-cyan-500 dark:border-cyan-500 pl-2.5 leading-relaxed text-zinc-800 dark:text-zinc-200 font-medium bg-cyan-50/30 dark:bg-cyan-950/10 py-1">
-                      {selectedNode.etymology_hint_vi}
-                    </p>
-                  </div>
-                )}
-
-                {selectedNode.etymology_hint && (
-                  <div className="flex flex-col gap-1.5 pt-1">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">
-                      Mnemonic Story
-                    </span>
-                    <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 mt-1 bg-zinc-200/40 dark:bg-zinc-950/60 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                      {selectedNode.etymology_hint}
-                    </p>
-                  </div>
-                )}
-              </div>
+              )}
             </div>
+
+            {/* Cách nhớ — associative learning hint */}
+            {selectedNode.hint_vi && (
+              <div className="p-4 rounded-xl border flex flex-col gap-2 border-cyan-500/25 dark:border-cyan-500/20 bg-cyan-50/50 dark:bg-cyan-950/15 shadow-sm">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 leading-none">
+                  Cách nhớ
+                </span>
+                <p className="text-sm border-l-2 border-cyan-500 dark:border-cyan-500 pl-2.5 leading-relaxed text-zinc-800 dark:text-zinc-200 font-medium py-1">
+                  {selectedNode.hint_vi}
+                </p>
+              </div>
+            )}
+
+            {selectedNode.hint && (
+              <div className="flex flex-col gap-1.5">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 leading-none">
+                  Mnemonic Story
+                </span>
+                <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 bg-zinc-200/40 dark:bg-zinc-950/60 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800">
+                  {selectedNode.hint}
+                </p>
+              </div>
+            )}
           </div>
         )}
 
@@ -197,25 +133,14 @@ export function DecompositionDetails({
               </div>
             )}
 
-            <div className="grid grid-cols-2 gap-4">
-              {selectedNode.radical_number && (
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Số Khang Hy</span>
-                  <span className="text-xs font-semibold py-1 px-2.5 rounded-lg self-start text-zinc-500 dark:text-zinc-400 bg-zinc-100/50 dark:bg-zinc-950/40 border border-zinc-200/45 dark:border-zinc-800">
-                    #{selectedNode.radical_number}
-                  </span>
-                </div>
-              )}
-
-              {selectedNode.strokecount && (
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Số nét vẽ</span>
-                  <span className="text-xs font-semibold py-1 px-2.5 rounded-lg self-start text-zinc-500 dark:text-zinc-400 bg-zinc-100/50 dark:bg-zinc-950/40 border border-zinc-200/45 dark:border-zinc-800">
-                    {selectedNode.strokecount} nét
-                  </span>
-                </div>
-              )}
-            </div>
+            {selectedNode.radical_number != null && (
+              <div className="flex flex-col gap-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-l-2 border-cyan-500 pl-1.5 leading-none">Số Khang Hy</span>
+                <span className="text-xs font-semibold py-1 px-2.5 rounded-lg self-start text-zinc-500 dark:text-zinc-400 bg-zinc-100/50 dark:bg-zinc-950/40 border border-zinc-200/45 dark:border-zinc-800">
+                  #{selectedNode.radical_number}
+                </span>
+              </div>
+            )}
 
             {selectedNode.variants && (
               <div className="flex flex-col gap-1.5">

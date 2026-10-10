@@ -144,13 +144,10 @@ pub struct FlashcardSearchResult {
 pub struct BasicCharacter {
     pub character: String,
     pub radical_number: Option<i64>,
-    pub parent_radical: Option<String>,
     pub variants: Option<String>,
     pub simplified: Option<String>,
     pub pinyin: Option<String>,
     pub meaning_vi: Option<String>,
-    pub meaning_en: Option<String>,
-    pub strokecount: Option<i64>,
     pub r#type: String,
 }
 
@@ -158,15 +155,13 @@ pub struct BasicCharacter {
 pub struct CompositeCharacter {
     pub character: String,
     pub pinyin: Option<String>,
-    pub definition_en: Option<String>,
+    pub definition_vi: Option<String>,
     pub radical: Option<String>,
     pub decomposition: String,
-    pub etymology_type: Option<String>,
-    pub etymology_hint: Option<String>,
-    pub etymology_semantic: Option<String>,
-    pub etymology_phonetic: Option<String>,
-    pub definition_vi: Option<String>,
-    pub etymology_hint_vi: Option<String>,
+    pub stroke_count: Option<i64>,
+    pub hint_vi: Option<String>,
+    pub hint: Option<String>,
+    pub definition_en: Option<String>,
 }
 
 #[derive(Debug, Clone, sqlx::FromRow, Serialize, Deserialize)]
@@ -179,23 +174,19 @@ pub struct SpecialCharacter {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DecompositionNode {
     pub character: String,
-    pub r#type: String, // "basic" | "variant" | "composite" | "circular" | "unknown"
+    pub r#type: String, // "basic" | "variant" | "composite" | "circular" | "unknown" | "special"
     pub display_type: String,
     pub pinyin: Option<String>,
     pub meaning_vi: Option<String>,
-    pub meaning_en: Option<String>,
-    pub strokecount: Option<i64>,
+    pub stroke_count: Option<i64>,
     pub radical_number: Option<i64>,
     pub parent_radical: Option<String>,
     pub variants: Option<String>,
     pub simplified: Option<String>,
     pub radical: Option<String>,
     pub decomposition: Option<String>,
-    pub etymology_type: Option<String>,
-    pub etymology_hint: Option<String>,
-    pub etymology_hint_vi: Option<String>,
-    pub etymology_semantic: Option<String>,
-    pub etymology_phonetic: Option<String>,
+    pub hint_vi: Option<String>,
+    pub hint: Option<String>,
     pub hsk_level: Option<String>,
     pub hex_code: Option<String>,
     pub children: Vec<DecompositionNode>,

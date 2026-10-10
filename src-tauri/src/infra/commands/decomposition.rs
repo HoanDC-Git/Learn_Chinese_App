@@ -56,6 +56,28 @@ fn extract_components(decomp_str: &str) -> Vec<String> {
     components
 }
 
+fn empty_node(character: String, node_type: &str, display_type: &str) -> DecompositionNode {
+    DecompositionNode {
+        character,
+        r#type: node_type.to_string(),
+        display_type: display_type.to_string(),
+        pinyin: None,
+        meaning_vi: None,
+        stroke_count: None,
+        radical_number: None,
+        parent_radical: None,
+        variants: None,
+        simplified: None,
+        radical: None,
+        decomposition: None,
+        hint_vi: None,
+        hint: None,
+        hsk_level: None,
+        hex_code: None,
+        children: Vec::new(),
+    }
+}
+
 fn build_decomposition_tree<'a>(
     character: String,
     state: &'a AppState,
@@ -65,34 +87,12 @@ fn build_decomposition_tree<'a>(
     Box::pin(async move {
         // 1. Tránh vòng lặp đệ quy vô hạn
         if visited.contains(&character) {
-            return DecompositionNode {
-                character: character.clone(),
-                r#type: "circular".to_string(),
-                display_type: "Lỗi vòng lặp".to_string(),
-                pinyin: None,
-                meaning_vi: None,
-                meaning_en: None,
-                strokecount: None,
-                radical_number: None,
-                parent_radical: None,
-                variants: None,
-                simplified: None,
-                radical: None,
-                decomposition: None,
-                etymology_type: None,
-                etymology_hint: None,
-                etymology_hint_vi: None,
-                etymology_semantic: None,
-                etymology_phonetic: None,
-                hsk_level: None,
-                hex_code: None,
-                children: Vec::new(),
-            };
+            return empty_node(character, "circular", "Lỗi vòng lặp");
         }
 
-        // 2. Kiểm tra chữ độc thể trong DB decomposition_radicals
+        // 2. Kiểm tra bộ thủ / chữ độc thể trong DB decomposition_radicals
         let basic_row = sqlx::query_as::<_, BasicCharacter>(
-            "SELECT character, radical_number, parent_radical, variants, simplified, pinyin, meaning_vi, meaning_en, strokecount, type FROM decomposition_radicals WHERE character = ?"
+            "SELECT character, radical_number, variants, simplified, pinyin, meaning_vi, type FROM decomposition_radicals WHERE character = ?"
         )
         .bind(&character)
         .fetch_optional(&state.db.dict_db)
@@ -107,19 +107,15 @@ fn build_decomposition_tree<'a>(
                 display_type: display_type.to_string(),
                 pinyin: b.pinyin,
                 meaning_vi: b.meaning_vi,
-                meaning_en: b.meaning_en,
-                strokecount: b.strokecount,
+                stroke_count: None,
                 radical_number: b.radical_number,
-                parent_radical: b.parent_radical,
+                parent_radical: None,
                 variants: b.variants,
                 simplified: b.simplified,
                 radical: None,
                 decomposition: None,
-                etymology_type: None,
-                etymology_hint: None,
-                etymology_hint_vi: None,
-                etymology_semantic: None,
-                etymology_phonetic: None,
+                hint_vi: None,
+                hint: None,
                 hsk_level: None,
                 hex_code: None,
                 children: Vec::new(),
@@ -137,13 +133,13 @@ fn build_decomposition_tree<'a>(
             if let Some(is_left) = is_left_radical {
                 let parent_rad_char = if is_left { "阜" } else { "邑" };
                 let rad_row = sqlx::query_as::<_, BasicCharacter>(
-                    "SELECT character, radical_number, parent_radical, variants, simplified, pinyin, meaning_vi, meaning_en, strokecount, type FROM decomposition_radicals WHERE character = ?"
+                    "SELECT character, radical_number, variants, simplified, pinyin, meaning_vi, type FROM decomposition_radicals WHERE character = ?"
                 )
                 .bind(parent_rad_char)
                 .fetch_optional(&state.db.dict_db)
                 .await
                 .unwrap_or(None);
-                
+
                 if let Some(parent_rad) = rad_row {
                     variant_opt = Some(parent_rad);
                 }
@@ -153,28 +149,22 @@ fn build_decomposition_tree<'a>(
         if let Some(parent_rad) = variant_opt {
             let meaning_vi = parent_rad.meaning_vi.as_ref()
                 .map(|m| format!("Biến thể của bộ {}", m));
-            let meaning_en = parent_rad.meaning_en.as_ref()
-                .map(|m| format!("Variant of {}", m));
-            
+
             return DecompositionNode {
                 character: character.clone(),
                 r#type: "variant".to_string(),
                 display_type: format!("Biến thể bộ {}", parent_rad.character),
                 pinyin: parent_rad.pinyin,
                 meaning_vi,
-                meaning_en,
-                strokecount: parent_rad.strokecount,
+                stroke_count: None,
                 radical_number: parent_rad.radical_number,
                 parent_radical: Some(parent_rad.character),
                 variants: parent_rad.variants,
                 simplified: parent_rad.simplified,
                 radical: None,
                 decomposition: None,
-                etymology_type: None,
-                etymology_hint: None,
-                etymology_hint_vi: None,
-                etymology_semantic: None,
-                etymology_phonetic: None,
+                hint_vi: None,
+                hint: None,
                 hsk_level: None,
                 hex_code: None,
                 children: Vec::new(),
@@ -183,7 +173,7 @@ fn build_decomposition_tree<'a>(
 
         // 4. Kiểm tra chữ hợp thể trong DB decomposition_details
         let comp_row = sqlx::query_as::<_, CompositeCharacter>(
-            "SELECT character, pinyin, definition_en, radical, decomposition, etymology_type, etymology_hint, etymology_semantic, etymology_phonetic, definition_vi, etymology_hint_vi FROM decomposition_details WHERE character = ?"
+            "SELECT character, pinyin, definition_vi, radical, decomposition, stroke_count, hint_vi, hint, definition_en FROM decomposition_details WHERE character = ?"
         )
         .bind(&character)
         .fetch_optional(&state.db.dict_db)
@@ -212,19 +202,15 @@ fn build_decomposition_tree<'a>(
                 display_type: "Chữ hợp thể".to_string(),
                 pinyin: c.pinyin,
                 meaning_vi: c.definition_vi,
-                meaning_en: c.definition_en,
-                strokecount: None,
+                stroke_count: c.stroke_count,
                 radical_number: None,
                 parent_radical: None,
                 variants: None,
                 simplified: None,
                 radical: c.radical,
                 decomposition: Some(c.decomposition),
-                etymology_type: c.etymology_type,
-                etymology_hint: c.etymology_hint,
-                etymology_hint_vi: c.etymology_hint_vi,
-                etymology_semantic: c.etymology_semantic,
-                etymology_phonetic: c.etymology_phonetic,
+                hint_vi: c.hint_vi,
+                hint: c.hint,
                 hsk_level: None,
                 hex_code: None,
                 children,
@@ -264,19 +250,15 @@ fn build_decomposition_tree<'a>(
                 display_type: "Bộ kiện đặc biệt".to_string(),
                 pinyin: None,
                 meaning_vi: None,
-                meaning_en: None,
-                strokecount: None,
+                stroke_count: None,
                 radical_number: None,
                 parent_radical: None,
                 variants: None,
                 simplified: None,
                 radical: None,
                 decomposition: s.decomposition,
-                etymology_type: None,
-                etymology_hint: None,
-                etymology_hint_vi: None,
-                etymology_semantic: None,
-                etymology_phonetic: None,
+                hint_vi: None,
+                hint: None,
                 hsk_level: None,
                 hex_code: s.hex_code,
                 children,
@@ -284,29 +266,7 @@ fn build_decomposition_tree<'a>(
         }
 
         // 5. Fallback nếu không tìm thấy
-        DecompositionNode {
-            character: character.clone(),
-            r#type: "unknown".to_string(),
-            display_type: "Thành phần phụ / Nét vẽ".to_string(),
-            pinyin: None,
-            meaning_vi: None,
-            meaning_en: None,
-            strokecount: None,
-            radical_number: None,
-            parent_radical: None,
-            variants: None,
-            simplified: None,
-            radical: None,
-            decomposition: None,
-            etymology_type: None,
-            etymology_hint: None,
-            etymology_hint_vi: None,
-            etymology_semantic: None,
-            etymology_phonetic: None,
-            hsk_level: None,
-            hex_code: None,
-            children: Vec::new(),
-        }
+        empty_node(character, "unknown", "Thành phần phụ / Nét vẽ")
     })
 }
 
@@ -349,7 +309,7 @@ pub async fn search_decomposition(
     if trimmed.chars().count() == 1 {
         // Tra trong decomposition_details trước
         let comp_row = sqlx::query_as::<_, CompositeCharacter>(
-            "SELECT character, pinyin, definition_en, radical, decomposition, etymology_type, etymology_hint, etymology_semantic, etymology_phonetic, definition_vi, etymology_hint_vi FROM decomposition_details WHERE character = ?"
+            "SELECT character, pinyin, definition_vi, radical, decomposition, stroke_count, hint_vi, hint, definition_en FROM decomposition_details WHERE character = ?"
         )
         .bind(trimmed)
         .fetch_optional(&state.db.dict_db)
@@ -365,7 +325,7 @@ pub async fn search_decomposition(
         } else {
             // Tra trong decomposition_radicals
             let basic_row = sqlx::query_as::<_, BasicCharacter>(
-                "SELECT character, radical_number, parent_radical, variants, simplified, pinyin, meaning_vi, meaning_en, strokecount, type FROM decomposition_radicals WHERE character = ?"
+                "SELECT character, radical_number, variants, simplified, pinyin, meaning_vi, type FROM decomposition_radicals WHERE character = ?"
             )
             .bind(trimmed)
             .fetch_optional(&state.db.dict_db)
